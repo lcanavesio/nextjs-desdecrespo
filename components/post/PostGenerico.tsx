@@ -44,7 +44,7 @@ const PostGenerico = (props: Props) => {
 
     for (let i = 0; i < first; i++) {
       skeletons.push(
-        <div>
+        <div key={i}>
           <Skeleton
             variant="rect"
             animation="wave"
@@ -72,7 +72,6 @@ const PostGenerico = (props: Props) => {
   };
       console.log("%%%%%%%%%%%%%", posts);
   return (
-    <>
       <Grid container style={{ paddingLeft: 10, paddingRight: 10 }}>
         <HeaderTitle title={titulo} />
         {!loading && posts
@@ -89,7 +88,6 @@ const PostGenerico = (props: Props) => {
             ))
           : showSkeleton()}
       </Grid>
-    </>
   );
 };
 

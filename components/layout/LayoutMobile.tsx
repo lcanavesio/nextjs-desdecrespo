@@ -34,7 +34,7 @@ const LayoutMobile = () => {
       {/* <SEO title="Inicio" /> */}
       <CssBaseline />
       <Grid container className={classes.container}>
-        <Grid container lg={12}>
+        <Grid item lg={12}>
           <Grid item lg={12}>
             <SlidePosts />
           </Grid>
@@ -50,7 +50,7 @@ const LayoutMobile = () => {
           titulo="Locales"
         />
         <Wather />
-        <TabFourPosts />
+        <TabFourPosts key="TabFourPosts"/>
 
         <img
           src={process.env.NEXT_PUBLIC_PUBLICIDAD2}

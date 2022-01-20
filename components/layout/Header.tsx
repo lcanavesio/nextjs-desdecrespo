@@ -15,9 +15,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import SearchIcon from "@material-ui/icons/Search";
+import Head from "next/head";
 import Link from "next/link";
 
 import React from "react";
+import { CMS_NAME } from "../../lib/constants";
 import Ultimo from "../ultimo/ultimo";
 
 const useStyles = makeStyles((theme) => ({
@@ -115,6 +117,10 @@ export default function Header(props: Props) {
 
   return (
     <>
+      <Head>
+        <title>{CMS_NAME}</title>
+      </Head>
+
       <Dialog
         open={open}
         onClose={handleClose}
@@ -205,10 +211,7 @@ export default function Header(props: Props) {
             {sections.map((section, index) => (
               <>
                 <div key={index}>
-                  <Link
-                    key={section.title}
-                    href={section.url}
-                  >
+                  <Link key={section.title} href={section.url}>
                     {section.title}
                   </Link>
                 </div>

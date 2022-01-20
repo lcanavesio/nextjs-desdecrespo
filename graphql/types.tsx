@@ -7644,6 +7644,13 @@ export type GetPostRecientesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetPostRecientesQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges?: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node?: { __typename?: 'Post', id: string, date?: string | null | undefined, title?: string | null | undefined, slug?: string | null | undefined, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node?: { __typename?: 'MediaItem', mediaItemUrl?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
 
+export type GetPostsTabFourPostsQueryVariables = Exact<{
+  categoryName: Scalars['String'];
+}>;
+
+
+export type GetPostsTabFourPostsQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges?: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node?: { __typename?: 'Post', id: string, date?: string | null | undefined, title?: string | null | undefined, slug?: string | null | undefined, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node?: { __typename?: 'MediaItem', mediaItemUrl?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
+
 export type GetPostsQueryVariables = Exact<{
   categoryName?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -7709,6 +7716,56 @@ export function useGetPostRecientesLazyQuery(baseOptions?: Apollo.LazyQueryHookO
 export type GetPostRecientesQueryHookResult = ReturnType<typeof useGetPostRecientesQuery>;
 export type GetPostRecientesLazyQueryHookResult = ReturnType<typeof useGetPostRecientesLazyQuery>;
 export type GetPostRecientesQueryResult = Apollo.QueryResult<GetPostRecientesQuery, GetPostRecientesQueryVariables>;
+export const GetPostsTabFourPostsDocument = gql`
+    query getPostsTabFourPosts($categoryName: String!) {
+  posts(
+    first: 4
+    where: {orderby: {field: DATE, order: DESC}, categoryName: $categoryName, tagNotIn: [9589, 9377]}
+  ) {
+    edges {
+      node {
+        id
+        date
+        title
+        slug
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetPostsTabFourPostsQuery__
+ *
+ * To run a query within a React component, call `useGetPostsTabFourPostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostsTabFourPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostsTabFourPostsQuery({
+ *   variables: {
+ *      categoryName: // value for 'categoryName'
+ *   },
+ * });
+ */
+export function useGetPostsTabFourPostsQuery(baseOptions: Apollo.QueryHookOptions<GetPostsTabFourPostsQuery, GetPostsTabFourPostsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPostsTabFourPostsQuery, GetPostsTabFourPostsQueryVariables>(GetPostsTabFourPostsDocument, options);
+      }
+export function useGetPostsTabFourPostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPostsTabFourPostsQuery, GetPostsTabFourPostsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPostsTabFourPostsQuery, GetPostsTabFourPostsQueryVariables>(GetPostsTabFourPostsDocument, options);
+        }
+export type GetPostsTabFourPostsQueryHookResult = ReturnType<typeof useGetPostsTabFourPostsQuery>;
+export type GetPostsTabFourPostsLazyQueryHookResult = ReturnType<typeof useGetPostsTabFourPostsLazyQuery>;
+export type GetPostsTabFourPostsQueryResult = Apollo.QueryResult<GetPostsTabFourPostsQuery, GetPostsTabFourPostsQueryVariables>;
 export const GetPostsDocument = gql`
     query getPosts($categoryName: String, $first: Int) {
   posts(

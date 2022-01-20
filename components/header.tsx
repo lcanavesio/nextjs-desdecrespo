@@ -1,16 +1,31 @@
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, IconButton, TextField, Tooltip } from '@mui/material'
-import { makeStyles } from '@mui/styles';
-import { Theme } from '@mui/system';
-import Link from 'next/link'
-import { useState } from 'react';
-import CloseIcon from '@mui/icons-material/Close';
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Divider,
+  Grid,
+  TextField,
+  Tooltip,
+} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import { makeStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import CloseIcon from "@material-ui/icons/Close";
+import SearchIcon from "@material-ui/icons/Search";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useState } from "react";
+import Ultimo from "./ultimo/ultimo";
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles((theme) => ({
   bannerContainer: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
+    marginLeft: "auto",
+    marginRight: "auto",
     maxWidth: 1287,
-    display: 'block',
+    display: "block",
   },
   banner: {
     paddingLeft: 15,
@@ -18,10 +33,10 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   headerContainer: {
     maxWidth: 1287,
-    display: 'block',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    color: 'white',
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
+    color: "white",
   },
   toolbar: {
     borderBottom: `1px solid ${theme.palette.divider}`,
@@ -30,88 +45,87 @@ const useStyles = makeStyles((theme: Theme) => ({
     flex: 1,
   },
   header: {
-    background: 'linear-gradient(20deg, #b91b0c 0%, #e28f12 100%)',
+    background: "linear-gradient(20deg, #b91b0c 0%, #e28f12 100%)",
   },
   toolbarLink: {
-    'padding': '8px',
-    'flexShrink': 0,
-    'fontFamily': 'Roboto, Helvetica, Arial, sans-serif',
-    'fontSize': 12,
-    'fontWeight': 500,
-    'textTransform': 'uppercase',
-    'backgroundOrigin': 'padding-box',
-    'boxSizing': 'border-box',
-    'transition': '0.3s',
-    '&:hover': {
-      boxShadow: 'inset 0 0 100px 100px rgba(255, 255, 255, 0.1)',
-      textDecoration: 'none',
+    padding: "8px",
+    flexShrink: 0,
+    fontFamily: "Roboto, Helvetica, Arial, sans-serif",
+    fontSize: 12,
+    fontWeight: 500,
+    textTransform: "uppercase",
+    backgroundOrigin: "padding-box",
+    boxSizing: "border-box",
+    transition: "0.3s",
+    "&:hover": {
+      boxShadow: "inset 0 0 100px 100px rgba(255, 255, 255, 0.1)",
+      textDecoration: "none",
     },
   },
   closeButton: {
-    'right': theme.spacing(1),
-    'position': 'absolute',
-    'top': 0,
-    'color': '#bad5f8',
-    '&:hover': {
-      color: '#fff',
+    right: theme.spacing(1),
+    position: "absolute",
+    top: 0,
+    color: "#bad5f8",
+    "&:hover": {
+      color: "#fff",
     },
   },
   dividerVertical: {
-    background: '#dadada',
+    background: "#dadada",
     marginTop: 12,
     marginBottom: 12,
   },
   btnLive: {
-    'background': '#f44336',
-    '&:hover': {
-      background: 'red',
+    background: "#f44336",
+    "&:hover": {
+      background: "red",
     },
   },
   linkLive: {
-    textDecoration: 'none',
-    color: 'white',
+    textDecoration: "none",
+    color: "white",
   },
+  bannerImage: {
+    width: "100%"
+  }
 }));
 
 type Props = {
-  sections: any
-}
+  sections: any;
+};
 
 export default function Header(props: Props) {
-  const {sections} = props;
+  const { sections } = props;
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
-  const [keyword, setKeyword] = useState('');
+  const [keyword, setKeyword] = useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
-    setKeyword('');
+    setKeyword("");
   };
 
   const handleClose = () => {
     setOpen(false);
-    setKeyword('');
+    setKeyword("");
   };
 
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
-   // navigate(`/busqueda?keyword=${keyword}`);
+    // navigate(`/busqueda?keyword=${keyword}`);
     setOpen(false);
   };
   return (
-
-<>
-<Dialog
+    <>
+      <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
         <form onSubmit={handleFormSubmit}>
-          <Grid
-            container
-            style={{marginBottom: '1em'}}
-          >
+          <Grid container style={{ marginBottom: "1em" }}>
             <Grid item>
               <DialogTitle id="form-dialog-title">Buscar</DialogTitle>
             </Grid>
@@ -126,7 +140,6 @@ export default function Header(props: Props) {
                 </IconButton>
               </Tooltip>
             </Grid>
-
           </Grid>
           <DialogContent>
             <TextField
@@ -149,6 +162,67 @@ export default function Header(props: Props) {
           </DialogActions>
         </form>
       </Dialog>
-</>
-  )
+
+      <Toolbar className={classes.toolbar}>
+        <Ultimo />
+        <Typography
+          component="h2"
+          variant="h5"
+          color="inherit"
+          align="center"
+          noWrap
+          className={classes.toolbarTitle}
+        ></Typography>
+        <IconButton onClick={handleClickOpen}>
+          <SearchIcon />
+        </IconButton>
+        <Button
+          variant="outlined"
+          size="small"
+          color="secondary"
+          className={classes.btnLive}
+        >
+          <Link href="/live">en VIVO</Link>
+        </Button>
+      </Toolbar>
+
+      <div className={classes.bannerContainer}>
+        <Grid item md={12} lg={12} className={classes.banner}>
+          <a rel="home" href="https://admin.desdecrespo.com.ar/">
+            <Image
+              src="/banner-desktop.jpg"
+              alt="Banner - Desde Crespo"
+              className={classes.bannerImage}
+            />
+          </a>
+        </Grid>
+      </div>
+
+      <header className={classes.header}>
+        <div className={classes.headerContainer}>
+          <Toolbar component="nav" variant="dense">
+            <Divider
+              orientation="vertical"
+              flexItem
+              className={classes.dividerVertical}
+            />
+            {sections.map((section, index) => (
+              <>
+                <div key={index}>
+                  <Link key={section.title} href={section.url}>
+                    {section.title}
+                  </Link>
+                </div>
+                <Divider
+                  orientation="vertical"
+                  flexItem
+                  className={classes.dividerVertical}
+                />
+              </>
+            ))}
+          </Toolbar>
+        </div>
+      </header>
+    </>
+  );
 }

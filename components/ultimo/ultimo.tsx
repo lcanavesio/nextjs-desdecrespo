@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Brightness1Icon from '@material-ui/icons/Brightness1';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 import { Skeleton } from '@material-ui/lab';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
 const useStyles = makeStyles((theme) => ({
@@ -116,8 +116,7 @@ const Ultimo = () => {
               {posts.map((post, index) => (
                 <Link
                   key={index}
-                  to={`/post/${post.slug}`}
-                  className={classes.link}
+                  href={`/post/${post.slug}`}
                 >
                   <span className={classes.titleText}>{post.title}</span>
                 </Link>
@@ -145,8 +144,7 @@ const Ultimo = () => {
                 {posts.map((post, index) => (
                   <Link
                     key={index}
-                    to={`/post/${post.slug}`}
-                    className={classes.link}
+                    href={`/post/${post.slug}`}
                   >
                     <span className={classes.titleText}>{post.title}</span>
                   </Link>

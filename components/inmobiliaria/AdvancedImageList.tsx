@@ -69,7 +69,6 @@ export default function AdvancedImageList() {
     >
       {itemData.map((item, index) => (
         <div key={index}>
-          {/* <Link href={``}> */}
             <Image
               className={classes.image}
               src={item.img}
@@ -78,11 +77,8 @@ export default function AdvancedImageList() {
               height={268}
               loading="lazy"
 
-              // onClick={item => handleClickOpen(item)}
             />
-
             <h5 className={classes.title}>{item.title}</h5>
-          {/* </Link> */}
         </div>
       ))}
     </Carousel>

@@ -1,14 +1,15 @@
-import { gql, useQuery } from '@apollo/client';
-import { Box, Grid, Paper, Tab, Tabs, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
-import ImportantDevicesIcon from '@material-ui/icons/ImportantDevices';
-import SportsBasketballIcon from '@material-ui/icons/SportsBasketball';
-import { Skeleton } from '@material-ui/lab';
-import React from 'react';
-import FeaturedPost from './FeaturedPost';
-import SlidePosts from './SlidePosts';
-
+import { Box, Grid, Paper, Tab, Tabs, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
+import ImportantDevicesIcon from "@material-ui/icons/ImportantDevices";
+import SportsBasketballIcon from "@material-ui/icons/SportsBasketball";
+import { Skeleton } from "@material-ui/lab";
+import React, { useEffect } from "react";
+import {
+  useGetPostsTabFourPostsLazyQuery,
+  useGetPostsTabFourPostsQuery
+} from "../../graphql/types";
+import FeaturedPost from "./FeaturedPost";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -49,88 +50,93 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 10,
   },
   tabContainer: {
-    background: '#fc4a00',
+    background: "#fc4a00",
   },
   tab: {
-    color: 'white',
+    color: "white",
   },
   indicator: {
-    backgroundColor: 'Black',
+    backgroundColor: "Black",
   },
   tabSelected: {
-    backgroundColor: '#3a3a3a',
+    backgroundColor: "#3a3a3a",
   },
 }));
 
 const TabFourPosts = () => {
   const classes = useStyles();
-  const getPosts = gql`
-  query getPosts ($categoryName:String!) {
-    posts(
-      first: 4
-      where: {
-        orderby: { field: DATE, order: DESC }
-        categoryName: $categoryName
-        tagNotIn: [9589, 9377]
-      }
-    ) {
-      edges {
-        node {
-          id
-          date
-          title
-          slug
-          featuredImage {
-            node {
-              mediaItemUrl
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 
   const [value, setValue] = React.useState(0);
 
-  const { loading: loadingSport, data: sportData } = useQuery(getPosts, {
-    variables: { categoryName: 'Deportes' },
+  const {
+    loading: loadingSport,
+    error: errorSport,
+    data: sportData,
+  } = useGetPostsTabFourPostsQuery({
+    variables: { categoryName: "Deportes" },
   });
-  const sportPosts = sportData?.posts?.edges?.map((edge) => edge.node) || [];
 
-  const { loading: loadingHealth, data: healthData } = useQuery(getPosts, {
-    variables: { categoryName: 'Salud' },
+  const sportPosts = sportData?.posts?.edges?.map((edge) => edge.node) || [];
+  const mensajeError = "No se logro recuperar datos";
+  const [
+    runHealthQuery,
+    { loading: loadingHealth, error: errorHealth, data: healthData },
+  ] = useGetPostsTabFourPostsLazyQuery({
+    variables: { categoryName: "Salud" },
   });
+
   const healthPosts = healthData?.posts?.edges?.map((edge) => edge.node) || [];
 
-  const { loading: loadingTechnology, data: technologyData } = useQuery(getPosts, {
-    variables: { categoryName: 'Tecnología' },
+  const [
+    runTechQuery,
+    { loading: loadingTechnology, error: errorTech, data: technologyData },
+  ] = useGetPostsTabFourPostsLazyQuery({
+    variables: { categoryName: "Tecnología" },
   });
-  const technologyPosts = technologyData?.posts?.edges?.map((edge) => edge.node) || [];
+
+  const technologyPosts =
+    technologyData?.posts?.edges?.map((edge) => edge.node) || [];
 
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
     setValue(newValue);
   };
+
+  useEffect(() => {
+    if (value === 1) {
+      runHealthQuery();
+    }
+    if (value === 2) {
+      runTechQuery();
+    }
+  }, [value]);
 
   const showSkeleton = (rows) => {
     const skeletons = [];
 
     for (let i = 0; i < rows; i++) {
       skeletons.push(
-        <div style={{ minWidth: '50%' }}>
+        <div style={{ minWidth: "50%" }}>
           <Skeleton
             variant="rect"
             animation="wave"
             style={{
-              minWidth: '47%', minHeight: 290,
-              marginLeft: 10, marginRight: 10
-            }} />
-          <Skeleton variant="text"
+              minWidth: "47%",
+              minHeight: 290,
+              marginLeft: 10,
+              marginRight: 10,
+            }}
+          />
+          <Skeleton
+            variant="text"
             animation="wave"
             style={{
-              minWidth: 300, minHeight: 50,
-              marginLeft: 10, marginRight: 10, marginBottom: 10
-            }} />
+              minWidth: 300,
+              minHeight: 50,
+              marginLeft: 10,
+              marginRight: 10,
+              marginBottom: 10,
+            }}
+          />
         </div>
       );
     }
@@ -138,7 +144,7 @@ const TabFourPosts = () => {
   };
 
   return (
-    <>
+    <div key="tabfourpost">
       <Paper square className={classes.root}>
         <Tabs
           value={value}
@@ -151,49 +157,73 @@ const TabFourPosts = () => {
             indicator: classes.indicator,
           }}
         >
-          <Tab icon={<SportsBasketballIcon />} label="Deportes" className={classes.tab} classes={{ selected: classes.tabSelected }} />
-          <Tab icon={<FitnessCenterIcon />} label="Salud" className={classes.tab} classes={{ selected: classes.tabSelected }} />
-          <Tab icon={<ImportantDevicesIcon />} label="Tecnología" className={classes.tab} classes={{ selected: classes.tabSelected }} />
+          <Tab
+            icon={<SportsBasketballIcon />}
+            label="Deportes"
+            className={classes.tab}
+            classes={{ selected: classes.tabSelected }}
+          />
+          <Tab
+            icon={<FitnessCenterIcon />}
+            label="Salud"
+            className={classes.tab}
+            classes={{ selected: classes.tabSelected }}
+          />
+          <Tab
+            icon={<ImportantDevicesIcon />}
+            label="Tecnología"
+            className={classes.tab}
+            classes={{ selected: classes.tabSelected }}
+          />
         </Tabs>
 
         <TabPanel value={value} index={0}>
           <Grid container lg={12}>
-            {
-              !loadingSport && sportPosts ?
-                sportPosts.map((post) => (
+            {errorSport && <p>{mensajeError}</p>}
+            {!loadingSport && sportPosts
+              ? sportPosts.map((post) => (
                   <Grid container lg={6} className={classes.card}>
-                    <FeaturedPost key={`sport-featured-post-${post.id}`} post={post} />
+                    <FeaturedPost
+                      key={`sport-featured-post-${post.id}`}
+                      post={post}
+                    />
                   </Grid>
-                )) :
-                showSkeleton(4)
-            }
+                ))
+              : showSkeleton(4)}
           </Grid>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          {
-            !loadingHealth && healthPosts ?
-              <SlidePosts key={`health-tech-featured-post`} posts={healthPosts || null} />
-              :
-              showSkeleton(1)
-          }
+          <Grid container lg={12}>
+            {errorHealth && <p>{mensajeError}</p>}
+            {!loadingHealth && healthPosts
+              ? healthPosts.map((post) => (
+                  <Grid container lg={6} className={classes.card}>
+                    <FeaturedPost
+                      key={`healthPosts-featured-post-${post.id}`}
+                      post={post}
+                    />
+                  </Grid>
+                ))
+              : showSkeleton(4)}
+          </Grid>
         </TabPanel>
         <TabPanel value={value} index={2}>
           <Grid container lg={12}>
-            {!loadingTechnology && technologyPosts ?
-              technologyPosts.map((post) => (
-                <Grid container lg={6} className={classes.card}>
-                  <FeaturedPost key={`tech-featured-post-${post.id}`} post={post} />
-                </Grid>
-              ))
-              :
-              showSkeleton(4)
-            }
+            {errorTech && <p>{mensajeError}</p>}
+            {!loadingTechnology && technologyPosts
+              ? technologyPosts.map((post) => (
+                  <Grid container lg={6} className={classes.card}>
+                    <FeaturedPost
+                      key={`tech-featured-post-${post.id}`}
+                      post={post}
+                    />
+                  </Grid>
+                ))
+              : showSkeleton(4)}
           </Grid>
         </TabPanel>
       </Paper>
-
-
-    </>
+    </div>
   );
 };
 export default TabFourPosts;

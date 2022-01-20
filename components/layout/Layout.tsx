@@ -1,9 +1,6 @@
 import { makeStyles, useMediaQuery } from "@material-ui/core";
-import { Head } from "next/document";
 import React, { useState } from "react";
-import { CMS_NAME } from "../../lib/constants";
 import { Constants } from "../../utils/constants";
-import ActiveRadio from "../radio/activeRadio";
 import Footer from "./Footer";
 import Header from "./Header";
 import HeaderMobile from "./HeaderMobile";
@@ -35,9 +32,6 @@ const Layout = (props: Layout) => {
 
   return (
     <>
-      <Head>
-        <title>{CMS_NAME}</title>
-      </Head>
       {matches ? (
         <div className="layout">
           <Header sections={Constants.CATEGORIES} />
@@ -45,7 +39,7 @@ const Layout = (props: Layout) => {
             <main>{children}</main>
           </div>
           <Footer title="Desde Crespo" description="Semanario Diario" />
-          <ActiveRadio />
+          {/* <ActiveRadio /> */}
         </div>
       ) : (
         <>
@@ -60,7 +54,7 @@ const Layout = (props: Layout) => {
           <div className={classes.content}>
             <main>{children}</main>
           </div>
-          <ActiveRadio />
+          {/* <ActiveRadio /> */}
           <Footer title="Desde Crespo" description="Semanario Diario" />
         </>
       )}

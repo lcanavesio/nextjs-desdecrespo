@@ -1,4 +1,3 @@
-import '../styles/index.css'
 import '../styles/clicme.css'
 import '../styles/social.css'
 

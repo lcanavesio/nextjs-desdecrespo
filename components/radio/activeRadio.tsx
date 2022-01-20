@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import ReactJkMusicPlayer, {
   ReactJkMusicPlayerAudioInfo
 } from 'react-jinke-music-player';
-import 'react-jinke-music-player/assets/index.css';
 import EventBus, { EVENT_RADIO_CHANGE } from '../../utils/EventBus';
 import { getRadioList } from '../../utils/radiosConfig';
 

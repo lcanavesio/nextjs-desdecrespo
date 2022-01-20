@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
 
 export const PublicidadPrincipal = () => {
   const classes = useStyles();
-  console.log(":fdaadfad",process.env.NEXT_PUBLIC_PUBLICIDAD2 )
   return (
     <Grid container>
       <Grid item lg={4} className={classes.card}>
