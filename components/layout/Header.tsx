@@ -16,6 +16,7 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import SearchIcon from "@material-ui/icons/Search";
 import Head from "next/head";
+import Image from "next/image";
 import Link from "next/link";
 
 import React from "react";
@@ -87,6 +88,9 @@ const useStyles = makeStyles((theme) => ({
   linkLive: {
     textDecoration: "none",
     color: "white",
+  },
+  bannerImage: {
+    width: "100%",
   },
 }));
 type Props = {
@@ -184,18 +188,22 @@ export default function Header(props: Props) {
           color="secondary"
           className={classes.btnLive}
         >
-          <Link href="/live">en VIVO</Link>
+          <Link href="/live">
+            <div>
+              <Typography style={{ color: "white" }}>EN VIVO</Typography>
+            </div>
+          </Link>
         </Button>
       </Toolbar>
 
       <div className={classes.bannerContainer}>
         <Grid item md={12} lg={12} className={classes.banner}>
-          <a rel="home" href="https://admin.desdecrespo.com.ar/">
-            {/* <StaticImage
-              src="../../images/banner-desktop.jpg"
+          <a rel="home" href="https://desdecrespo.com.ar/">
+            <img
+              src="/banner-desktop.jpg"
               alt="Banner - Desde Crespo"
-              style={{width: '100%'}}
-            /> */}
+              className={classes.bannerImage}
+            />
           </a>
         </Grid>
       </div>
@@ -212,7 +220,16 @@ export default function Header(props: Props) {
               <>
                 <div key={index}>
                   <Link key={section.title} href={section.url}>
-                    {section.title}
+                    <Button
+                      variant="text"
+                      size="small"
+                      style={{ color: "white" }}
+                    >
+                      <Typography className={classes.toolbarLink}>
+                        {" "}
+                        {section.title}{" "}
+                      </Typography>
+                    </Button>
                   </Link>
                 </div>
                 <Divider

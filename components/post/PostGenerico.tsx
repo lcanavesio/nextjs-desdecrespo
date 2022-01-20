@@ -70,24 +70,23 @@ const PostGenerico = (props: Props) => {
     }
     return skeletons;
   };
-      console.log("%%%%%%%%%%%%%", posts);
   return (
-      <Grid container style={{ paddingLeft: 10, paddingRight: 10 }}>
-        <HeaderTitle title={titulo} />
-        {!loading && posts
-          ? posts.map((post, index) => (
-              <Grid
-                style={{ paddingLeft: 10, paddingRight: 10, width: "100%" }}
-                item
-                key={index}
-                lg={gridValue}
-                className={classesGlobal.card}
-              >
-                <FeaturedPost key={index} post={post} />
-              </Grid>
-            ))
-          : showSkeleton()}
-      </Grid>
+    <Grid container style={{ paddingLeft: 10, paddingRight: 10 }}>
+      <HeaderTitle title={titulo} />
+      {!loading && posts
+        ? posts.map((post, index) => (
+            <Grid
+              style={{ paddingLeft: 10, paddingRight: 10, width: "100%" }}
+              item
+              key={index}
+              lg={gridValue}
+              className={classesGlobal.card}
+            >
+              <FeaturedPost key={index} post={post} />
+            </Grid>
+          ))
+        : showSkeleton()}
+    </Grid>
   );
 };
 

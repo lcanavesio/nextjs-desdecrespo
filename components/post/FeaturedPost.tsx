@@ -59,7 +59,6 @@ export default function FeaturedPost(props: Props) {
   const router = useRouter();
 
   const matches = useMediaQuery("(max-width:1279px)");
-  console.log("post", post)
   return (
     <div key={post?.id}>
       <Card className={classes.card} style={{ minWidth: "100%" }}>

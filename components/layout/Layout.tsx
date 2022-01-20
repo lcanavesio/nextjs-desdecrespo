@@ -23,7 +23,7 @@ type Layout = {
 const Layout = (props: Layout) => {
   const { children } = props;
   const classes = useStyles();
-  const matches = useMediaQuery("(min-width:1032px)");
+  const matches = useMediaQuery("(min-width:912)");
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {

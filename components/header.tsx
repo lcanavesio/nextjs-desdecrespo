@@ -192,6 +192,7 @@ export default function Header(props: Props) {
             <Image
               src="/banner-desktop.jpg"
               alt="Banner - Desde Crespo"
+              layout='fill'
               className={classes.bannerImage}
             />
           </a>
@@ -208,9 +209,9 @@ export default function Header(props: Props) {
             />
             {sections.map((section, index) => (
               <>
-                <div key={index}>
+                <div key={index} >
                   <Link key={section.title} href={section.url}>
-                    {section.title}
+                   <Typography className={classes.toolbarLink}> {section.title} </Typography>
                   </Link>
                 </div>
                 <Divider
