@@ -169,7 +169,7 @@ export default function Header(props: Props) {
         </form>
       </Dialog>
 
-      <Toolbar className={classes.toolbar}>
+      <Toolbar className={classes.toolbar} key="toolbar-header">
         <Ultimo />
         <Typography
           component="h2"

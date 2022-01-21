@@ -74,10 +74,13 @@ const LayoutDesktop = () => {
               first={6}
               titulo="Crespo"
             />
+           <div className={classes.advertisingContainer} style={{ marginLeft: -5, marginRight: -5 }}>
             <PublicidadGenerico
               key="NEXT_PUBLIC_PUBLICIDAD6"
               href={process.env.NEXT_PUBLIC_PUBLICIDAD6}
             />
+            </div>
+           
           </Grid>
           <Grid lg={3} className={classes.rightColumn}>
             <TV />

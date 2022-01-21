@@ -11,10 +11,11 @@ const useStyles = makeStyles((theme) => ({
   carousel: {
     marginLeft: 10,
     marginRight: 10,
-    width: '80%',
+    width: '90%',
     height: 30,
     textAlign: 'center',
     paddingTop: 5,
+    fontWeight: 'bold',
   },
   carouselMobile: {
     marginLeft: 10,
@@ -96,7 +97,7 @@ const Ultimo = () => {
           alignItems="center"
         >
           <FlashOnIcon style={{ color: 'red' }} />
-          <h5 style={{ paddingTop: 21 }}>LO ÚLTIMO</h5>
+          <h5 placeholder=''>LO ÚLTIMO</h5>
           {posts ? (
             <Carousel
               className={classes.carousel}

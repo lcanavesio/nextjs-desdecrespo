@@ -5,7 +5,13 @@ import PetsIcon from '@material-ui/icons/Pets';
 import PublicIcon from '@material-ui/icons/Public';
 import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 import SportsBasketballIcon from '@material-ui/icons/SportsBasketball';
-import { Category } from 'src/interfaces/category.interface';
+
+export interface Category {
+  title: string,
+  databaseName: string,
+  url: string,
+  icon: any
+}
 
 export abstract class Constants {
   static readonly CATEGORIES: Category[] = [

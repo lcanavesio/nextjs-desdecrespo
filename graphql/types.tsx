@@ -7639,6 +7639,13 @@ export type WritingSettings = {
   useSmilies?: Maybe<Scalars['Boolean']>;
 };
 
+export type GetPostsForCategoryQueryVariables = Exact<{
+  categoryName: Scalars['String'];
+}>;
+
+
+export type GetPostsForCategoryQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges?: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node?: { __typename?: 'Post', id: string, date?: string | null | undefined, title?: string | null | undefined, slug?: string | null | undefined, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node?: { __typename?: 'MediaItem', mediaItemUrl?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
+
 export type GetPostRecientesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -7667,6 +7674,56 @@ export type PostByQueryVariables = Exact<{
 export type PostByQuery = { __typename?: 'RootQuery', postBy?: { __typename?: 'Post', content?: string | null | undefined, slug?: string | null | undefined, title?: string | null | undefined, uri?: string | null | undefined, date?: string | null | undefined, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node?: { __typename?: 'MediaItem', mediaItemUrl?: string | null | undefined } | null | undefined } | null | undefined, categories?: { __typename?: 'PostToCategoryConnection', nodes?: Array<{ __typename?: 'Category', name?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined } | null | undefined };
 
 
+export const GetPostsForCategoryDocument = gql`
+    query getPostsForCategory($categoryName: String!) {
+  posts(
+    first: 10
+    where: {orderby: {field: DATE, order: DESC}, categoryName: $categoryName}
+  ) {
+    edges {
+      node {
+        id
+        date
+        title
+        slug
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetPostsForCategoryQuery__
+ *
+ * To run a query within a React component, call `useGetPostsForCategoryQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostsForCategoryQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostsForCategoryQuery({
+ *   variables: {
+ *      categoryName: // value for 'categoryName'
+ *   },
+ * });
+ */
+export function useGetPostsForCategoryQuery(baseOptions: Apollo.QueryHookOptions<GetPostsForCategoryQuery, GetPostsForCategoryQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPostsForCategoryQuery, GetPostsForCategoryQueryVariables>(GetPostsForCategoryDocument, options);
+      }
+export function useGetPostsForCategoryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPostsForCategoryQuery, GetPostsForCategoryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPostsForCategoryQuery, GetPostsForCategoryQueryVariables>(GetPostsForCategoryDocument, options);
+        }
+export type GetPostsForCategoryQueryHookResult = ReturnType<typeof useGetPostsForCategoryQuery>;
+export type GetPostsForCategoryLazyQueryHookResult = ReturnType<typeof useGetPostsForCategoryLazyQuery>;
+export type GetPostsForCategoryQueryResult = Apollo.QueryResult<GetPostsForCategoryQuery, GetPostsForCategoryQueryVariables>;
 export const GetPostRecientesDocument = gql`
     query getPostRecientes {
   posts(

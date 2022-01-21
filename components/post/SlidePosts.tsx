@@ -62,7 +62,7 @@ const SlidePosts = () => {
   const classes = useStyles();
   const matches = useMediaQuery("(max-width:550px)");
 
-  const { loading, error, data: dataPosts } = useGetPostsQuery()
+  const { loading, error, data: dataPosts } = useGetPostsQuery();
   const posts = dataPosts?.posts?.edges?.map((edge) => edge.node) || null;
   if (error) return null;
   return (
@@ -71,28 +71,30 @@ const SlidePosts = () => {
         <Carousel className={classes.carousel} animation={"slide"}>
           {posts.map((post, index) => (
             <div key={index}>
-              {/* <Link
+              <Link
                 key={index}
                 href={"/posts/[slug]"}
                 as={`/posts/${post.slug}`}
-              > */}
-                <Image
-                  src={post.featuredImage?.node?.mediaItemUrl}
-                  alt={post.title}
-                  aspectRatio={2}
-                  disableSpinner={false}
-                  cover={true}
-                  className={classes.image}
-                />
-                <div id="layerImage">
-                  <h3
-                    className={classes.postTitle}
-                    style={{ fontSize: matches ? 14 : 26 }}
-                  >
-                    {post.title}
-                  </h3>
+              >
+                <div style={{cursor: "pointer"}}>
+                  <Image
+                    src={post.featuredImage?.node?.mediaItemUrl}
+                    alt={post.title}
+                    aspectRatio={2}
+                    disableSpinner={false}
+                    cover={true}
+                    className={classes.image}
+                  />
+                  <div id="layerImage">
+                    <h3
+                      className={classes.postTitle}
+                      style={{ fontSize: matches ? 14 : 26 }}
+                    >
+                      {post.title}
+                    </h3>
+                  </div>
                 </div>
-              {/* </Link> */}
+              </Link>
             </div>
           ))}
         </Carousel>

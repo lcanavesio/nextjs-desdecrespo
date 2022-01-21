@@ -1,6 +1,7 @@
 import { makeStyles, useMediaQuery } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { Constants } from "../../utils/constants";
+import Meta from "../meta";
 import Footer from "./Footer";
 import Header from "./Header";
 import HeaderMobile from "./HeaderMobile";
@@ -21,7 +22,7 @@ type Layout = {
   children: React.ReactNode;
 };
 const Layout = (props: Layout) => {
-  const { children } = props;
+  const { children  } = props;
   const classes = useStyles();
   const matches = useMediaQuery("(min-width:1032px)");
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -32,6 +33,7 @@ const Layout = (props: Layout) => {
 
   return (
     <>
+    <Meta />
       {matches ? (
         <div className="layout">
           <Header sections={Constants.CATEGORIES} />
@@ -62,4 +64,4 @@ const Layout = (props: Layout) => {
   );
 };
 
-export default Layout;
+export default memo(Layout)
