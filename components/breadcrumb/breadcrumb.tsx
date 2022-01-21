@@ -42,14 +42,14 @@ const Breadcrumb = (props: Props) => {
       </Link>
 
       {props.label ? (
-        <Link href={category?.url}>
+        <Link href={category?.url ? category?.url : "/"}>
           <div>
             <SvgIcon component={category?.icon} className={classes.icon} />
             {category?.title ? category?.title : props.category}
           </div>
         </Link>
       ) : (
-        <Link href={category?.url}>
+        <Link href={category?.url ? category?.url : "/"}>
           <div>
             <SvgIcon component={category?.icon} className={classes.icon} />
             {category?.title}

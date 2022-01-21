@@ -60,7 +60,7 @@ const ActiveRadio = () => {
   const getStreamTitle = () => {
     if (playing && !errorMetadataURL) {
       const activeStation = stations[playIndex];
-      axios
+       axios
           .get(activeStation.metadataUrl)
           .then((response) => {
             setStreamTitle(response?.data?.nowplaying);

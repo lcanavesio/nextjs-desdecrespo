@@ -142,7 +142,7 @@ const PostCard = (props: Props) => {
               </Grid>
               <Divider className={classes.divider} light />
               <Typography className={classes.date} gutterBottom>
-                {(new Date(post.date)).toLocaleDateString('es-ES', DATE_OPTIONS)}
+                {(new Date(post.date)).toLocaleDateString('es-ES', DATE_OPTIONS as any)}
               </Typography>
             </CardContent>
           </Grid>
