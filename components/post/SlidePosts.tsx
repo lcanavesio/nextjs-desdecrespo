@@ -1,10 +1,8 @@
-import { gql, useQuery } from "@apollo/client";
 import { useMediaQuery } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Skeleton } from "@material-ui/lab";
 import Image from "material-ui-image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { useGetPostsQuery } from "../../graphql/types";
@@ -73,8 +71,8 @@ const SlidePosts = () => {
             <div key={index}>
               <Link
                 key={index}
-                href={"/posts/[slug]"}
-                as={`/posts/${post.slug}`}
+                href={"/post/[slug]"}
+                as={`/post/${post.slug}`}
               >
                 <div style={{cursor: "pointer"}}>
                   <Image

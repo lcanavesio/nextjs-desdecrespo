@@ -5,13 +5,13 @@ import React, { memo, useEffect, useState } from "react";
 import clientApollo from "../../lib/apolloClient";
 import { Constants } from "../../utils/constants";
 import Meta from "../meta";
-const ActiveRadio = dynamic(() => import("../radio/activeRadio"), {
-  ssr: false,
-  });
 import Footer from "./Footer";
 import Header from "./Header";
 import HeaderMobile from "./HeaderMobile";
 import NavigatorMobile from "./NavigatorMobile";
+const ActiveRadio = dynamic(() => import("../radio/activeRadio"), {
+  ssr: false,
+  });
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -33,7 +33,7 @@ const Layout = (props: Layout) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const [client, setClient] = useState<ApolloClient<any>>();
-  const matches = useMediaQuery("(min-width:900px)");
+  const matches = useMediaQuery("(min-width:1214px)");
 
   useEffect(() => {
     const c = clientApollo();

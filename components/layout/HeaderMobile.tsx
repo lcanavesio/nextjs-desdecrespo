@@ -4,7 +4,6 @@ import IconButton from "@material-ui/core/IconButton";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import MenuIcon from "@material-ui/icons/Menu";
-
 import React, { memo } from "react";
 import Ultimo from "../ultimo/ultimo";
 
@@ -68,13 +67,13 @@ function HeaderMobile(props: HeaderProps) {
                 <MenuIcon style={{ color: "white" }} />
               </IconButton>
             </Grid>
-            <Grid
-              item
-              xs={12}
-              
-            >
+            <Grid item style={{ textAlign: "-webkit-center" }} xs={12}>
               <a rel="home" href="https://desdecrespo.com.ar/">
-                <img src="/iconmobile.png" alt="Banner - Desde Crespo" style={{ width: "80%",  display: "flex",   }} />
+                <img
+                  src="/iconmobile.png"
+                  alt="Banner - Desde Crespo"
+                  style={{ width: "80%", display: "flex", padding: 20 }}
+                />
               </a>
             </Grid>
           </Grid>

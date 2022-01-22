@@ -63,7 +63,7 @@ export default function FeaturedPost(props: Props) {
     <div key={post?.id}>
       <Card className={classes.card} style={{ minWidth: "100%" }}>
         <CardActionArea
-          onClick={() => router.push(`/posts/[slug]`, `/posts/${post.slug}`)}
+          onClick={() => router.push(`/post/[slug]`, `/post/${post.slug}`)}
           style={{ minWidth: "100%" }}
         >
           <CardMedia
@@ -75,7 +75,7 @@ export default function FeaturedPost(props: Props) {
             title={post?.title}
           />
           <CardContent
-            onClick={() => router.push(`/posts/[slug]`, `/posts/${post.slug}`)}
+            onClick={() => router.push(`/post/[slug]`, `/post/${post.slug}`)}
             style={{ minWidth: "100%", minHeight: matches ? "100%" : 95 }}
           >
             <Typography

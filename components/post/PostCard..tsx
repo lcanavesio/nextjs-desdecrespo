@@ -113,7 +113,7 @@ const PostCard = (props: Props) => {
   if (post === null) return null;
   return (
     <Link href={`/post/${post.slug}`}>
-      <Card className={classes.card}>
+      <Card className={classes.card} style={{width: '100%'}}>
         <Grid container lg={12}>
           <Grid item lg={6} className={classes.cardMediaContainer}>
             <CardMedia

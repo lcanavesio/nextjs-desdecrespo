@@ -2,7 +2,7 @@ import {
   CssBaseline,
   Grid,
   Typography,
-  useMediaQuery,
+  useMediaQuery
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Image from "material-ui-image";
@@ -93,6 +93,7 @@ const IndividualPost = (props: Props) => {
                         color="inherit"
                         gutterBottom
                         style={{
+                          paddingTop: 20, 
                           fontSize: "40px",
                           color: "#1f1f1f",
                           lineHeight: "1",
@@ -188,7 +189,7 @@ const IndividualPost = (props: Props) => {
           ) : (
             <Grid container>
               <Grid item lg={11} style={{ maxWidth: "100%" }}>
-                <Breadcrumb category={category} label={""} />
+                <Breadcrumb category={category[0].name} />
 
                 <>
                   <Typography
@@ -197,6 +198,7 @@ const IndividualPost = (props: Props) => {
                     color="inherit"
                     gutterBottom
                     style={{
+                      paddingTop: 10,
                       fontSize: "28px",
                       color: "#1f1f1f",
                       lineHeight: "1",

@@ -1,9 +1,8 @@
-import { gql, useQuery } from "@apollo/client";
 import {
   CssBaseline,
   GridList,
   GridListTile,
-  useMediaQuery,
+  useMediaQuery
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Skeleton } from "@material-ui/lab";
@@ -64,10 +63,11 @@ const CategoryComponent = (props: Props) => {
   if (error) return null;
 
   return (
+    <>
     <section className={classes.container}>
       <CssBaseline />
-      <Breadcrumb category={category.databaseName} />
-      <GridList cellHeight={288} cols={matches ? 1 : 2}>
+      <Breadcrumb category={category?.databaseName} />
+      <GridList cellHeight={288} cols={matches ? 1 : 2} style={{paddingTop: 20}}>
         {!loading && posts
           ? posts.map((post) => (
               <GridListTile key={`gridList-${category.title}-${post?.title}`}>
@@ -81,6 +81,7 @@ const CategoryComponent = (props: Props) => {
       </GridList>
       <InfiniteScrollComponent />
     </section>
+    </>
   );
 };
 export default CategoryComponent;

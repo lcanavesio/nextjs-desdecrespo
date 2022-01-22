@@ -7,79 +7,79 @@ import {
   Grid,
   List,
   TextField
-} from '@material-ui/core';
-import Drawer, { DrawerProps } from '@material-ui/core/Drawer';
-import IconButton from '@material-ui/core/IconButton';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+} from "@material-ui/core";
+import Drawer, { DrawerProps } from "@material-ui/core/Drawer";
+import IconButton from "@material-ui/core/IconButton";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemText from "@material-ui/core/ListItemText";
 import {
   createStyles,
   createTheme,
   makeStyles,
   Theme,
   ThemeProvider
-} from '@material-ui/core/styles';
-import SearchIcon from '@material-ui/icons/Search';
-import clsx from 'clsx';
-
-import React, { memo } from 'react';
-import { Constants } from '../../utils/constants';
+} from "@material-ui/core/styles";
+import SearchIcon from "@material-ui/icons/Search";
+import clsx from "clsx";
+import Link from "next/link";
+import React, { memo } from "react";
+import { Constants } from "../../utils/constants";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     item: {
-      'color': 'rgba(255, 255, 255, 0.7)',
-      'paddingLeft': theme.spacing(3),
-      'textDecoration': 'none',
-      'listStyle': 'none',
-      '&:hover,&:focus': {
-        backgroundColor: '#404854',
+      color: "rgba(255, 255, 255, 0.7)",
+      paddingLeft: theme.spacing(3),
+      textDecoration: "none",
+      listStyle: "none",
+      "&:hover,&:focus": {
+        backgroundColor: "#404854",
       },
     },
     itemCategory: {
-      background: 'linear-gradient(20deg, #b91b0c 0%, #e28f12 100%)',
-      paddingBottom: 10,
+      background: "linear-gradient(20deg, #b91b0c 0%, #e28f12 100%)",
+      //paddingBottom: 10,
       paddingLeft: 10,
       marginBottom: 2,
     },
     closeButton: {
-      'right': theme.spacing(1),
-      'position': 'absolute',
-      'top': 0,
-      'color': '#bad5f8',
-      '&:hover': {
-        color: '#fff',
+      right: theme.spacing(1),
+      position: "absolute",
+      top: 0,
+      color: "#bad5f8",
+      "&:hover": {
+        color: "#fff",
       },
     },
 
     divider: {
       marginTop: 2,
     },
-  }),
+  })
 );
 
-export interface NavigatorProps extends Omit<DrawerProps, 'classes'> { }
+export interface NavigatorProps extends Omit<DrawerProps, "classes"> {}
 
 function NavigatorMobile(props: any) {
   const { ...other } = props;
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
-  const [keyword, setKeyword] = React.useState('');
+  const [keyword, setKeyword] = React.useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
-    setKeyword('');
+    setKeyword("");
   };
 
   const handleClose = () => {
     setOpen(false);
-    setKeyword('');
+    setKeyword("");
   };
 
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
-   // navigate(`/busqueda?keyword=${keyword}`);
+    // navigate(`/busqueda?keyword=${keyword}`);
     setOpen(false);
     onCloseDialog();
   };
@@ -125,26 +125,31 @@ function NavigatorMobile(props: any) {
 
       <ThemeProvider theme={theme}>
         <Drawer variant="permanent" {...other}>
-          <List disablePadding style={{ background: 'lightgrey' }}>
-            <ListItem className={clsx(classes.item, classes.itemCategory)}
-              style={{ background: 'white', paddingTop: 30, paddingBottom: 30 }}>
-              {/* <StaticImage
-                src="../../images/iconmobile.png"
-                alt="menumobile "
-              /> */}
+          <List disablePadding style={{ background: "lightgrey" }}>
+            <ListItem
+              className={clsx(classes.item, classes.itemCategory)}
+              style={{ background: "white"}}
+            >
+              <img
+                  src="/iconmobile.png"
+                  alt="Banner - Desde Crespo"
+                  style={{ width: "100%", display: "flex", padding: 20 }}
+                />
             </ListItem>
 
             {Constants.CATEGORIES.map((item, index) => (
               <div key={index}>
                 <ListItem className={clsx(classes.item, classes.itemCategory)}>
-                  <ListItemText style={{ color: 'white' }}>
-                    {/* <Link
-                      onClick={onCloseDialog}
-                      color="inherit" noWrap
-                      key={item.title}
-                      to={item.url}>
-                      {item.title}
-                    </Link> */}
+                  <ListItemText style={{ color: "white" , margin: 0}}>
+                    <Link key={item.title} href={item.url}>
+                      <Button
+                        variant="text"
+                        size="small"
+                        style={{ color: "white" }}
+                      >
+                        {item.title}
+                      </Button>
+                    </Link>
                   </ListItemText>
                 </ListItem>
               </div>
@@ -152,7 +157,7 @@ function NavigatorMobile(props: any) {
           </List>
 
           <IconButton onClick={handleClickOpen}>
-            <SearchIcon style={{ color: 'rgb(252, 74, 0)' }} />
+            <SearchIcon style={{ color: "rgb(252, 74, 0)" }} />
           </IconButton>
         </Drawer>
       </ThemeProvider>
@@ -190,7 +195,7 @@ theme = {
   overrides: {
     MuiDrawer: {
       paper: {
-        backgroundColor: 'lightgrey',
+        backgroundColor: "lightgrey",
       },
     },
   },
