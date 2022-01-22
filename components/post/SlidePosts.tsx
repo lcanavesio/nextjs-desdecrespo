@@ -66,7 +66,8 @@ const SlidePosts = () => {
   return (
     <>
       {!loading && posts ? (
-        <Carousel className={classes.carousel} animation={"slide"}>
+        <Carousel className={classes.carousel} animation={"slide"} interval={9000}>
+
           {posts.map((post, index) => (
             <div key={index}>
               <Link
@@ -74,7 +75,7 @@ const SlidePosts = () => {
                 href={"/post/[slug]"}
                 as={`/post/${post.slug}`}
               >
-                <div style={{cursor: "pointer"}}>
+                <div style={{ cursor: "pointer" }}>
                   <Image
                     src={post.featuredImage?.node?.mediaItemUrl}
                     alt={post.title}

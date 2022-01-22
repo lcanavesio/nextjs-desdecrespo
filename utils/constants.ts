@@ -71,12 +71,6 @@ export abstract class Constants {
       icon: SportsBasketballIcon,
     },
     {
-      title: 'Deportes',
-      databaseName: 'Básquet',
-      url: '/categoria/deportes',
-      icon: SportsBasketballIcon,
-    },
-    {
       title: 'Salud',
       databaseName: 'Salud',
       url: '/categoria/salud',

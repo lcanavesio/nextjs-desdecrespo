@@ -7640,11 +7640,17 @@ export type WritingSettings = {
 };
 
 export type GetPostsForCategoryQueryVariables = Exact<{
+  first?: InputMaybe<Scalars['Int']>;
   categoryName: Scalars['String'];
 }>;
 
 
 export type GetPostsForCategoryQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges?: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node?: { __typename?: 'Post', id: string, date?: string | null | undefined, title?: string | null | undefined, slug?: string | null | undefined, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node?: { __typename?: 'MediaItem', mediaItemUrl?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
+
+export type GetPostForUltimoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetPostForUltimoQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges?: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node?: { __typename?: 'Post', id: string, title?: string | null | undefined, slug?: string | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
 
 export type GetPostRecientesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -7675,9 +7681,9 @@ export type PostByQuery = { __typename?: 'RootQuery', postBy?: { __typename?: 'P
 
 
 export const GetPostsForCategoryDocument = gql`
-    query getPostsForCategory($categoryName: String!) {
+    query getPostsForCategory($first: Int, $categoryName: String!) {
   posts(
-    first: 10
+    first: $first
     where: {orderby: {field: DATE, order: DESC}, categoryName: $categoryName}
   ) {
     edges {
@@ -7709,6 +7715,7 @@ export const GetPostsForCategoryDocument = gql`
  * @example
  * const { data, loading, error } = useGetPostsForCategoryQuery({
  *   variables: {
+ *      first: // value for 'first'
  *      categoryName: // value for 'categoryName'
  *   },
  * });
@@ -7724,6 +7731,46 @@ export function useGetPostsForCategoryLazyQuery(baseOptions?: Apollo.LazyQueryHo
 export type GetPostsForCategoryQueryHookResult = ReturnType<typeof useGetPostsForCategoryQuery>;
 export type GetPostsForCategoryLazyQueryHookResult = ReturnType<typeof useGetPostsForCategoryLazyQuery>;
 export type GetPostsForCategoryQueryResult = Apollo.QueryResult<GetPostsForCategoryQuery, GetPostsForCategoryQueryVariables>;
+export const GetPostForUltimoDocument = gql`
+    query getPostForUltimo {
+  posts(first: 5, where: {orderby: {field: DATE, order: DESC}}) {
+    edges {
+      node {
+        id
+        title
+        slug
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetPostForUltimoQuery__
+ *
+ * To run a query within a React component, call `useGetPostForUltimoQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostForUltimoQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostForUltimoQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetPostForUltimoQuery(baseOptions?: Apollo.QueryHookOptions<GetPostForUltimoQuery, GetPostForUltimoQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPostForUltimoQuery, GetPostForUltimoQueryVariables>(GetPostForUltimoDocument, options);
+      }
+export function useGetPostForUltimoLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPostForUltimoQuery, GetPostForUltimoQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPostForUltimoQuery, GetPostForUltimoQueryVariables>(GetPostForUltimoDocument, options);
+        }
+export type GetPostForUltimoQueryHookResult = ReturnType<typeof useGetPostForUltimoQuery>;
+export type GetPostForUltimoLazyQueryHookResult = ReturnType<typeof useGetPostForUltimoLazyQuery>;
+export type GetPostForUltimoQueryResult = Apollo.QueryResult<GetPostForUltimoQuery, GetPostForUltimoQueryVariables>;
 export const GetPostRecientesDocument = gql`
     query getPostRecientes {
   posts(

@@ -1,6 +1,6 @@
 import { CssBaseline, Grid, makeStyles } from "@material-ui/core";
 import Image from "next/image";
-import React from "react";
+import React, { memo } from "react";
 import ClicMe from "../../components/inmobiliaria/ClicMe";
 import TabFourPosts from "../../components/post//TabFourPosts";
 import NoSePierda from "../../components/post/NoSePierda";
@@ -204,4 +204,4 @@ const LayoutMobile = () => {
   );
 };
 
-export default LayoutMobile;
+export default memo(LayoutMobile);
