@@ -1,4 +1,3 @@
-import { gql, useQuery } from '@apollo/client';
 import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
@@ -7,7 +6,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import { Skeleton } from '@material-ui/lab';
-import Link from 'next/link';
+import { useGetPostsForCategoryQuery } from 'graphql/types';
 import React from 'react';
 import HeaderTitle from '../common/headerTitle';
 
@@ -27,32 +26,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PostsRecientes() {
   const classes = useStyles();
-  const getPosts = gql`
-    query getPosts {
-      posts(
-        first: 4
-        where: {
-          orderby: { field: DATE, order: DESC }
-          categoryName: "locales,Nacionales,Internacionales"
-        }
-      ) {
-        edges {
-          node {
-            id
-            date
-            title
-            slug
-            featuredImage {
-              node {
-                mediaItemUrl
-              }
-            }
-          }
-        }
-      }
+
+  const { loading, error, data } = useGetPostsForCategoryQuery({
+    variables: {
+      first: 4, categoryName: "locales,Nacionales,Internacionales"
     }
-  `;
-  const { loading, error, data } = useQuery(getPosts);
+  });
+
   const posts = data?.posts?.edges?.map((edge) => edge.node) || null;
 
   if (error) return null;
@@ -100,13 +80,13 @@ export default function PostsRecientes() {
                 alignItems="flex-start"
                 style={{ width: '100%' }}
                 key={index}
-               /// to={`/post/${post?.slug}`}
+                /// to={`/post/${post?.slug}`}
                 className={classes.link}
               >
                 <ListItemAvatar key={index}>
                   <Avatar
                     alt="locales"
-                    style={{display: 'flow-root'}}
+                    style={{ display: 'flow-root' }}
                     src={post ? post?.featuredImage?.node?.mediaItemUrl : ''}
                     key={index}
                   />

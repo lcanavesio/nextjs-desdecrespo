@@ -67,16 +67,12 @@ const IndividualPost = (props: Props) => {
         )
       : "";
 
-  // const {loading, error, data} = useQuery(postBy, {
-  //   variables: {slug},
-  // });
+ 
   const category = data?.categories.edges?.map((edge) => edge.node) || null;
   const classes = useStyles();
-  console.log("category", category);
   return (
     <>
       <section className={classes.container}>
-        {/* <SEO title="Inicio" /> */}
         <CssBaseline />
         <Grid container className={classes.container}>
           {!matches ? (

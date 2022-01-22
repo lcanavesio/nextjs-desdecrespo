@@ -1,9 +1,8 @@
-import { gql, useQuery } from "@apollo/client";
 import {
   CssBaseline,
   GridList,
   GridListTile,
-  useMediaQuery,
+  useMediaQuery
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Skeleton } from "@material-ui/lab";
@@ -34,7 +33,7 @@ const CategoryComponent = (props: Props) => {
   const matches = useMediaQuery("(max-width:1279px)");
 
   const { loading, error, data } = useGetPostsForCategoryQuery({
-    variables: { categoryName: category.databaseName },
+    variables: { categoryName: category.databaseName, first: 10 },
   });
   const posts = data?.posts?.edges?.map((edge) => edge.node) || null;
   const classes = useStyles();

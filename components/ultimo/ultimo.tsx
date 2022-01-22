@@ -1,9 +1,9 @@
-import { gql, useQuery } from '@apollo/client';
 import { Button, Grid, Typography, useMediaQuery } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Brightness1Icon from '@material-ui/icons/Brightness1';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 import { Skeleton } from '@material-ui/lab';
+import { useGetPostForUltimoQuery } from 'graphql/types';
 import Link from 'next/link';
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
@@ -67,21 +67,8 @@ const useStyles = makeStyles((theme) => ({
 const Ultimo = () => {
   const classes = useStyles();
   const matches = useMediaQuery('(min-width:900px)');
-  const getPosts = gql`
-    query getPosts {
-      posts(first: 5, where: { orderby: { field: DATE, order: DESC } }) {
-        edges {
-          node {
-            id
-            title
-            slug
-          }
-        }
-      }
-    }
-  `;
 
-  const { loading, error, data } = useQuery(getPosts);
+  const { loading, error, data } = useGetPostForUltimoQuery();
   const posts = data?.posts?.edges?.map((edge) => edge.node) || null;
 
   if (error) return null;
@@ -100,11 +87,12 @@ const Ultimo = () => {
           <h5 placeholder=''>LO ÚLTIMO</h5>
           {posts ? (
             <Carousel
+              key="carousel-desktop"
               className={classes.carousel}
               indicators={false}
               navButtonsAlwaysVisible={true}
               animation={'slide'}
-              interval={5000}
+              interval={7000}
               navButtonsProps={{
                 style: {
                   height: 5,
@@ -136,6 +124,8 @@ const Ultimo = () => {
             <FlashOnIcon style={{ color: 'red' }} />
             {posts ? (
               <Carousel
+                key="carousel-mobile"
+
                 className={classes.carouselMobile}
                 indicators={false}
                 navButtonsAlwaysVisible={false}
@@ -155,7 +145,7 @@ const Ultimo = () => {
               <Skeleton variant="rect" className={classes.carousel} />
             )}
           </Grid>
-          <div style={{ display: matches ? 'flex' : 'none', alignItems: 'center', justifyContent: 'center' }}
+          <div style={{ display: matches ? 'flex' : 'none', alignItems: 'center', justifyContent: 'center' }} key="envivo"
           >
             <Button
               variant="contained"

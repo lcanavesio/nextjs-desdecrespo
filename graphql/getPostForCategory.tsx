@@ -1,9 +1,9 @@
 import gql from "graphql-tag"
 
 export const getPostRecientes = gql`
-query getPostsForCategory($categoryName: String!) {
+query getPostsForCategory($first: Int, $categoryName: String!) {
     posts(
-      first: 10
+      first: $first
       where: {
         orderby: { field: DATE, order: DESC }
         categoryName: $categoryName

@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
-import { gql, useQuery } from '@apollo/client';
 import { CircularProgress, Grid, useMediaQuery } from '@material-ui/core';
+import { useGetPostsForCategoryQuery } from 'graphql/types';
 import React from 'react';
 import { useStylesGlobal } from '../../utils/GlobalStyle';
 import HeaderTitle from '../common/headerTitle';
@@ -9,64 +9,18 @@ import FeaturedPost from './FeaturedPost';
 const NoSePierda = () => {
   const classesGlobal = useStylesGlobal();
   const matches = useMediaQuery('(max-width:1279px)');
-  const getPostsVarios = gql`
-    query getPosts {
-      posts(
-        first: 2
-        where: {
-          orderby: { field: DATE, order: DESC }
-          categoryName: "Sociales, Cumpleaños, Espectáculos, Cocina, Business, Life, Politics"
-        }
-      ) {
-        edges {
-          node {
-            id
-            date
-            title
-            slug
-            featuredImage {
-              node {
-                mediaItemUrl
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
+ 
+  const {loading, error, data } = useGetPostsForCategoryQuery({variables: {
+    first: 2, categoryName: "Sociales, Cumpleaños, Espectáculos, Cocina, Business, Life, Politics"
+  } });
 
-  const getPostsEducacion = gql`
-    query getPosts {
-      posts(
-        first: 4
-        where: {
-          orderby: { field: DATE, order: DESC }
-          categoryName: "Educación"
-        }
-      ) {
-        edges {
-          node {
-            id
-            date
-            title
-            slug
-            featuredImage {
-              node {
-                mediaItemUrl
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
-
-  const {loading, error, data} = useQuery(getPostsVarios);
   const {
     loading: loadingEducacion,
     error: errorEducacion,
     data: dataEducacion,
-  } = useQuery(getPostsEducacion);
+  } = useGetPostsForCategoryQuery({variables: {
+    first: 4, categoryName: "Educación"
+  } });
 
   const postsVarios = data?.posts?.edges?.map((edge) => edge.node) || null;
   const postsEducacion =

@@ -1,6 +1,6 @@
 import { CssBaseline, Grid, makeStyles } from "@material-ui/core";
 import Image from "next/image";
-import React from "react";
+import React, { memo } from "react";
 import ClicMe from "../../components/inmobiliaria/ClicMe";
 import TabFourPosts from "../../components/post//TabFourPosts";
 import NoSePierda from "../../components/post/NoSePierda";
@@ -45,7 +45,6 @@ const LayoutDesktop = () => {
   return (
     <Layout>
       <section className={classes.container}>
-        {/* <SEO title="Inicio" /> */}
         <CssBaseline />
         <Grid container className={classes.container}>
           <Grid lg={9}>
@@ -74,13 +73,13 @@ const LayoutDesktop = () => {
               first={6}
               titulo="Crespo"
             />
-           <div className={classes.advertisingContainer} style={{ marginLeft: -5, marginRight: -5 }}>
-            <PublicidadGenerico
-              key="NEXT_PUBLIC_PUBLICIDAD6"
-              href={process.env.NEXT_PUBLIC_PUBLICIDAD6}
-            />
+            <div className={classes.advertisingContainer} style={{ marginLeft: -5, marginRight: -5 }}>
+              <PublicidadGenerico
+                key="NEXT_PUBLIC_PUBLICIDAD6"
+                href={process.env.NEXT_PUBLIC_PUBLICIDAD6}
+              />
             </div>
-           
+
           </Grid>
           <Grid lg={3} className={classes.rightColumn}>
             <TV />
@@ -149,20 +148,22 @@ const LayoutDesktop = () => {
                 height={200}
                 loading="lazy"
               />
-              {/* <a
-              href="http://galarza.gov.ar/licitaciones"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Image
-                className={classes.image}
-                src={process.env.NEXT_PUBLIC_PUBLICIDAD7}
-                alt="NEXT_PUBLIC_PUBLICIDAD7"
-                width={321}
-                height={266}
-                loading="lazy"
-              />
-            </a> */}
+              {process.env.PUBLICIDAD7 && <a
+
+                href="http://galarza.gov.ar/licitaciones"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Image
+                  className={classes.image}
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD7}
+                  alt="NEXT_PUBLIC_PUBLICIDAD7"
+                  width={321}
+                  height={266}
+                  loading="lazy"
+                />
+              </a>
+              }
             </Grid>
           </Grid>
           <PolicialesProvinciales key="policialesprovinciales" />
@@ -194,4 +195,4 @@ const LayoutDesktop = () => {
   );
 };
 
-export default LayoutDesktop;
+export default memo(LayoutDesktop);

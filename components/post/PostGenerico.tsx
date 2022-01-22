@@ -1,4 +1,3 @@
-import { gql, useQuery } from "@apollo/client";
 import { Grid, GridSize } from "@material-ui/core";
 import { Skeleton } from "@material-ui/lab";
 import React from "react";
@@ -75,16 +74,16 @@ const PostGenerico = (props: Props) => {
       <HeaderTitle title={titulo} />
       {!loading && posts
         ? posts.map((post, index) => (
-            <Grid
-              style={{ paddingLeft: 10, paddingRight: 10, width: "100%" }}
-              item
-              key={index}
-              lg={gridValue}
-              className={classesGlobal.card}
-            >
-              <FeaturedPost key={index} post={post} />
-            </Grid>
-          ))
+          <Grid
+            style={{ paddingLeft: 10, paddingRight: 10, width: "100%" }}
+            item
+            key={index}
+            lg={gridValue}
+            className={classesGlobal.card}
+          >
+            <FeaturedPost key={index} post={post} />
+          </Grid>
+        ))
         : showSkeleton()}
     </Grid>
   );

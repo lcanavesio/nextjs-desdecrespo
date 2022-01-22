@@ -1,10 +1,8 @@
-import { gql, useQuery } from "@apollo/client";
 import { useMediaQuery } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { Skeleton } from "@material-ui/lab";
 import Image from "material-ui-image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { useGetPostsQuery } from "../../graphql/types";
@@ -68,7 +66,8 @@ const SlidePosts = () => {
   return (
     <>
       {!loading && posts ? (
-        <Carousel className={classes.carousel} animation={"slide"}>
+        <Carousel className={classes.carousel} animation={"slide"} interval={9000}>
+
           {posts.map((post, index) => (
             <div key={index}>
               <Link
@@ -76,7 +75,7 @@ const SlidePosts = () => {
                 href={"/posts/[slug]"}
                 as={`/posts/${post.slug}`}
               >
-                <div style={{cursor: "pointer"}}>
+                <div style={{ cursor: "pointer" }}>
                   <Image
                     src={post.featuredImage?.node?.mediaItemUrl}
                     alt={post.title}

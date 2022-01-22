@@ -26,7 +26,7 @@ type Props = {
 }
 
 const InfiniteScrollComponent = (props: Props) => {
-  const {categoryParams} = props;
+  const { categoryParams } = props;
 
   const getPosts = gql`
     query getPosts($categoryName: String, $first: Int, $cursor: String) {
@@ -58,18 +58,18 @@ const InfiniteScrollComponent = (props: Props) => {
   `;
 
   const category: Category = Constants.CATEGORIES.find(
-      (c) => c.url ===  (typeof window !== 'undefined' ? location.pathname : ''),
+    (c) => c.url === (typeof window !== 'undefined' ? location.pathname : ''),
   );
 
-  const {loading, error, data, fetchMore, networkStatus} = useQuery(
-      getPosts,
-      {
-        variables: {
-          categoryName: category ? category.databaseName : categoryParams,
-          first: 10,
-          cursor: null,
-        },
+  const { loading, error, data, fetchMore, networkStatus } = useQuery(
+    getPosts,
+    {
+      variables: {
+        categoryName: category ? category.databaseName : categoryParams,
+        first: 10,
+        cursor: null,
       },
+    },
   );
   const edges = data?.posts?.edges || null;
   const classes = useStyles();
@@ -80,13 +80,11 @@ const InfiniteScrollComponent = (props: Props) => {
 
   return (
     <section className={classes.container}>
-      {/* <SEO title="Inicio" /> */}
       <CssBaseline />
-
       <List>
         {edges.map((x, i) => (
           <React.Fragment key={x.id}>
-            <ListItem style={{paddingLeft: 0, paddingRight: 0}}>
+            <ListItem style={{ paddingLeft: 0, paddingRight: 0 }}>
               <PostCard post={x.node} />
             </ListItem>
             {i === edges.length - 2 && (
@@ -97,7 +95,7 @@ const InfiniteScrollComponent = (props: Props) => {
                       first: 5,
                       cursor: edges[edges.length - 1].cursor,
                     },
-                    updateQuery: (pv, {fetchMoreResult}) => {
+                    updateQuery: (pv, { fetchMoreResult }) => {
                       if (!fetchMoreResult) {
                         return pv;
                       }

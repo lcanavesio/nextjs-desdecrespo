@@ -1,5 +1,5 @@
 
-schema: schemaurl
+schema: https
 documents: ./graphql/**/*.{ts,tsx}
 overwrite: true
 generates:

@@ -61,7 +61,7 @@ export default function FeaturedPost(props: Props) {
   const matches = useMediaQuery("(max-width:1279px)");
   return (
     <div key={post?.id}>
-      <Card className={classes.card} style={{ minWidth: "100%" }}>
+      <Card key={post?.id}  className={classes.card} style={{ minWidth: "100%" }}>
         <CardActionArea
           onClick={() => router.push(`/posts/[slug]`, `/posts/${post.slug}`)}
           style={{ minWidth: "100%" }}

@@ -6,7 +6,7 @@ import {
   Divider,
   Grid,
   TextField,
-  Tooltip,
+  Tooltip
 } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
@@ -16,12 +16,11 @@ import Typography from "@material-ui/core/Typography";
 import CloseIcon from "@material-ui/icons/Close";
 import SearchIcon from "@material-ui/icons/Search";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
-
 import React from "react";
 import { CMS_NAME } from "../../lib/constants";
 import Ultimo from "../ultimo/ultimo";
+
 
 const useStyles = makeStyles((theme) => ({
   bannerContainer: {
