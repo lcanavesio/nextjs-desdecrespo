@@ -1,13 +1,12 @@
-import React from 'react';
-import IndividualPost from '../components/post/IndividualPost';
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const PostRootPage = (props: any) => {
-    const params: String[] =
-        typeof window !== 'undefined' ? location.pathname.split('/') : '';
-    const slug: String = params[1];
+  const router = useRouter();
 
-    return (
-        <IndividualPost slug={slug} />
-    );
+  useEffect(() => {
+    router.push(`/post/[slug]`, `/post/${router.query.slug}`);
+  }, [router.query]);
+  return null;
 };
 export default PostRootPage;
