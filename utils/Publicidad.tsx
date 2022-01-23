@@ -1,6 +1,7 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import Image from "next/image";
 import React from "react";
+import { getSecondPartPublicidad } from "./constants";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -22,7 +23,7 @@ export const PublicidadPrincipal = () => {
       <Grid item lg={4} className={classes.card}>
         <Image
           src={process.env.NEXT_PUBLIC_PUBLICIDAD2}
-          alt="NEXT_PUBLIC_PUBLICIDAD2"
+          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD2)}
           width={310}
           height={240}
           loading="lazy"
@@ -34,27 +35,26 @@ export const PublicidadPrincipal = () => {
           target="_blank"
           rel="noreferrer"
         >
-             <Image
-          src={process.env.NEXT_PUBLIC_PUBLICIDAD3}
-          alt="NEXT_PUBLIC_PUBLICIDAD3"
-          width={300}
-          height={268}
-          loading="lazy"
-        />
+          <Image
+            src={process.env.NEXT_PUBLIC_PUBLICIDAD3}
+            alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD3)}
+            width={300}
+            height={268}
+            loading="lazy"
+          />
 
-      
+
         </a>
       </Grid>
       <Grid item lg={4} className={classes.card}>
-      <Image
+        <Image
           src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
-          alt="NEXT_PUBLIC_PUBLICIDAD4"
+          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)}
           width={300}
           height={268}
           loading="lazy"
         />
 
-        {/* <img src={process.env.NEXT_PUBLIC_PUBLICIDAD4} /> */}
       </Grid>
     </Grid>
   );
@@ -69,7 +69,7 @@ export const PublicidadGenerico = (props: PublicidadGenerico) => {
   return (
     <Grid container>
       <Grid item lg={12} className={classes.card}>
-        <img src={href} className={classes.advertisingContainer} />
+        <img src={href} className={classes.advertisingContainer} alt={getSecondPartPublicidad(href)} />
       </Grid>
     </Grid>
   );

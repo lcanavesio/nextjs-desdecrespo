@@ -17,6 +17,7 @@ import Layout from "./Layout";
 import PostsRecientes from "../post/PostsRecientes";
 import Radio from "../radio/radio";
 import SocialFlow from "../social/SocialFollow";
+import { getSecondPartPublicidad } from "utils/constants";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -91,8 +92,8 @@ const LayoutDesktop = () => {
             <div className={classes.advertisingContainer}>
               <Image
                 className={classes.image}
-                src="https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/fh.png"
-                alt="fh"
+                src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
+                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD8)}
                 width={320}
                 height={120}
                 loading="lazy"
@@ -104,7 +105,7 @@ const LayoutDesktop = () => {
               <Image
                 className={classes.image}
                 src={process.env.NEXT_PUBLIC_PUBLICIDAD5}
-                alt="NEXT_PUBLIC_PUBLICIDAD5"
+                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)}
                 width={321}
                 height={200}
                 loading="lazy"
@@ -122,10 +123,8 @@ const LayoutDesktop = () => {
             <Grid item lg={12} style={{ marginLeft: -10, marginRight: -10 }}>
               <Image
                 className={classes.image}
-                src={
-                  "https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/Cabezal_Almanaque_SUSPENDIDO.jpg"
-                }
-                alt="astillero-dte"
+                src={process.env.NEXT_PUBLIC_PUBLICIDAD7}
+                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD7)}
                 width={321}
                 height={200}
                 loading="lazy"
@@ -133,8 +132,8 @@ const LayoutDesktop = () => {
 
               <Image
                 className={classes.image}
-                src="https://admin.desdecrespo.com.ar/wp-content/uploads/2021/06/Cont.-Visintin.png"
-                alt="astillero-dte"
+                src={process.env.NEXT_PUBLIC_PUBLICIDAD9}
+                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD9)}
                 width={321}
                 height={200}
                 loading="lazy"
@@ -142,28 +141,13 @@ const LayoutDesktop = () => {
 
               <Image
                 className={classes.image}
-                src="https://admin.desdecrespo.com.ar/wp-content/uploads/2021/09/Screenshot_2021-09-18-11-50-08-1024x576.png"
-                alt="jorgelina-dufour"
+                src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
+                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
                 width={321}
                 height={200}
                 loading="lazy"
               />
-              {process.env.PUBLICIDAD7 && <a
-
-                href="http://galarza.gov.ar/licitaciones"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Image
-                  className={classes.image}
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD7}
-                  alt="NEXT_PUBLIC_PUBLICIDAD7"
-                  width={321}
-                  height={266}
-                  loading="lazy"
-                />
-              </a>
-              }
+        
             </Grid>
           </Grid>
           <PolicialesProvinciales key="policialesprovinciales" />

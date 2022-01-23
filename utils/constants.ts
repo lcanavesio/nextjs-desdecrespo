@@ -86,3 +86,8 @@ export abstract class Constants {
     // y en title y URL a que categoria lo llevaria el breadcrumb
   ]
 }
+
+
+export function getSecondPartPublicidad(str: string) {
+  return str.split('uploads')[1];
+}

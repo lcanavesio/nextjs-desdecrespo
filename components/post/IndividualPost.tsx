@@ -7,6 +7,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import Image from "material-ui-image";
 import React from "react";
+import { getSecondPartPublicidad } from "utils/constants";
 import DateComponent from "../../utils/dateFormater";
 import Breadcrumb from "../breadcrumb/breadcrumb";
 import InfiniteScrollComponent from "../categoria/infiniteScroll";
@@ -44,9 +45,9 @@ const useStyles = makeStyles((theme) => ({
     },
     // eslint-disable-next-line max-len
     ".the_champ_sharing_container.the_champ_vertical_sharing.the_champ_hide_sharing.the_champ_bottom_sharing":
-      {
-        display: "none",
-      },
+    {
+      display: "none",
+    },
   },
 }));
 
@@ -62,12 +63,12 @@ const IndividualPost = (props: Props) => {
   const locationHref: String =
     typeof window !== "undefined"
       ? location.href.replace(
-          "http://localhost:3000/",
-          "https://desdecrespo.com.ar/"
-        )
+        "http://localhost:3000/",
+        "https://desdecrespo.com.ar/"
+      )
       : "";
 
- 
+
   const category = data?.categories.edges?.map((edge) => edge.node) || null;
   const classes = useStyles();
   return (
@@ -89,7 +90,7 @@ const IndividualPost = (props: Props) => {
                         color="inherit"
                         gutterBottom
                         style={{
-                          paddingTop: 20, 
+                          paddingTop: 20,
                           fontSize: "40px",
                           color: "#1f1f1f",
                           lineHeight: "1",
@@ -148,32 +149,29 @@ const IndividualPost = (props: Props) => {
               <Grid lg={3} className={classes.rightColumn}>
                 <PostsRecientes />
                 <HeaderTitle title="PUBLICITE AQUÍ" />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD5} />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD2} />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD4} />
+                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD5} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)} />
+                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD2} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD2)} />
+                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD4} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)} />
                 <img
-                  src="https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/Cabezal_Almanaque_SUSPENDIDO.jpg"
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD7} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD7)}
                   className={classes.image}
                 />
                 <img
-                  src=" https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/fh.png"
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD8} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD8)}
                   className={classes.image}
                 />
                 <img
-                  src="https://admin.desdecrespo.com.ar/wp-content/uploads/2021/06/Cont.-Visintin.png"
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD9} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD9)}
                   className={classes.image}
                 />
+
                 <img
-                  src="https://admin.desdecrespo.com.ar/wp-content/uploads/2021/09/Screenshot_2021-09-18-11-50-08-1024x576.png"
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD10} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
                   className={classes.image}
                 />
-                <a
-                  href="http://galarza.gov.ar/licitaciones"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img src={process.env.NEXT_PUBLIC_PUBLICIDAD7} />
-                </a>
+
+
+
                 <HeaderTitle title="NO SE PIERDA" />
                 <InfiniteScrollSimple
                   categoryParams={
@@ -240,34 +238,31 @@ const IndividualPost = (props: Props) => {
               </Grid>
               <Grid item lg={11}>
                 <img
-                  src=" https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/fh.png"
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD8} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD8)}
                   className={classes.image}
                 />
+
                 <PostsRecientes />
                 <HeaderTitle title="PUBLICITE AQUÍ" />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD5} />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD2} />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD4} />
+                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD5} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)} />
+                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD2} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD2)} />
+                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD4} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)} />
                 <img
-                  src="https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/Cabezal_Almanaque_SUSPENDIDO.jpg"
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD7} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD7)}
                   className={classes.image}
                 />
 
                 <img
-                  src="https://admin.desdecrespo.com.ar/wp-content/uploads/2021/06/Cont.-Visintin.png"
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD9} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD9)}
                   className={classes.image}
                 />
+
                 <img
-                  src="https://admin.desdecrespo.com.ar/wp-content/uploads/2021/09/Screenshot_2021-09-18-11-50-08-1024x576.png"
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD10} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
                   className={classes.image}
                 />
-                <a
-                  href="http://galarza.gov.ar/licitaciones"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img src={process.env.NEXT_PUBLIC_PUBLICIDAD7} />
-                </a>
+
+
                 <HeaderTitle title="NO SE PIERDA" />
                 <InfiniteScrollSimple
                   categoryParams={

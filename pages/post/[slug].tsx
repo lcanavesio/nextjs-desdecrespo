@@ -4,8 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Layout from "../../components/layout/Layout";
 import IndividualPost from "../../components/post/IndividualPost";
-import Tags from "../../components/tags";
-import { getAllPostsWithSlug, getPostAndMorePosts } from "../../lib/api";
+import { getPostAndMorePosts } from "../../lib/api";
 import { CMS_NAME } from "../../lib/constants";
 
 export default function Post({ post }) {
@@ -77,10 +76,6 @@ export default function Post({ post }) {
             <Layout>
               <IndividualPost data={post} />
             </Layout>
-
-            <footer>
-              {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
-            </footer>
           </article>
         </>
       )}
@@ -100,10 +95,10 @@ export async function getStaticProps({ params, preview = false, previewData }) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
+  //const allPosts = await getAllPostsWithSlug();
 
   return {
-    paths: allPosts.edges.map(({ node }) => `/post/${node.slug}`) || [],
+    paths: [], //allPosts.edges.map(({ node }) => `/post/${node.slug}`) || [],
     fallback: true,
   };
 }

@@ -1,6 +1,7 @@
 import { CssBaseline, Grid, makeStyles } from "@material-ui/core";
 import Image from "next/image";
 import React, { memo } from "react";
+import { getSecondPartPublicidad } from "utils/constants";
 import ClicMe from "../../components/inmobiliaria/ClicMe";
 import TabFourPosts from "../../components/post//TabFourPosts";
 import NoSePierda from "../../components/post/NoSePierda";
@@ -49,7 +50,7 @@ const LayoutMobile = () => {
           <div className={classes.advertisingContainer}>
             <Image
               src={process.env.NEXT_PUBLIC_PUBLICIDAD1}
-              alt="senado"
+              alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD1)}
               width={250}
               height={40}
               layout="responsive"
@@ -68,7 +69,7 @@ const LayoutMobile = () => {
           <div className={classes.advertisingContainer}>
             <Image
               src={process.env.NEXT_PUBLIC_PUBLICIDAD2}
-              alt="diputados"
+              alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD2)}
               width={100}
               height={100}
               layout="responsive"
@@ -87,8 +88,8 @@ const LayoutMobile = () => {
             >
               <Image
                 className={classes.image}
-                src="https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/fh.png"
-                alt="fh"
+                src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
+                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD8)}
                 width="100%"
                 height="100%"
                 layout="responsive"
@@ -114,7 +115,7 @@ const LayoutMobile = () => {
               <Image
                 className={classes.image}
                 src={process.env.NEXT_PUBLIC_PUBLICIDAD3}
-                alt="redes_sociales"
+                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD3)}
                 width="100%"
                 height="100%"
                 layout="responsive"
@@ -127,8 +128,8 @@ const LayoutMobile = () => {
           <div className={classes.advertisingContainer}>
             <Image
               className={classes.image}
-              src="https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/Cabezal_Almanaque_SUSPENDIDO.jpg"
-              alt="astilleros_diamante"
+              src={process.env.NEXT_PUBLIC_PUBLICIDAD7}
+              alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD7)}
               width="100%"
               height="100%"
               layout="responsive"
@@ -146,7 +147,7 @@ const LayoutMobile = () => {
             <Image
               className={classes.image}
               src={process.env.NEXT_PUBLIC_PUBLICIDAD5}
-              alt="mottaa"
+              alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)}
               width="100%"
               height="100%"
               layout="responsive"
@@ -163,8 +164,8 @@ const LayoutMobile = () => {
           <div className={classes.advertisingContainer}>
             <Image
               className={classes.image}
-              src="https://admin.desdecrespo.com.ar/wp-content/uploads/2021/09/Screenshot_2021-09-18-11-50-08-1024x576.png"
-              alt="jorgelina_dufour"
+              src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
+              alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
               width="100%"
               height="100%"
               layout="responsive"
@@ -181,8 +182,8 @@ const LayoutMobile = () => {
           <div className={classes.advertisingContainer}>
             <Image
               className={classes.image}
-              src="https://admin.desdecrespo.com.ar/wp-content/uploads/2021/06/Cont.-Visintin.png"
-              alt="visintin"
+              src={process.env.NEXT_PUBLIC_PUBLICIDAD9}
+              alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD9)}
               width="100%"
               height="100%"
               layout="responsive"
