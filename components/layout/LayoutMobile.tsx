@@ -128,8 +128,8 @@ const LayoutMobile = () => {
           <div className={classes.advertisingContainer}>
             <Image
               className={classes.image}
-              src={process.env.NEXT_PUBLIC_PUBLICIDAD7}
-              alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD7)}
+              src={process.env.NEXT_PUBLIC_PUBLICIDAD5}
+              alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)}
               width="100%"
               height="100%"
               layout="responsive"
@@ -146,8 +146,8 @@ const LayoutMobile = () => {
           <div className={classes.advertisingContainer}>
             <Image
               className={classes.image}
-              src={process.env.NEXT_PUBLIC_PUBLICIDAD5}
-              alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)}
+              src={process.env.NEXT_PUBLIC_PUBLICIDAD7}
+              alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD7)}
               width="100%"
               height="100%"
               layout="responsive"

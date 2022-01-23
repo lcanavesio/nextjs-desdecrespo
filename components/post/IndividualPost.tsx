@@ -149,13 +149,16 @@ const IndividualPost = (props: Props) => {
               <Grid lg={3} className={classes.rightColumn}>
                 <PostsRecientes />
                 <HeaderTitle title="PUBLICITE AQUÍ" />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD5} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)} />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD2} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD2)} />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD4} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)} />
+                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD5} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)}
+                  className={classes.image} />
+                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD2} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD2)}
+                  className={classes.image} />
+                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD4} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)}
+                  className={classes.image} />
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD7} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD7)}
                   className={classes.image}
-                />
+                />  
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD8} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD8)}
                   className={classes.image}
@@ -164,13 +167,10 @@ const IndividualPost = (props: Props) => {
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD9} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD9)}
                   className={classes.image}
                 />
-
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD10} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
                   className={classes.image}
                 />
-
-
 
                 <HeaderTitle title="NO SE PIERDA" />
                 <InfiniteScrollSimple
@@ -241,22 +241,22 @@ const IndividualPost = (props: Props) => {
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD8} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD8)}
                   className={classes.image}
                 />
-
                 <PostsRecientes />
                 <HeaderTitle title="PUBLICITE AQUÍ" />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD5} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)} />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD2} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD2)} />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD4} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)} />
+                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD5} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)}
+                  className={classes.image} />
+                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD2} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD2)}
+                  className={classes.image} />
+                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD4} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)}
+                  className={classes.image} />
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD7} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD7)}
                   className={classes.image}
                 />
-
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD9} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD9)}
                   className={classes.image}
                 />
-
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD10} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
                   className={classes.image}
