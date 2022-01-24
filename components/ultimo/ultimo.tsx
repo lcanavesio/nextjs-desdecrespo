@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
     '-webkit-box-orient': 'vertical',
     'overflow': 'hidden',
     'textOverflow': 'ellipsis',
+    cursor: 'pointer',
   },
   link: {
     color: 'black',
