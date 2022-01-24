@@ -11,7 +11,7 @@ import HeaderMobile from "./HeaderMobile";
 import NavigatorMobile from "./NavigatorMobile";
 const ActiveRadio = dynamic(() => import("../radio/activeRadio"), {
   ssr: false,
-  });
+});
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -51,7 +51,7 @@ const Layout = (props: Layout) => {
   return (
     <>
       <Meta />
-  
+
       {client && (
         <ApolloProvider client={client}>
           {matches ? (
