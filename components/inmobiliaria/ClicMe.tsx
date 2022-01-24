@@ -91,7 +91,8 @@ const ClicMe = () => {
               rel="noreferrer">
               <img
                 src="https://admin.desdecrespo.com.ar/wp-includes/images/clic-aqui.gif"
-                className={classes.clickMe} />
+                className={classes.clickMe}
+                alt='clic-aqui' />
               <label
                 className={classes.crespoInmobiliaria}>CRESPO INMOBILIARIA
               </label>
