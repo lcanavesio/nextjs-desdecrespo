@@ -38,7 +38,6 @@ const LayoutMobile = () => {
   return (
     <Layout>
       <section className={classes.container}>
-        {/* <SEO title="Inicio" /> */}
         <CssBaseline />
         <Grid container className={classes.container}>
           <Grid item lg={12}>

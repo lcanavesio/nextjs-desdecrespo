@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import React, { memo, useEffect, useState } from "react";
 import clientApollo from "../../lib/apolloClient";
 import { Constants } from "../../utils/constants";
-import Meta from "../meta";
 import Footer from "./Footer";
 import Header from "./Header";
 import HeaderMobile from "./HeaderMobile";
@@ -50,7 +49,7 @@ const Layout = (props: Layout) => {
 
   return (
     <>
-      <Meta />
+     
   
       {client && (
         <ApolloProvider client={client}>
