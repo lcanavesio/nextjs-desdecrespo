@@ -17,6 +17,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import SearchIcon from "@material-ui/icons/Search";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { CMS_NAME } from "../../lib/constants";
 import Ultimo from "../ultimo/ultimo";
@@ -98,6 +99,7 @@ type Props = {
 export default function Header(props: Props) {
   const { sections } = props;
   const classes = useStyles();
+  const router = useRouter();
 
   const [open, setOpen] = React.useState(false);
   const [keyword, setKeyword] = React.useState("");
@@ -114,7 +116,7 @@ export default function Header(props: Props) {
 
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
-    ///navigate(`/busqueda?keyword=${keyword}`);
+    router.push(`/busqueda?keyword=${keyword}`);
     setOpen(false);
   };
 

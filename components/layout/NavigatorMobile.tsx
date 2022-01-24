@@ -22,6 +22,7 @@ import {
 import SearchIcon from "@material-ui/icons/Search";
 import clsx from "clsx";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { memo } from "react";
 import { Constants } from "../../utils/constants";
 
@@ -63,6 +64,7 @@ export interface NavigatorProps extends Omit<DrawerProps, "classes"> {}
 function NavigatorMobile(props: any) {
   const { ...other } = props;
   const classes = useStyles();
+  const router = useRouter();
 
   const [open, setOpen] = React.useState(false);
   const [keyword, setKeyword] = React.useState("");
@@ -79,7 +81,7 @@ function NavigatorMobile(props: any) {
 
   const handleFormSubmit = (e: any) => {
     e.preventDefault();
-    // navigate(`/busqueda?keyword=${keyword}`);
+    router.push(`/busqueda?keyword=${keyword}`);
     setOpen(false);
     onCloseDialog();
   };

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Brightness1Icon from '@material-ui/icons/Brightness1';
 import FlashOnIcon from '@material-ui/icons/FlashOn';
 import { Skeleton } from '@material-ui/lab';
-import { useGetPostForUltimoQuery } from 'graphql/types';
+import { useGetPostsQuery } from 'graphql/types';
 import Link from 'next/link';
 import React from 'react';
 import Carousel from 'react-material-ui-carousel';
@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
     '-webkit-box-orient': 'vertical',
     'overflow': 'hidden',
     'textOverflow': 'ellipsis',
+    cursor: "pointer",
   },
   link: {
     color: 'black',
@@ -68,7 +69,9 @@ const Ultimo = () => {
   const classes = useStyles();
   const matches = useMediaQuery('(min-width:900px)');
 
-  const { loading, error, data } = useGetPostForUltimoQuery();
+  const { loading, error, data } = useGetPostsQuery({
+    variables: {  first : 5 },
+  });
   const posts = data?.posts?.edges?.map((edge) => edge.node) || null;
 
   if (error) return null;
