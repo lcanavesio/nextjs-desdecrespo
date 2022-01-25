@@ -46,14 +46,19 @@ const LayoutMobile = () => {
             </Grid>
           </Grid>
           {/* <TV /> */}
-          <div className={classes.advertisingContainer}>
+          <div
+            className={classes.advertisingContainer}
+            style={{
+              width: 414,
+              height: 45,
+              position: "relative",
+            }}
+          >
             <Image
               src={process.env.NEXT_PUBLIC_PUBLICIDAD1}
               alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD1)}
-              width={250}
-              height={40}
-              layout="responsive"
-              loading="lazy"
+              layout="fill"
+              objectFit="contain"
             />
           </div>
 
@@ -88,7 +93,9 @@ const LayoutMobile = () => {
               <Image
                 className={classes.image}
                 src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
-                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD8)}
+                alt={getSecondPartPublicidad(
+                  process.env.NEXT_PUBLIC_PUBLICIDAD8
+                )}
                 width="100%"
                 height="100%"
                 layout="responsive"
@@ -114,7 +121,9 @@ const LayoutMobile = () => {
               <Image
                 className={classes.image}
                 src={process.env.NEXT_PUBLIC_PUBLICIDAD3}
-                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD3)}
+                alt={getSecondPartPublicidad(
+                  process.env.NEXT_PUBLIC_PUBLICIDAD3
+                )}
                 width="100%"
                 height="100%"
                 layout="responsive"
@@ -164,7 +173,9 @@ const LayoutMobile = () => {
             <Image
               className={classes.image}
               src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
-              alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
+              alt={getSecondPartPublicidad(
+                process.env.NEXT_PUBLIC_PUBLICIDAD10
+              )}
               width="100%"
               height="100%"
               layout="responsive"

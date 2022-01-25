@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { useRouter } from "next/router";
 import React from "react";
+import LazyCardMedia from "../../utils/LazyCardMedia";
 
 const useStyles = makeStyles((theme) => ({
   post: {
@@ -66,8 +67,7 @@ export default function FeaturedPost(props: Props) {
           onClick={() => router.push(`/post/[slug]`, `/post/${post.slug}`)}
           style={{ minWidth: "100%" }}
         >
-          <CardMedia
-            style={{ minWidth: "100%" }}
+          <LazyCardMedia
             className={classes.cardMedia}
             component="img"
             alt={post?.title}
