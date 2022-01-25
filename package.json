@@ -31,6 +31,7 @@
     "react-material-ui-carousel": "^2.3.5",
     "react-player": "^2.9.0",
     "react-waypoint": "^10.1.0",
+    "sharp": "^0.29.3",
     "sitemap": "^7.1.0",
     "stream": "^0.0.2"
   },
