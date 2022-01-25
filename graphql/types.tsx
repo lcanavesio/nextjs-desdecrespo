@@ -7672,12 +7672,26 @@ export type GetPostsQueryVariables = Exact<{
 
 export type GetPostsQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges?: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node?: { __typename?: 'Post', id: string, date?: string | null | undefined, title?: string | null | undefined, slug?: string | null | undefined, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node?: { __typename?: 'MediaItem', mediaItemUrl?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
 
+export type GetPostsForSlideQueryVariables = Exact<{
+  first?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type GetPostsForSlideQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges?: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node?: { __typename?: 'Post', id: string, date?: string | null | undefined, title?: string | null | undefined, slug?: string | null | undefined, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node?: { __typename?: 'MediaItem', mediaItemUrl?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
+
 export type PostByQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
 
 export type PostByQuery = { __typename?: 'RootQuery', postBy?: { __typename?: 'Post', content?: string | null | undefined, slug?: string | null | undefined, title?: string | null | undefined, uri?: string | null | undefined, date?: string | null | undefined, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node?: { __typename?: 'MediaItem', mediaItemUrl?: string | null | undefined } | null | undefined } | null | undefined, categories?: { __typename?: 'PostToCategoryConnection', nodes?: Array<{ __typename?: 'Category', name?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined } | null | undefined };
+
+export type GetPostTabForPostsQueryVariables = Exact<{
+  categoryName: Scalars['String'];
+}>;
+
+
+export type GetPostTabForPostsQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges?: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node?: { __typename?: 'Post', id: string, date?: string | null | undefined, title?: string | null | undefined, slug?: string | null | undefined, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node?: { __typename?: 'MediaItem', mediaItemUrl?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
 
 
 export const GetPostsForCategoryDocument = gql`
@@ -7921,6 +7935,56 @@ export function useGetPostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<G
 export type GetPostsQueryHookResult = ReturnType<typeof useGetPostsQuery>;
 export type GetPostsLazyQueryHookResult = ReturnType<typeof useGetPostsLazyQuery>;
 export type GetPostsQueryResult = Apollo.QueryResult<GetPostsQuery, GetPostsQueryVariables>;
+export const GetPostsForSlideDocument = gql`
+    query getPostsForSlide($first: Int) {
+  posts(
+    first: $first
+    where: {orderby: {field: DATE, order: DESC}, tag: "Destacadas, Destacados"}
+  ) {
+    edges {
+      node {
+        id
+        date
+        title
+        slug
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetPostsForSlideQuery__
+ *
+ * To run a query within a React component, call `useGetPostsForSlideQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostsForSlideQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostsForSlideQuery({
+ *   variables: {
+ *      first: // value for 'first'
+ *   },
+ * });
+ */
+export function useGetPostsForSlideQuery(baseOptions?: Apollo.QueryHookOptions<GetPostsForSlideQuery, GetPostsForSlideQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPostsForSlideQuery, GetPostsForSlideQueryVariables>(GetPostsForSlideDocument, options);
+      }
+export function useGetPostsForSlideLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPostsForSlideQuery, GetPostsForSlideQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPostsForSlideQuery, GetPostsForSlideQueryVariables>(GetPostsForSlideDocument, options);
+        }
+export type GetPostsForSlideQueryHookResult = ReturnType<typeof useGetPostsForSlideQuery>;
+export type GetPostsForSlideLazyQueryHookResult = ReturnType<typeof useGetPostsForSlideLazyQuery>;
+export type GetPostsForSlideQueryResult = Apollo.QueryResult<GetPostsForSlideQuery, GetPostsForSlideQueryVariables>;
 export const PostByDocument = gql`
     query postBy($slug: String!) {
   postBy(slug: $slug) {
@@ -7970,3 +8034,53 @@ export function usePostByLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Pos
 export type PostByQueryHookResult = ReturnType<typeof usePostByQuery>;
 export type PostByLazyQueryHookResult = ReturnType<typeof usePostByLazyQuery>;
 export type PostByQueryResult = Apollo.QueryResult<PostByQuery, PostByQueryVariables>;
+export const GetPostTabForPostsDocument = gql`
+    query getPostTabForPosts($categoryName: String!) {
+  posts(
+    first: 4
+    where: {orderby: {field: DATE, order: DESC}, categoryName: $categoryName, tagNotIn: [9589, 9377]}
+  ) {
+    edges {
+      node {
+        id
+        date
+        title
+        slug
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetPostTabForPostsQuery__
+ *
+ * To run a query within a React component, call `useGetPostTabForPostsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostTabForPostsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostTabForPostsQuery({
+ *   variables: {
+ *      categoryName: // value for 'categoryName'
+ *   },
+ * });
+ */
+export function useGetPostTabForPostsQuery(baseOptions: Apollo.QueryHookOptions<GetPostTabForPostsQuery, GetPostTabForPostsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPostTabForPostsQuery, GetPostTabForPostsQueryVariables>(GetPostTabForPostsDocument, options);
+      }
+export function useGetPostTabForPostsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPostTabForPostsQuery, GetPostTabForPostsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPostTabForPostsQuery, GetPostTabForPostsQueryVariables>(GetPostTabForPostsDocument, options);
+        }
+export type GetPostTabForPostsQueryHookResult = ReturnType<typeof useGetPostTabForPostsQuery>;
+export type GetPostTabForPostsLazyQueryHookResult = ReturnType<typeof useGetPostTabForPostsLazyQuery>;
+export type GetPostTabForPostsQueryResult = Apollo.QueryResult<GetPostTabForPostsQuery, GetPostTabForPostsQueryVariables>;

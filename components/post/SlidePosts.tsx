@@ -5,7 +5,7 @@ import Image from "material-ui-image";
 import Link from "next/link";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { useGetPostsQuery } from "../../graphql/types";
+import { useGetPostsForSlideQuery } from "../../graphql/types";
 
 const useStyles = makeStyles((theme) => ({
   carousel: {
@@ -60,7 +60,7 @@ const SlidePosts = () => {
   const classes = useStyles();
   const matches = useMediaQuery("(max-width:550px)");
 
-  const { loading, error, data: dataPosts } = useGetPostsQuery();
+  const { loading, error, data: dataPosts } = useGetPostsForSlideQuery({variables: {first: 8}});
   const posts = dataPosts?.posts?.edges?.map((edge) => edge.node) || null;
   if (error) return null;
   return (

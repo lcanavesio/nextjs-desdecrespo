@@ -3,10 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Brightness1Icon from "@material-ui/icons/Brightness1";
 import FlashOnIcon from "@material-ui/icons/FlashOn";
 import { Skeleton } from "@material-ui/lab";
-import { useGetPostForUltimoQuery } from "graphql/types";
 import Link from "next/link";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
+import { useGetPostForUltimoQuery } from "../../graphql/types";
 const useStyles = makeStyles((theme) => ({
   carousel: {
     marginLeft: 10,
