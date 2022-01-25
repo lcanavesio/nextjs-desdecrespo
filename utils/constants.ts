@@ -52,12 +52,12 @@ export abstract class Constants {
       url: '/categoria/rurales',
       icon: PetsIcon,
     },
-    {
-      title: 'Clasificados',
-      databaseName: 'Clasificados',
-      url: '/categoria/clasificados',
-      icon: PageviewIcon,
-    },
+    // {
+    //   title: 'Clasificados',
+    //   databaseName: 'Clasificados',
+    //   url: '/categoria/clasificados',
+    //   icon: PageviewIcon,
+    // },
     {
       title: 'Necrológicas',
       databaseName: 'Necrológica',
