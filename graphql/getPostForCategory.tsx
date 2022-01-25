@@ -1,6 +1,6 @@
 import gql from "graphql-tag"
 
-export const getPostRecientes = gql`
+export const getPostsForCategory = gql`
 query getPostsForCategory($first: Int, $categoryName: String!) {
     posts(
       first: $first

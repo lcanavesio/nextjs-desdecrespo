@@ -6,7 +6,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import { Skeleton } from '@material-ui/lab';
-import { useGetPostsForCategoryQuery } from 'graphql/types';
+import { useGetPostRecientesQuery, useGetPostsForCategoryQuery } from 'graphql/types';
 import React from 'react';
 import HeaderTitle from '../common/headerTitle';
 
@@ -27,11 +27,7 @@ const useStyles = makeStyles((theme) => ({
 export default function PostsRecientes() {
   const classes = useStyles();
 
-  const { loading, error, data } = useGetPostsForCategoryQuery({
-    variables: {
-      first: 4, categoryName: "locales,Nacionales,Internacionales"
-    }
-  });
+  const { loading, error, data } = useGetPostRecientesQuery();
 
   const posts = data?.posts?.edges?.map((edge) => edge.node) || null;
 

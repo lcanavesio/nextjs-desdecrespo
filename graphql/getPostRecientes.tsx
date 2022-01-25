@@ -6,7 +6,6 @@ query getPostRecientes {
       first: 4
       where: {
         orderby: { field: DATE, order: DESC }
-        categoryName: "locales,Nacionales,Internacionales"
       }
     ) {
       edges {
