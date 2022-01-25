@@ -4,7 +4,7 @@ import LayoutMobile from "../components/layout/LayoutMobile";
 import Meta from "../components/meta";
 
 export default function Index() {
-  const matches = useMediaQuery("(min-width:900px)");
+  const matches = useMediaQuery('(min-width:900px)');
 
   return (
     <>

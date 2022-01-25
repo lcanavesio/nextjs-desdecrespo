@@ -30,7 +30,7 @@ const CategoryComponent = (props: Props) => {
   const category: Category = Constants.CATEGORIES.find(
     (c) => c.url === `/categoria/${categoryName}`
   );
-  const matches = useMediaQuery("(max-width:1279px)");
+  const matches = useMediaQuery('(max-width:1279px)')
 
   const { loading, error, data } = useGetPostsForCategoryQuery({
     variables: { categoryName: category.databaseName, first: 10 },

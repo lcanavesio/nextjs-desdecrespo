@@ -45,6 +45,7 @@ const LayoutDesktop = () => {
   const classes = useStyles();
   return (
     <Layout>
+      <h1 style={{ display: "none" }}>Desde crespo</h1>
       <section className={classes.container}>
         <CssBaseline />
         <Grid container className={classes.container}>
@@ -74,13 +75,15 @@ const LayoutDesktop = () => {
               first={6}
               titulo="Crespo"
             />
-            <div className={classes.advertisingContainer} style={{ marginLeft: -5, marginRight: -5 }}>
+            <div
+              className={classes.advertisingContainer}
+              style={{ marginLeft: -5, marginRight: -5 }}
+            >
               <PublicidadGenerico
                 key="NEXT_PUBLIC_PUBLICIDAD6"
                 href={process.env.NEXT_PUBLIC_PUBLICIDAD6}
               />
             </div>
-
           </Grid>
           <Grid lg={3} className={classes.rightColumn}>
             <TV />
@@ -93,7 +96,9 @@ const LayoutDesktop = () => {
               <Image
                 className={classes.image}
                 src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
-                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD8)}
+                alt={getSecondPartPublicidad(
+                  process.env.NEXT_PUBLIC_PUBLICIDAD8
+                )}
                 width={320}
                 height={120}
                 loading="lazy"
@@ -105,7 +110,9 @@ const LayoutDesktop = () => {
               <Image
                 className={classes.image}
                 src={process.env.NEXT_PUBLIC_PUBLICIDAD5}
-                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)}
+                alt={getSecondPartPublicidad(
+                  process.env.NEXT_PUBLIC_PUBLICIDAD5
+                )}
                 width={321}
                 height={200}
                 loading="lazy"
@@ -124,7 +131,9 @@ const LayoutDesktop = () => {
               <Image
                 className={classes.image}
                 src={process.env.NEXT_PUBLIC_PUBLICIDAD7}
-                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD7)}
+                alt={getSecondPartPublicidad(
+                  process.env.NEXT_PUBLIC_PUBLICIDAD7
+                )}
                 width={321}
                 height={200}
                 loading="lazy"
@@ -133,7 +142,9 @@ const LayoutDesktop = () => {
               <Image
                 className={classes.image}
                 src={process.env.NEXT_PUBLIC_PUBLICIDAD9}
-                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD9)}
+                alt={getSecondPartPublicidad(
+                  process.env.NEXT_PUBLIC_PUBLICIDAD9
+                )}
                 width={321}
                 height={200}
                 loading="lazy"
@@ -142,12 +153,13 @@ const LayoutDesktop = () => {
               <Image
                 className={classes.image}
                 src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
-                alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
+                alt={getSecondPartPublicidad(
+                  process.env.NEXT_PUBLIC_PUBLICIDAD10
+                )}
                 width={321}
                 height={200}
                 loading="lazy"
               />
-        
             </Grid>
           </Grid>
           <PolicialesProvinciales key="policialesprovinciales" />

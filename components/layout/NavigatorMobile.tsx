@@ -158,7 +158,7 @@ function NavigatorMobile(props: any) {
             ))}
           </List>
 
-          <IconButton onClick={handleClickOpen}>
+          <IconButton onClick={handleClickOpen} aria-label="buscar-post">
             <SearchIcon style={{ color: "rgb(252, 74, 0)" }} />
           </IconButton>
         </Drawer>

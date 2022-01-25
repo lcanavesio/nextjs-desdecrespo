@@ -58,8 +58,8 @@ type Props = {
 const IndividualPost = (props: Props) => {
   const { data } = props;
 
-  const matches = useMediaQuery("(max-width:1279px)");
-  // const query: any = queryString.parse(location.search);
+  const matches = useMediaQuery('(max-width:1279px)');
+
   const locationHref: String =
     typeof window !== "undefined"
       ? location.href.replace(
@@ -125,6 +125,7 @@ const IndividualPost = (props: Props) => {
                         }}
                       />
                       <iframe
+                        title="content-post"
                         src={`https://www.facebook.com/plugins/comments.php?href=${locationHref}`}
                         scrolling="no"
                         frameBorder="0"
@@ -223,6 +224,7 @@ const IndividualPost = (props: Props) => {
                     }}
                   />
                   <iframe
+                    title="content-post"
                     src={`https://www.facebook.com/plugins/comments.php?href=${locationHref}`}
                     scrolling="no"
                     frameBorder="0"

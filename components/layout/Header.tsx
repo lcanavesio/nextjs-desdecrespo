@@ -179,7 +179,7 @@ export default function Header(props: Props) {
           noWrap
           className={classes.toolbarTitle}
         ></Typography>
-        <IconButton onClick={handleClickOpen}>
+        <IconButton onClick={handleClickOpen} aria-label="buscar-post">
           <SearchIcon />
         </IconButton>
         <Button

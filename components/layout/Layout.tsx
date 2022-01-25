@@ -32,7 +32,7 @@ const Layout = (props: Layout) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const [client, setClient] = useState<ApolloClient<any>>();
-  const matches = useMediaQuery("(min-width:1214px)");
+  const matches = useMediaQuery('(min-width:1032px)');
 
   useEffect(() => {
     const c = clientApollo();

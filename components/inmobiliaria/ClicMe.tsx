@@ -111,7 +111,7 @@ const ClicMe = () => {
                 <i className="fa fa-facebook">
                   <FacebookIcon />
                 </i>
-                <span style={{ maxHeight: 39 }}>Ingresá al Facebook </span>
+                <span style={{ maxHeight: 39,  }}>Ingresá al Facebook </span>
               </a>
               <a
                 className="btn btn-icon btn-instagram"

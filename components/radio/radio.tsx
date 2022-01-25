@@ -102,6 +102,7 @@ const Radio = () => {
                   placement="top-end"
                 >
                   <IconButton
+                    aria-label="play-radio"
                     onClick={() => {
                       playButtonHandler(index);
                     }}
