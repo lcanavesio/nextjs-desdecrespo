@@ -2,7 +2,6 @@ import { useMediaQuery } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { useRouter } from "next/router";
@@ -59,36 +58,34 @@ export default function FeaturedPost(props: Props) {
   const classes = useStyles();
   const router = useRouter();
 
-  const matches = useMediaQuery('(min-width:1032px)');
+  const matches = useMediaQuery("(min-width:1032px)");
   return (
-    <div key={post?.id}>
-      <Card key={post?.id}  className={classes.card} style={{ minWidth: "100%" }}>
-        <CardActionArea
+    <Card key={post?.id} className={classes.card} style={{ minWidth: "100%" }}>
+      <CardActionArea
+        onClick={() => router.push(`/post/[slug]`, `/post/${post.slug}`)}
+        style={{ minWidth: "100%" }}
+      >
+        <LazyCardMedia
+          className={classes.cardMedia}
+          component="img"
+          alt={post?.title}
+          image={post?.featuredImage?.node?.mediaItemUrl}
+          title={post?.title}
+        />
+        <CardContent
           onClick={() => router.push(`/post/[slug]`, `/post/${post.slug}`)}
-          style={{ minWidth: "100%" }}
+          style={{ minWidth: "100%", minHeight: matches ? "100%" : 95 }}
         >
-          <LazyCardMedia
-            className={classes.cardMedia}
-            component="img"
-            alt={post?.title}
-            image={post?.featuredImage?.node?.mediaItemUrl}
-            title={post?.title}
-          />
-          <CardContent
-            onClick={() => router.push(`/post/[slug]`, `/post/${post.slug}`)}
-            style={{ minWidth: "100%", minHeight: matches ? "100%" : 95 }}
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="h2"
+            className={classes.title}
           >
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="h2"
-              className={classes.title}
-            >
-              {post?.title}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card>
-    </div>
+            {post?.title}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
   );
 }

@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   clickMe: {
     margin: 0,
+    width: 294,
   },
   link: {
     textDecoration: "none",
@@ -111,7 +112,7 @@ const ClicMe = () => {
                 <i className="fa fa-facebook">
                   <FacebookIcon />
                 </i>
-                <span style={{ maxHeight: 39,  }}>Ingresá al Facebook </span>
+                <span style={{ maxHeight: 42,  }}>Ingresá al Facebook </span>
               </a>
               <a
                 className="btn btn-icon btn-instagram"
@@ -122,7 +123,7 @@ const ClicMe = () => {
                 <i className="fa fa-instagram">
                   <InstagramIcon />
                 </i>
-                <span style={{ maxHeight: 39 }}>Ingresá al Instagram</span>
+                <span style={{ maxHeight: 42 }}>Ingresá al Instagram</span>
               </a>
               <a
                 className="btn btn-icon btn-whatsapp"
@@ -133,7 +134,7 @@ const ClicMe = () => {
                 <i className="fa fa-whatsapp">
                   <WhatsAppIcon />{" "}
                 </i>
-                <span style={{ maxHeight: 39 }}>Escribinos al Whatsapp</span>
+                <span style={{ maxHeight: 42 }}>Escribinos al Whatsapp</span>
               </a>
               <a
                 className="btn btn-icon btn-globe"
@@ -144,7 +145,7 @@ const ClicMe = () => {
                 <i className="fa fa-globe">
                   <LanguageIcon />
                 </i>
-                <span style={{ maxHeight: 39 }}>Ingresá a la Web</span>
+                <span style={{ maxHeight: 42 }}>Ingresá a la Web</span>
               </a>
             </div>
           </div>

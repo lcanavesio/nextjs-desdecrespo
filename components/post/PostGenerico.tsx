@@ -74,11 +74,10 @@ const PostGenerico = (props: Props) => {
       <HeaderTitle title={titulo} />
       {!loading && posts
         ? posts.map((post, index) => (
-          <Grid
+          <Grid item
             style={{ paddingLeft: 10, paddingRight: 10, width: "100%" }}
-            item
             key={index}
-            lg={gridValue}
+            md={gridValue}
             className={classesGlobal.card}
           >
             <FeaturedPost key={index} post={post} />

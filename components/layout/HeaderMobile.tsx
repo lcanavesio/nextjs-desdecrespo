@@ -39,6 +39,9 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       color: "black",
     },
+    gridLogo: {
+      'text-align': "-webkit-center",
+    },
   })
 );
 
@@ -67,7 +70,7 @@ function HeaderMobile(props: HeaderProps) {
                 <MenuIcon style={{ color: "white" }} />
               </IconButton>
             </Grid>
-            <Grid item style={{ textAlign: "-webkit-center" }} xs={12}>
+            <Grid item className={classes.gridLogo} xs={12}>
               <a rel="home" href="https://desdecrespo.com.ar/">
                 <img
                   src="/iconmobile.png"
