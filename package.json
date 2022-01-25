@@ -7,7 +7,8 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "generar": "graphql-codegen --config codegen.yml"
+    "generar": "graphql-codegen --config codegen.yml",
+    "run-prod": "npx next start -p 8000"
   },
   "dependencies": {
     "@apollo/client": "^3.5.7",
