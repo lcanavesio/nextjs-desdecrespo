@@ -1,15 +1,16 @@
-import { gql, useQuery } from '@apollo/client';
+import { gql, useQuery } from "@apollo/client";
 import {
   CircularProgress,
   CssBaseline,
   List,
-  ListItem
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import React from 'react';
-import { Waypoint } from 'react-waypoint';
-import { Category, Constants } from '../../utils/constants';
-import PostCard from '../post/PostCard.';
+  ListItem,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
+import { Waypoint } from "react-waypoint";
+import { useGetPostForInfiiniteScrollQuery } from "../../graphql/types";
+import { Category, Constants } from "../../utils/constants";
+import PostCard from "../post/PostCard.";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -20,57 +21,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 type Props = {
-  path?: string
-  location?: string
-  categoryParams?: string
-}
+  path?: string;
+  location?: string;
+  categoryParams?: string;
+  cursor?: string;
+};
 
 const InfiniteScrollComponent = (props: Props) => {
-  const { categoryParams } = props;
-
-  const getPosts = gql`
-    query getPosts($categoryName: String, $first: Int, $cursor: String) {
-      posts(
-        first: $first
-        after: $cursor
-        where: {
-          orderby: { field: DATE, order: DESC }
-          categoryName: $categoryName
-        }
-      ) {
-        edges {
-          cursor
-          node {
-            id
-            date
-            title
-            slug
-            content
-            featuredImage {
-              node {
-                mediaItemUrl
-              }
-            }
-          }
-        }
-      }
-    }
-  `;
+  const { categoryParams, cursor } = props;
 
   const category: Category = Constants.CATEGORIES.find(
-    (c) => c.url === (typeof window !== 'undefined' ? location.pathname : ''),
+    (c) => c.url === (typeof window !== "undefined" ? location.pathname : "")
   );
 
-  const { loading, error, data, fetchMore, networkStatus } = useQuery(
-    getPosts,
-    {
+  const { loading, error, data, fetchMore, networkStatus } =
+    useGetPostForInfiiniteScrollQuery({
       variables: {
         categoryName: category ? category.databaseName : categoryParams,
         first: 10,
-        cursor: null,
+        cursor: cursor ? cursor : null,
       },
-    },
-  );
+    });
   const edges = data?.posts?.edges || null;
   const classes = useStyles();
 
@@ -83,9 +54,18 @@ const InfiniteScrollComponent = (props: Props) => {
       <CssBaseline />
       <List>
         {edges.map((x, i) => (
-          <React.Fragment key={x.id}>
+          <>
             <ListItem style={{ paddingLeft: 0, paddingRight: 0 }}>
-              <PostCard post={x.node} />
+              <PostCard
+                post={{
+                  id: x.node.id,
+                  date: x.node.date,
+                  title: x.node.title,
+                  slug: x.node.slug,
+                  content: x.node.content,
+                  featuredImage: x.node.featuredImage,
+                }}
+              />
             </ListItem>
             {i === edges.length - 2 && (
               <Waypoint
@@ -113,7 +93,7 @@ const InfiniteScrollComponent = (props: Props) => {
                 }}
               />
             )}
-          </React.Fragment>
+          </>
         ))}
         {networkStatus === 3 && <CircularProgress />}
       </List>

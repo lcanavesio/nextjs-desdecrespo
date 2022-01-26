@@ -79,7 +79,7 @@ const CategoryComponent = (props: Props) => {
             ))
           : showSkeleton()}
       </GridList>
-      <InfiniteScrollComponent />
+      <InfiniteScrollComponent cursor={data?.posts?.pageInfo?.endCursor} />
     </section>
     </>
   );

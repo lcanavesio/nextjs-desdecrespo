@@ -9,6 +9,9 @@ query getPostsForCategory($first: Int, $categoryName: String!) {
         categoryName: $categoryName
       }
     ) {
+      pageInfo {
+        endCursor
+      }
       edges {
         node {
           id

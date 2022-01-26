@@ -7645,7 +7645,16 @@ export type GetPostsForCategoryQueryVariables = Exact<{
 }>;
 
 
-export type GetPostsForCategoryQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges?: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node?: { __typename?: 'Post', id: string, date?: string | null | undefined, title?: string | null | undefined, slug?: string | null | undefined, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node?: { __typename?: 'MediaItem', mediaItemUrl?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
+export type GetPostsForCategoryQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', pageInfo?: { __typename?: 'WPPageInfo', endCursor?: string | null | undefined } | null | undefined, edges?: Array<{ __typename?: 'RootQueryToPostConnectionEdge', node?: { __typename?: 'Post', id: string, date?: string | null | undefined, title?: string | null | undefined, slug?: string | null | undefined, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node?: { __typename?: 'MediaItem', mediaItemUrl?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
+
+export type GetPostForInfiiniteScrollQueryVariables = Exact<{
+  categoryName?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  cursor?: InputMaybe<Scalars['String']>;
+}>;
+
+
+export type GetPostForInfiiniteScrollQuery = { __typename?: 'RootQuery', posts?: { __typename?: 'RootQueryToPostConnection', edges?: Array<{ __typename?: 'RootQueryToPostConnectionEdge', cursor?: string | null | undefined, node?: { __typename?: 'Post', id: string, date?: string | null | undefined, title?: string | null | undefined, slug?: string | null | undefined, content?: string | null | undefined, featuredImage?: { __typename?: 'NodeWithFeaturedImageToMediaItemConnectionEdge', node?: { __typename?: 'MediaItem', mediaItemUrl?: string | null | undefined } | null | undefined } | null | undefined } | null | undefined } | null | undefined> | null | undefined } | null | undefined };
 
 export type GetPostForUltimoQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -7693,6 +7702,9 @@ export const GetPostsForCategoryDocument = gql`
     first: $first
     where: {orderby: {field: DATE, order: DESC}, categoryName: $categoryName}
   ) {
+    pageInfo {
+      endCursor
+    }
     edges {
       node {
         id
@@ -7738,6 +7750,61 @@ export function useGetPostsForCategoryLazyQuery(baseOptions?: Apollo.LazyQueryHo
 export type GetPostsForCategoryQueryHookResult = ReturnType<typeof useGetPostsForCategoryQuery>;
 export type GetPostsForCategoryLazyQueryHookResult = ReturnType<typeof useGetPostsForCategoryLazyQuery>;
 export type GetPostsForCategoryQueryResult = Apollo.QueryResult<GetPostsForCategoryQuery, GetPostsForCategoryQueryVariables>;
+export const GetPostForInfiiniteScrollDocument = gql`
+    query getPostForInfiiniteScroll($categoryName: String, $first: Int, $cursor: String) {
+  posts(
+    first: $first
+    after: $cursor
+    where: {orderby: {field: DATE, order: DESC}, categoryName: $categoryName}
+  ) {
+    edges {
+      cursor
+      node {
+        id
+        date
+        title
+        slug
+        content
+        featuredImage {
+          node {
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGetPostForInfiiniteScrollQuery__
+ *
+ * To run a query within a React component, call `useGetPostForInfiiniteScrollQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPostForInfiiniteScrollQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPostForInfiiniteScrollQuery({
+ *   variables: {
+ *      categoryName: // value for 'categoryName'
+ *      first: // value for 'first'
+ *      cursor: // value for 'cursor'
+ *   },
+ * });
+ */
+export function useGetPostForInfiiniteScrollQuery(baseOptions?: Apollo.QueryHookOptions<GetPostForInfiiniteScrollQuery, GetPostForInfiiniteScrollQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPostForInfiiniteScrollQuery, GetPostForInfiiniteScrollQueryVariables>(GetPostForInfiiniteScrollDocument, options);
+      }
+export function useGetPostForInfiiniteScrollLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPostForInfiiniteScrollQuery, GetPostForInfiiniteScrollQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPostForInfiiniteScrollQuery, GetPostForInfiiniteScrollQueryVariables>(GetPostForInfiiniteScrollDocument, options);
+        }
+export type GetPostForInfiiniteScrollQueryHookResult = ReturnType<typeof useGetPostForInfiiniteScrollQuery>;
+export type GetPostForInfiiniteScrollLazyQueryHookResult = ReturnType<typeof useGetPostForInfiiniteScrollLazyQuery>;
+export type GetPostForInfiiniteScrollQueryResult = Apollo.QueryResult<GetPostForInfiiniteScrollQuery, GetPostForInfiiniteScrollQueryVariables>;
 export const GetPostForUltimoDocument = gql`
     query getPostForUltimo {
   posts(first: 5, where: {orderby: {field: DATE, order: DESC}}) {
