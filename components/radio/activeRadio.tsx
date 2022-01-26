@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const ActiveRadio = () => {
   const classes = useStyles();
-  const [playIndex, setPlayIndex] = useState(null);
+  const [playIndex, setPlayIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [errorMetadataURL, setErrorMetadataURL] = useState(false);
   const [streamTitle, setStreamTitle] = useState('');
@@ -76,9 +76,7 @@ const ActiveRadio = () => {
       setStations(getRadioList());
     }
     EventBus.on(EVENT_RADIO_CHANGE, (data) => {
-      if (playIndex !== data.index) {
         setPlayIndex(data.index);
-      }
     });
   }, []);
 

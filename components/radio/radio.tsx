@@ -52,15 +52,13 @@ const Radio = () => {
   const classes = useStyles();
 
   const [stations, setStations] = useState(null);
-  const [playIndex, setPlayIndex] = useState(null);
+  const [playIndex, setPlayIndex] = useState(0);
 
   useEffect(() => {
     const dataRadios = getRadioList();
     setStations(dataRadios);
     EventBus.on(EVENT_RADIO_CHANGE, (data) => {
-      if (playIndex !== data.index) {
         setPlayIndex(data.index);
-      }
     });
   }, []);
 
