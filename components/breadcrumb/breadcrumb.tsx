@@ -35,7 +35,7 @@ const Breadcrumb = (props: Props) => {
   return (
     <Breadcrumbs aria-label="breadcrumb">
       <Link href={"/"}>
-        <div style={{cursor: "pointer"}}>
+        <div style={{cursor: "pointer"}} className={classes.link}>
           <HomeIcon className={classes.icon} />
           Inicio
         </div>
@@ -43,14 +43,14 @@ const Breadcrumb = (props: Props) => {
 
       {props.label ? (
         <Link href={category?.url ? category?.url : "/"}>
-          <div>
+          <div className={classes.link}>
             <SvgIcon component={category?.icon} className={classes.icon} />
             {category?.title ? category?.title : props.category}
           </div>
         </Link>
       ) : (
         <Link href={category?.url ? category?.url : "/"}>
-          <div>
+          <div className={classes.link}>
             <SvgIcon component={category?.icon} className={classes.icon} />
             {category?.title}
           </div>

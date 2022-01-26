@@ -2,7 +2,7 @@ import {
   faFacebook,
   faInstagram,
   faTwitter,
-  faYoutube,
+  faYoutube
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Grid, makeStyles } from "@material-ui/core";
@@ -15,7 +15,13 @@ const useStyles = makeStyles(() => ({
     textAlign: "center",
     flexDirection: "row",
     width: "100%",
+    paddingTop: 20,
+    paddingBottom: 20,
   },
+  icon: {
+    width: 40, 
+    height: 40,
+  }
 }));
 
 export default function SocialFollow() {
@@ -31,7 +37,7 @@ export default function SocialFollow() {
           target="_blank"
           rel="noreferrer"
         >
-           <FontAwesomeIcon icon={faYoutube} size="1x" />YouTube
+           <FontAwesomeIcon icon={faYoutube} size="1x" className={classes.icon}/>YouTube
         </a>
       </Grid>
       <Grid item md={3}>
@@ -41,7 +47,7 @@ export default function SocialFollow() {
           target="_blank"
           rel="noreferrer"
         >
-           <FontAwesomeIcon icon={faFacebook} size="1x" /> Facebook
+           <FontAwesomeIcon icon={faFacebook} size="1x" className={classes.icon}/> Facebook
         </a>
       </Grid>
       <Grid item md={3}>
@@ -51,7 +57,7 @@ export default function SocialFollow() {
           target="_blank"
           rel="noreferrer"
         >
-           <FontAwesomeIcon icon={faInstagram} size="1x" /> Instagram
+           <FontAwesomeIcon icon={faInstagram} size="1x" className={classes.icon}/> Instagram
         </a>
       </Grid>
       <Grid item md={3}>
@@ -61,7 +67,7 @@ export default function SocialFollow() {
           target="_blank"
           rel="noreferrer"
         >
-           <FontAwesomeIcon icon={faTwitter} size="1x" /> Twitter
+           <FontAwesomeIcon icon={faTwitter} size="1x" className={classes.icon}/> Twitter
         </a>
       </Grid>
     </Grid>
