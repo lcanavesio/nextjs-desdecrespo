@@ -8,9 +8,6 @@ import Footer from "./Footer";
 import Header from "./Header";
 import HeaderMobile from "./HeaderMobile";
 import NavigatorMobile from "./NavigatorMobile";
-const ActiveRadio = dynamic(() => import("../radio/activeRadio"), {
-  ssr: false,
-});
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -32,7 +29,7 @@ const Layout = (props: Layout) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const [client, setClient] = useState<ApolloClient<any>>();
-  const matches = useMediaQuery('(min-width:1032px)');
+  const matches = useMediaQuery("(min-width:1032px)");
 
   useEffect(() => {
     const c = clientApollo();
@@ -58,7 +55,6 @@ const Layout = (props: Layout) => {
                 <main>{children}</main>
               </div>
               <Footer title="Desde Crespo" description="Semanario Diario" />
-              <ActiveRadio />
             </>
           ) : (
             <>
@@ -73,12 +69,12 @@ const Layout = (props: Layout) => {
               <div className={classes.content}>
                 <main>{children}</main>
               </div>
-              <ActiveRadio />
               <Footer title="Desde Crespo" description="Semanario Diario" />
             </>
           )}
         </ApolloProvider>
       )}
+    
     </>
   );
 };
