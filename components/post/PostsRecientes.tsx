@@ -6,7 +6,8 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import { Skeleton } from '@material-ui/lab';
-import { useGetPostRecientesQuery, useGetPostsForCategoryQuery } from 'graphql/types';
+import { useGetPostRecientesQuery } from 'graphql/types';
+import Link from 'next/link';
 import React from 'react';
 import HeaderTitle from '../common/headerTitle';
 
@@ -69,33 +70,37 @@ export default function PostsRecientes() {
     <>
       <HeaderTitle title="Recientes" />
       <List className={classes.root}>
-        {!loading && posts ?
-          posts.map((post, index) => (
-            <>
-              <ListItem
-                alignItems="flex-start"
-                style={{ width: '100%' }}
-                key={index}
-                /// to={`/post/${post?.slug}`}
-                className={classes.link}
-              >
-                <ListItemAvatar key={index}>
-                  <Avatar
-                    alt="locales"
-                    style={{ display: 'flow-root' }}
-                    src={post ? post?.featuredImage?.node?.mediaItemUrl : ''}
+        {!loading && posts
+          ? posts.map((post, index) => (
+              <>
+                <Link href={`/post/${post.slug}`}>
+                  <ListItem
+                    alignItems="flex-start"
+                    style={{ width: "100%", cursor: "pointer" }}
                     key={index}
-                  />
-                </ListItemAvatar>
-                <ListItemText
-                  primary={post ? post?.title : ''}
-                  key={index}
-                />
-              </ListItem>
-              <Divider variant="inset" component="li" key={index} />
-            </>
-          )) :
-          showSkeleton()}
+                    className={classes.link}
+                  >
+                    <ListItemAvatar key={index}>
+                      <Avatar
+                        alt="locales"
+                        style={{ display: "flow-root" }}
+                        src={
+                          post ? post?.featuredImage?.node?.mediaItemUrl : ""
+                        }
+                        key={index}
+                      />
+                    </ListItemAvatar>
+                    <ListItemText
+                      primary={post ? post?.title : ""}
+                      key={index}
+                    />
+                  </ListItem>
+                </Link>
+
+                <Divider variant="inset" component="li" key={index} />
+              </>
+            ))
+          : showSkeleton()}
       </List>
     </>
   );

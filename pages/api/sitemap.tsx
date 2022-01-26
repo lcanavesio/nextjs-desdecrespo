@@ -11,7 +11,7 @@ export default async (req, res) => {
 
     allPosts.edges.map(({ node }) => {
       links.push({
-        url: `/posts/${node.slug}`,
+        url: `/post/${node.slug}`,
         changefreq: "daily",
         priority: 0.9,
       });
@@ -40,7 +40,7 @@ export default async (req, res) => {
 
     // Create a stream to write to
     const stream = new SitemapStream({
-      hostname: `https://${req.headers.host}`,
+      hostname: `https://desdecrespo.com.ar`,
     });
 
     res.writeHead(200, {

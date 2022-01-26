@@ -52,7 +52,7 @@ const Radio = () => {
   const classes = useStyles();
 
   const [stations, setStations] = useState(null);
-  const [playIndex, setPlayIndex] = useState(0);
+  const [playIndex, setPlayIndex] = useState(null);
 
   useEffect(() => {
     const dataRadios = getRadioList();

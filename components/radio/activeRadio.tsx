@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const ActiveRadio = () => {
   const classes = useStyles();
-  const [playIndex, setPlayIndex] = useState(0);
+  const [playIndex, setPlayIndex] = useState(null);
   const [playing, setPlaying] = useState(false);
   const [errorMetadataURL, setErrorMetadataURL] = useState(false);
   const [streamTitle, setStreamTitle] = useState('');
