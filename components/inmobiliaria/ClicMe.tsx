@@ -92,7 +92,7 @@ const ClicMe = () => {
               rel="noreferrer"
             >
               <img
-                src="https://admin.desdecrespo.com.ar/wp-includes/images/clic-aqui.gif"
+                src="http://admin.desdecrespo.com.ar/wp-includes/images/clic-aqui.gif"
                 className={classes.clickMe}
                 alt='clic-aqui' />
               <label
@@ -105,7 +105,7 @@ const ClicMe = () => {
             <div id="social-platforms">
               <a
                 className="btn btn-icon btn-facebook"
-                href="https://admin.desdecrespo.com.ar/wp-content/uploads/SmartLinks/crespo-inmobiliairia/crespo-inmobiliairia.html"
+                href="http://admin.desdecrespo.com.ar/wp-content/uploads/SmartLinks/crespo-inmobiliairia/crespo-inmobiliairia.html"
                 target="_blank"
                 rel="noreferrer"
               >

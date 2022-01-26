@@ -7,7 +7,7 @@ const itemData = [
   //   featured: true,
   // },
   {
-    img: 'https://admin.desdecrespo.com.ar/wp-content/uploads/2021/04/venta-de-casa-en-crespo-4-e1617673418842-300x300.jpg',
+    img: 'http://admin.desdecrespo.com.ar/wp-content/uploads/2021/04/venta-de-casa-en-crespo-4-e1617673418842-300x300.jpg',
     title: 'Casa',
     author: 'CrespoInmobiliaria',
   },
