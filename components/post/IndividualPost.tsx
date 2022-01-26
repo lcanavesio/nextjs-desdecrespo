@@ -2,7 +2,7 @@ import {
   CssBaseline,
   Grid,
   Typography,
-  useMediaQuery
+  useMediaQuery,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Image from "material-ui-image";
@@ -45,9 +45,9 @@ const useStyles = makeStyles((theme) => ({
     },
     // eslint-disable-next-line max-len
     ".the_champ_sharing_container.the_champ_vertical_sharing.the_champ_hide_sharing.the_champ_bottom_sharing":
-    {
-      display: "none",
-    },
+      {
+        display: "none",
+      },
   },
 }));
 
@@ -58,16 +58,15 @@ type Props = {
 const IndividualPost = (props: Props) => {
   const { data } = props;
 
-  const matches = useMediaQuery('(max-width:1279px)');
+  const matches = useMediaQuery("(max-width:1279px)");
 
   const locationHref: String =
     typeof window !== "undefined"
       ? location.href.replace(
-        "http://localhost:3000/",
-        "https://desdecrespo.com.ar/"
-      )
+          "http://localhost:3000/",
+          "https://desdecrespo.com.ar/"
+        )
       : "";
-
 
   const category = data?.categories.edges?.map((edge) => edge.node) || null;
   const classes = useStyles();
@@ -150,26 +149,53 @@ const IndividualPost = (props: Props) => {
               <Grid lg={3} className={classes.rightColumn}>
                 <PostsRecientes />
                 <HeaderTitle title="PUBLICITE AQUÍ" />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD5} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)}
-                  className={classes.image} />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD2} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD2)}
-                  className={classes.image} />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD4} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)}
-                  className={classes.image} />
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD7} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD7)}
-                  className={classes.image}
-                />  
-                <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD8} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD8)}
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD5}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD5
+                  )}
                   className={classes.image}
                 />
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD9} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD9)}
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD2}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD2
+                  )}
                   className={classes.image}
                 />
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD10} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD4
+                  )}
+                  className={classes.image}
+                />
+                <img
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD7}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD7
+                  )}
+                  className={classes.image}
+                />
+                <img
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD8
+                  )}
+                  className={classes.image}
+                />
+                <img
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD9}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD9
+                  )}
+                  className={classes.image}
+                />
+                <img
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD10
+                  )}
                   className={classes.image}
                 />
 
@@ -212,6 +238,10 @@ const IndividualPost = (props: Props) => {
                     cover={true}
                     className={classes.image}
                   />
+                  <div className="mb-6 text-lg">
+                    Publicado el: {data?.date && DateComponent(data?.date)}
+                  </div>
+
                   <div
                     id="divContent"
                     style={{
@@ -240,30 +270,56 @@ const IndividualPost = (props: Props) => {
               </Grid>
               <Grid item lg={11}>
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD8} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD8)}
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD8
+                  )}
                   className={classes.image}
                 />
                 <PostsRecientes />
                 <HeaderTitle title="PUBLICITE AQUÍ" />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD5} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD5)}
-                  className={classes.image} />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD2} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD2)}
-                  className={classes.image} />
-                <img src={process.env.NEXT_PUBLIC_PUBLICIDAD4} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)}
-                  className={classes.image} />
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD7} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD7)}
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD5}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD5
+                  )}
                   className={classes.image}
                 />
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD9} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD9)}
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD2}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD2
+                  )}
                   className={classes.image}
                 />
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD10} alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD4
+                  )}
                   className={classes.image}
                 />
-
+                <img
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD7}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD7
+                  )}
+                  className={classes.image}
+                />
+                <img
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD9}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD9
+                  )}
+                  className={classes.image}
+                />
+                <img
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PUBLICIDAD10
+                  )}
+                  className={classes.image}
+                />
 
                 <HeaderTitle title="NO SE PIERDA" />
                 <InfiniteScrollSimple
