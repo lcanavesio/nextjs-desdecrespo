@@ -106,7 +106,7 @@ const LayoutDesktop = () => {
             </div>
             <PostsRecientes />
 
-            <Grid item lg={12} style={{ marginLeft: -10, marginRight: -10 }}>
+            <Grid item lg={12} style={{ marginRight: -10 }}>
               <Image
                 className={classes.image}
                 src={process.env.NEXT_PUBLIC_PUBLICIDAD5}
