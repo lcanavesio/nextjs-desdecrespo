@@ -54,7 +54,6 @@ const Layout = (props: Layout) => {
               <div className={classes.content}>
                 <main>{children}</main>
               </div>
-              <Footer title="Desde Crespo" description="Semanario Diario" />
             </>
           ) : (
             <>
@@ -69,12 +68,12 @@ const Layout = (props: Layout) => {
               <div className={classes.content}>
                 <main>{children}</main>
               </div>
-              <Footer title="Desde Crespo" description="Semanario Diario" />
+            
             </>
           )}
         </ApolloProvider>
       )}
-    
+      <Footer title="Desde Crespo" description="Diario Digital" /> 
     </>
   );
 };
