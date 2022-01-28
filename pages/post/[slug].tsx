@@ -83,22 +83,13 @@ export default function Post({ post }) {
   );
 }
 
-export async function getStaticProps({ params, preview = false, previewData }) {
-  const data = await getPostAndMorePosts(params.slug, preview, previewData);
-
+// SSR
+export async function getServerSideProps({  params, preview = false }) {
+ const data = await getPostAndMorePosts(params.slug, preview);
   return {
     props: {
       preview,
       post: data.post,
-    },
-  };
-}
-
-export async function getStaticPaths() {
-  //const allPosts = await getAllPostsWithSlug();
-
-  return {
-    paths: [], //allPosts.edges.map(({ node }) => `/post/${node.slug}`) || [],
-    fallback: true,
-  };
+    }
+  }
 }
