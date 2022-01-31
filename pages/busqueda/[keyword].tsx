@@ -1,7 +1,7 @@
 import { CssBaseline, makeStyles } from "@material-ui/core";
 import SearchContent from "components/search/SearchContent";
 import { getPostsSearch } from "lib/api";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import React from "react";
 import Layout from "../../components/layout/Layout";
@@ -26,24 +26,13 @@ const BusquedaPage = ({ posts, pageInfo, keyword }) => {
     <Layout>
       <section className={classes.container}>
         <CssBaseline />
-        <SearchContent
-          data={posts}
-          keyword={keyword}
-          pageInfo={pageInfo}
-        />
+        <SearchContent data={posts} keyword={keyword} pageInfo={pageInfo} />
       </section>
     </Layout>
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    fallback: true,
-    paths: [],
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const { posts, pageInfo } = await getPostsSearch(params.keyword);
   return {
     props: {
