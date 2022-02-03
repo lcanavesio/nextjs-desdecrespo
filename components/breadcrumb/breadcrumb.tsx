@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     color: "#5c5c5c",
     textDecoration: "none",
+    cursor: "pointer",
   },
   icon: {
     marginRight: theme.spacing(0.5),
@@ -29,32 +30,53 @@ type Props = {
 const Breadcrumb = (props: Props) => {
   const classes = useStyles();
   const category: any = Constants.CATEGORIES.find(
-    (c) => c.databaseName === props.category
+    (c) => c.databaseName == props.category
   );
 
   return (
     <Breadcrumbs aria-label="breadcrumb">
-      <Link href={"/"}>
-        <div style={{cursor: "pointer"}} className={classes.link}>
-          <HomeIcon className={classes.icon} />
-          Inicio
-        </div>
-      </Link>
+      <a
+        target="_blank"
+        href={`/`}
+        rel="noopener noreferrer"
+        className={classes.link}
+      >
+        <Link href={"/"}>
+          <div className={classes.link}>
+            <HomeIcon className={classes.icon} />
+            Inicio
+          </div>
+        </Link>
+      </a>
 
       {props.label ? (
-        <Link href={category?.url ? category?.url : "/"}>
-          <div className={classes.link}>
-            <SvgIcon component={category?.icon} className={classes.icon} />
-            {category?.title ? category?.title : props.category}
-          </div>
-        </Link>
+        <a
+          target="_blank"
+          href={category?.url ? category?.url : "/"}
+          rel="noopener noreferrer"
+          className={classes.link}
+        >
+          <Link href={category?.url ? category?.url : "/"}>
+            <div className={classes.link}>
+              <SvgIcon component={category?.icon} className={classes.icon} />
+              {category?.title ? category?.title : props.category}
+            </div>
+          </Link>
+        </a>
       ) : (
-        <Link href={category?.url ? category?.url : "/"}>
-          <div className={classes.link}>
-            <SvgIcon component={category?.icon} className={classes.icon} />
-            {category?.title}
-          </div>
-        </Link>
+        <a
+          target="_blank"
+          href={category?.url ? category?.url : "/"}
+          rel="noopener noreferrer"
+          className={classes.link}
+        >
+          <Link href={category?.url ? category?.url : "/"}>
+            <div className={classes.link}>
+              <SvgIcon component={category?.icon} className={classes.icon} />
+              {category?.title}
+            </div>
+          </Link>
+        </a>
       )}
 
       {props.label ? (

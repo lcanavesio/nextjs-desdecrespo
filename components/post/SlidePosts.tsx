@@ -60,40 +60,53 @@ const SlidePosts = () => {
   const classes = useStyles();
   const matches = useMediaQuery("(max-width:550px)");
 
-  const { loading, error, data: dataPosts } = useGetPostsForSlideQuery({variables: {first: 8}});
+  const {
+    loading,
+    error,
+    data: dataPosts,
+  } = useGetPostsForSlideQuery({ variables: { first: 8 } });
   const posts = dataPosts?.posts?.edges?.map((edge) => edge.node) || null;
   if (error) return null;
   return (
     <>
       {!loading && posts ? (
-        <Carousel className={classes.carousel} animation={"slide"} interval={9000}>
-
+        <Carousel
+          className={classes.carousel}
+          animation={"slide"}
+          interval={9000}
+        >
           {posts.map((post, index) => (
             <div key={index}>
-              <Link
-                key={index}
-                href={"/post/[slug]"}
-                as={`/post/${post.slug}`}
+              <a
+                target="_blank"
+                href={`/post/${post.slug}`}
+                rel="noopener noreferrer"
               >
-                <div style={{ cursor: "pointer" }}>
-                  <Image
-                    src={post.featuredImage?.node?.mediaItemUrl}
-                    alt={post.title}
-                    aspectRatio={2}
-                    disableSpinner={false}
-                    cover={true}
-                    className={classes.image}
-                  />
-                  <div id="layerImage">
-                    <h3
-                      className={classes.postTitle}
-                      style={{ fontSize: matches ? 14 : 26 }}
-                    >
-                      {post.title}
-                    </h3>
+                <Link
+                  key={index}
+                  href={"/post/[slug]"}
+                  as={`/post/${post.slug}`}
+                >
+                  <div style={{ cursor: "pointer" }}>
+                    <Image
+                      src={post.featuredImage?.node?.mediaItemUrl}
+                      alt={post.title}
+                      aspectRatio={2}
+                      disableSpinner={false}
+                      cover={true}
+                      className={classes.image}
+                    />
+                    <div id="layerImage">
+                      <h3
+                        className={classes.postTitle}
+                        style={{ fontSize: matches ? 14 : 26 }}
+                      >
+                        {post.title}
+                      </h3>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </a>
             </div>
           ))}
         </Carousel>

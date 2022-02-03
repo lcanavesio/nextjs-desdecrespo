@@ -61,13 +61,13 @@ const LayoutMobile = () => {
               objectFit="contain"
             />
           </div>
-
+          
           <PostGenerico
-            key="postgenerico1"
-            categoryName="locales"
-            first={3}
-            titulo="Locales"
-          />
+              key="postgenerico1"
+              categoryName="locales"
+              first={8}
+              titulo="Crespo"
+            />
           <Wather />
           <TabFourPosts key="TabFourPosts" />
           <div className={classes.advertisingContainer}>
@@ -105,12 +105,6 @@ const LayoutMobile = () => {
             </a>
           </div>
 
-          <PostGenerico
-            key="postgenerico3"
-            categoryName="locales"
-            first={6}
-            titulo="Crespo"
-          />
           <SocialFollow />
           <div className={classes.advertisingContainer}>
             <a

@@ -1,6 +1,7 @@
 import { CssBaseline, Grid, makeStyles } from "@material-ui/core";
 import Image from "next/image";
 import React, { memo } from "react";
+import { getSecondPartPublicidad } from "utils/constants";
 import ClicMe from "../../components/inmobiliaria/ClicMe";
 import TabFourPosts from "../../components/post//TabFourPosts";
 import NoSePierda from "../../components/post/NoSePierda";
@@ -11,13 +12,12 @@ import TV from "../../components/tv/TV";
 import Wather from "../../components/Wather";
 import {
   PublicidadGenerico,
-  PublicidadPrincipal,
+  PublicidadPrincipal
 } from "../../utils/Publicidad";
-import Layout from "./Layout";
 import PostsRecientes from "../post/PostsRecientes";
 import Radio from "../radio/radio";
 import SocialFlow from "../social/SocialFollow";
-import { getSecondPartPublicidad } from "utils/constants";
+import Layout from "./Layout";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -58,8 +58,8 @@ const LayoutDesktop = () => {
             <PostGenerico
               key="postgenerico1"
               categoryName="locales"
-              first={3}
-              titulo="Locales"
+              first={8}
+              titulo="Crespo"
             />
 
             <PublicidadGenerico
@@ -69,12 +69,6 @@ const LayoutDesktop = () => {
 
             <TabFourPosts />
             <PublicidadPrincipal key={"publicidadprincipal1"} />
-            <PostGenerico
-              key="postgenerico3"
-              categoryName="locales"
-              first={6}
-              titulo="Crespo"
-            />
             <div
               className={classes.advertisingContainer}
               style={{ marginLeft: -5, marginRight: -5 }}

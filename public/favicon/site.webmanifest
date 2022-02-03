@@ -3,12 +3,12 @@
   "short_name": "Next.js",
   "icons": [
     {
-      "src": "/favicons/desde-crespo-icon.png",
+      "src": "/favicon/desde-crespo-icon.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/favicons/desde-crespo-icon.png",
+      "src": "/favicon/desde-crespo-icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }

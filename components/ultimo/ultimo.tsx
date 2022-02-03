@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     textOverflow: "ellipsis",
     cursor: "pointer",
+    color: "black"
   },
   link: {
     color: "black",
@@ -104,9 +105,17 @@ const Ultimo = () => {
               }}
             >
               {posts.map((post, index) => (
-                <Link key={index} href={`/post/${post.slug}`}>
-                  <span className={classes.titleText}>{post.title}</span>
-                </Link>
+                <a
+                  target="_blank"
+                  href={`/post/${post.slug}`}
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                  className={classes.titleText}
+                >
+                  <Link key={index} href={`/post/${post.slug}`}>
+                    <span className={classes.titleText}>{post.title}</span>
+                  </Link>
+                </a>
               ))}
             </Carousel>
           ) : (
@@ -132,9 +141,17 @@ const Ultimo = () => {
                 interval={5000}
               >
                 {posts.map((post, index) => (
-                  <Link key={index} href={`/post/${post.slug}`}>
-                    <span className={classes.titleText}>{post.title}</span>
-                  </Link>
+                  <a
+                    target="_blank"
+                    href={`/post/${post.slug}`}
+                    rel="noopener noreferrer"
+                    className={classes.titleText}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Link key={index} href={`/post/${post.slug}`}>
+                      <span className={classes.titleText}>{post.title}</span>
+                    </Link>
+                  </a>
                 ))}
               </Carousel>
             ) : (
@@ -146,19 +163,26 @@ const Ultimo = () => {
                 size="small"
                 style={{ color: "white", background: "red" }}
               >
-                <Link href="/live">
-                  <div>
-                    <Typography component="p" variant="body2">
-                      <Brightness1Icon
-                        style={{
-                          width: 8,
-                          height: 8,
-                        }}
-                      />{" "}
-                      vivo
-                    </Typography>
-                  </div>
-                </Link>
+                <a
+                  target="_blank"
+                  href="/live"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  <Link href="/live">
+                    <div>
+                      <Typography component="p" variant="body2">
+                        <Brightness1Icon
+                          style={{
+                            width: 8,
+                            height: 8,
+                          }}
+                        />{" "}
+                        vivo
+                      </Typography>
+                    </div>
+                  </Link>
+                </a>
               </Button>
             </Grid>
           </Grid>

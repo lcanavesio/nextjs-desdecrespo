@@ -123,6 +123,13 @@ export default function Header(props: Props) {
     <>
       <Head>
         <title>{CMS_NAME}</title>
+        <link
+          rel="desde-crespo-icon"
+          sizes="512x512"
+          href="/favicon/desde-crespo-icon.png"
+        />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </Head>
 
       <Dialog
@@ -188,11 +195,18 @@ export default function Header(props: Props) {
           color="secondary"
           className={classes.btnLive}
         >
-          <Link href="/live">
-            <div>
-              <Typography style={{ color: "white" }}>EN VIVO</Typography>
-            </div>
-          </Link>
+          <a
+            target="_blank"
+            href="/live"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
+          >
+            <Link href="/live">
+              <div>
+                <Typography style={{ color: "white" }}>EN VIVO</Typography>
+              </div>
+            </Link>
+          </a>
         </Button>
       </Toolbar>
 
@@ -219,18 +233,25 @@ export default function Header(props: Props) {
             {sections.map((section, index) => (
               <>
                 <div key={index}>
-                  <Link key={section.title} href={section.url}>
-                    <Button
-                      variant="text"
-                      size="small"
-                      style={{ color: "white" }}
-                    >
-                      <Typography className={classes.toolbarLink}>
-                        {" "}
-                        {section.title}{" "}
-                      </Typography>
-                    </Button>
-                  </Link>
+                  <a
+                    target="_blank"
+                    href={section.url}
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Link key={section.title} href={section.url}>
+                      <Button
+                        variant="text"
+                        size="small"
+                        style={{ color: "white" }}
+                      >
+                        <Typography className={classes.toolbarLink}>
+                          {" "}
+                          {section.title}{" "}
+                        </Typography>
+                      </Button>
+                    </Link>
+                  </a>
                 </div>
                 <Divider
                   orientation="vertical"

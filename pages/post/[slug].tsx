@@ -44,8 +44,15 @@ export default function Post({ post }) {
           <article>
             <Head>
               <title>
-              {CMS_NAME} | {post?.title}
+                {CMS_NAME} | {post?.title}
               </title>
+              <link
+                rel="desde-crespo-icon"
+                sizes="512x512"
+                href="/favicon/desde-crespo-icon.png"
+              />
+              <link rel="manifest" href="/favicon/site.webmanifest" />
+              <link rel="shortcut icon" href="/favicon/favicon.ico" />
               <meta property="og:type" content="article" />
               <meta
                 property="og:description"
@@ -84,12 +91,12 @@ export default function Post({ post }) {
 }
 
 // SSR
-export async function getServerSideProps({  params, preview = false }) {
- const data = await getPostAndMorePosts(params.slug, preview);
+export async function getServerSideProps({ params, preview = false }) {
+  const data = await getPostAndMorePosts(params.slug, preview);
   return {
     props: {
       preview,
       post: data.post,
-    }
-  }
+    },
+  };
 }
