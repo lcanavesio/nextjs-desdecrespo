@@ -172,7 +172,7 @@ export default memo(NavigatorMobile);
 let theme = createTheme({
   typography: {
     h5: {
-      fontWeight: 500,
+      fontWeight: 600,
       fontSize: 26,
       letterSpacing: 0.5,
     },

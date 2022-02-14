@@ -2,10 +2,9 @@ import {
   CssBaseline,
   Grid,
   Typography,
-  useMediaQuery,
+  useMediaQuery
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Image from "material-ui-image";
 import React from "react";
 import { getSecondPartPublicidad } from "utils/constants";
 import DateComponent from "../../utils/dateFormater";
@@ -27,11 +26,10 @@ const useStyles = makeStyles((theme) => ({
   image: {
     marginTop: 10,
     marginBottom: 10,
-    position: "relative",
+    //position: "relative",
     objectFit: "cover",
     margin: 0,
     borderRadius: 5,
-    paddingBottom: 20,
     maxWidth: "100%",
   },
   "@global": {
@@ -101,13 +99,12 @@ const IndividualPost = (props: Props) => {
                         {data?.title}
                       </Typography>
 
-                      <Image
+                      <img
                         src={data?.featuredImage?.node?.sourceUrl}
                         alt={data?.title}
-                        aspectRatio={2}
-                        disableSpinner={false}
-                        cover={true}
+                        style={{ width: "100%", height: "auto" }}
                         className={classes.image}
+                        loading="lazy"
                       />
                       <div className="mb-6 text-lg">
                         Publicado el: {data?.date && DateComponent(data?.date)}
@@ -230,13 +227,12 @@ const IndividualPost = (props: Props) => {
                   >
                     {data?.title}
                   </Typography>
-                  <Image
+                  <img
                     src={data?.featuredImage?.node?.sourceUrl}
                     alt={data?.title}
-                    aspectRatio={2}
-                    disableSpinner={false}
-                    cover={true}
+                    style={{ width: "100%", height: "auto" }}
                     className={classes.image}
+                    loading="lazy"
                   />
                   <div className="mb-6 text-lg">
                     Publicado el: {data?.date && DateComponent(data?.date)}
