@@ -31,9 +31,7 @@ const CategoriaPage = () => {
     <Layout>
       <Grid container className={classes.container}>
         <Grid lg={9}>
-          <Grid container lg={12}>
-            <CategoryComponent categoryName={categoryName} />;
-          </Grid>
+          <CategoryComponent categoryName={categoryName} />;
         </Grid>
         <Grid lg={3} className={classes.rightColumn}>
             <RightColumn />

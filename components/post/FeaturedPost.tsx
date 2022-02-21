@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cardMedia: {
     transition: "0.3s",
-    height: 200,
+    height: 300,
     margin: 0,
   },
   details: {
