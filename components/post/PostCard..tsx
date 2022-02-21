@@ -11,6 +11,7 @@ import {
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import Link from "next/link";
 import React from "react";
+import { Category } from "utils/constants";
 
 const useStyles = makeStyles((theme) => ({
   cardLink: {
@@ -88,6 +89,7 @@ type Post = {
 };
 
 type Props = {
+  category: Category;
   post: Post;
 };
 
@@ -111,14 +113,14 @@ const getSummary = (text: string, limit: number) => {
 
 const PostCard = (props: Props) => {
   const classes = useStyles();
-  const { post } = props;
+  const { post, category } = props;
   if (post === null) return null;
   return (
     <a
       target="_blank"
       href={`/post/${post.slug}`}
       rel="noopener noreferrer"
-      style={{ textDecoration: "none" }}
+      style={{ textDecoration: "none", width: '100%' }}
     >
       <Link href={`/post/${post.slug}`}>
         <Card className={classes.card} style={{ width: "100%" }}>
@@ -140,12 +142,18 @@ const PostCard = (props: Props) => {
                 </Typography>
                 <Divider className={classes.divider} light />
                 <Typography>
-                  <div
+                  {
+                    category?.title != 'Necrológicas' ?
+                    <div
                     className={classes.summary}
                     dangerouslySetInnerHTML={{
                       __html: getSummary(post?.content, 40),
                     }}
                   />
+                  :
+                  null
+                  }
+                  
                 </Typography>
                 <Grid
                   container

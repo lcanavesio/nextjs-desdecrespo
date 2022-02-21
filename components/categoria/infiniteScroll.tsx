@@ -1,9 +1,8 @@
-import { gql, useQuery } from "@apollo/client";
 import {
   CircularProgress,
   CssBaseline,
   List,
-  ListItem,
+  ListItem
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
@@ -57,6 +56,7 @@ const InfiniteScrollComponent = (props: Props) => {
           <>
             <ListItem style={{ paddingLeft: 0, paddingRight: 0 }}>
               <PostCard
+                category={category}
                 post={{
                   id: x.node.id,
                   date: x.node.date,

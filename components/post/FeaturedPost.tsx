@@ -87,7 +87,7 @@ export default function FeaturedPost(props: Props) {
             />
             <CardContent
               onClick={() => router.push(`/post/[slug]`, `/post/${post.slug}`)}
-              style={{ minWidth: "100%", minHeight: matches ? "100%" : 95 }}
+              style={{ minWidth: "100%", minHeight: matches ? 95 : "100%" }}
             >
               <Typography
                 gutterBottom
