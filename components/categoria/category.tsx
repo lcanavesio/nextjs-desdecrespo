@@ -67,7 +67,7 @@ const CategoryComponent = (props: Props) => {
     <section className={classes.container}>
       <CssBaseline />
       <Breadcrumb category={category?.databaseName} />
-      <GridList cellHeight={288} cols={matches ? 1 : 2} style={{paddingTop: 20}}>
+      <GridList cellHeight={405} cols={matches ? 1 : 2} style={{paddingTop: 20}}>
         {!loading && posts
           ? posts.map((post) => (
               <GridListTile key={`gridList-${category.title}-${post?.title}`}>
