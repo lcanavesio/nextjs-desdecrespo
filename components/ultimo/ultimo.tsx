@@ -171,9 +171,9 @@ const Ultimo = () => {
                 >
                   <Link href="/live">
                     <div>
-                      <Typography component="p" variant="body2">
+                      <Typography component="p" variant="body2" style={{color: 'white'}}>
                         <Brightness1Icon
-                          style={{
+                          style={{                            
                             width: 8,
                             height: 8,
                           }}
