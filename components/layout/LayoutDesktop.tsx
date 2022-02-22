@@ -62,7 +62,13 @@ const LayoutDesktop = () => {
 
             <TabFourPosts />
             <PublicidadPrincipal key={"publicidadprincipal1"} />
-            <div
+ 
+          </Grid>
+          <Grid lg={3} className={classes.rightColumn}>
+            <RightColumn />
+          </Grid>
+          <PolicialesProvinciales key="policialesprovinciales" />
+          <div
               className={classes.advertisingContainer}
               style={{ marginLeft: -5, marginRight: -5 }}
             >
@@ -71,11 +77,6 @@ const LayoutDesktop = () => {
                 href={process.env.NEXT_PUBLIC_PUBLICIDAD6}
               />
             </div>
-          </Grid>
-          <Grid lg={3} className={classes.rightColumn}>
-            <RightColumn />
-          </Grid>
-          <PolicialesProvinciales key="policialesprovinciales" />
           <PostGenerico
             key="postgenerico5"
             categoryName="Nacionales"
