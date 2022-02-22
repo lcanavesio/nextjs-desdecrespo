@@ -1,4 +1,4 @@
-import { GridList, GridListTile, Typography } from "@material-ui/core";
+import { GridList, GridListTile } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import FeaturedPost from "components/post/FeaturedPost";
 import { getPostsSearch } from "lib/api";
@@ -41,7 +41,7 @@ const SearchContent = ({ data, keyword, pageInfo }) => {
         }
       >
         <GridList
-          cellHeight={288}
+          cellHeight={405}
           cols={2}
           style={{ paddingLeft: 10, paddingRight: 10 }}
         >
