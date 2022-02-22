@@ -32,8 +32,8 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     fontFamily: "Roboto, Helvetica, Arial, sans-serif",
-    fontSize: 21,
-    fontWeight: 700,
+    fontSize: 18,
+    fontWeight: "bold",
     height: "100%",
     overflow: "hidden",
     display: "-webkit-box",
