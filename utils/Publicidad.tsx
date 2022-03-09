@@ -21,13 +21,19 @@ export const PublicidadPrincipal = () => {
   return (
     <Grid container>
       <Grid item lg={4} className={classes.card}>
-        <Image
-          src={process.env.NEXT_PUBLIC_PUBLICIDAD2}
-          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD2)}
-          width={310}
-          height={240}
-          loading="lazy"
-        />
+        <a
+          href={process.env.NEXT_PUBLIC_PUBLICIDAD2}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Image
+            src={process.env.NEXT_PUBLIC_PUBLICIDAD2}
+            alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD2)}
+            width={310}
+            height={240}
+            loading="lazy"
+          />
+        </a>
       </Grid>
       <Grid item lg={4} className={classes.card}>
         <a
@@ -42,19 +48,22 @@ export const PublicidadPrincipal = () => {
             height={268}
             loading="lazy"
           />
-
-
         </a>
       </Grid>
       <Grid item lg={4} className={classes.card}>
-        <Image
-          src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
-          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)}
-          width={300}
-          height={268}
-          loading="lazy"
-        />
-
+        <a
+          href={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Image
+            src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+            alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)}
+            width={300}
+            height={268}
+            loading="lazy"
+          />
+        </a>
       </Grid>
     </Grid>
   );
@@ -69,7 +78,11 @@ export const PublicidadGenerico = (props: PublicidadGenerico) => {
   return (
     <Grid container>
       <Grid item lg={12} className={classes.card}>
-        <img src={href} className={classes.advertisingContainer} alt={getSecondPartPublicidad(href)} />
+        <img
+          src={href}
+          className={classes.advertisingContainer}
+          alt={getSecondPartPublicidad(href)}
+        />
       </Grid>
     </Grid>
   );
