@@ -56,13 +56,20 @@ export const PublicidadPrincipal = () => {
           target="_blank"
           rel="noreferrer"
         >
-          <Image
-            src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
-            alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)}
-            width={300}
-            height={268}
-            loading="lazy"
-          />
+          <Grid container>
+            <Grid item lg={12} className={classes.card}>
+              <img
+                src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+                className={classes.advertisingContainer}
+                alt={getSecondPartPublicidad(
+                  process.env.NEXT_PUBLIC_PUBLICIDAD4
+                )}
+                loading="lazy"
+                width={300}
+                height={268}
+              />
+            </Grid>
+          </Grid>
         </a>
       </Grid>
     </Grid>
@@ -82,6 +89,7 @@ export const PublicidadGenerico = (props: PublicidadGenerico) => {
           src={href}
           className={classes.advertisingContainer}
           alt={getSecondPartPublicidad(href)}
+          loading="lazy"
         />
       </Grid>
     </Grid>
