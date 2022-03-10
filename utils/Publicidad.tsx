@@ -57,10 +57,8 @@ export const PublicidadPrincipal = () => {
           rel="noreferrer"
         >
           <Image
-            src="https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/bersa.jpg"// {process.env.NEXT_PUBLIC_PUBLICIDAD4}
-            alt={getSecondPartPublicidad(
-              "https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/bersa.jpg"//process.env.NEXT_PUBLIC_PUBLICIDAD4
-              )}
+            src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+            alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD4)}
             width={300}
             height={268}
             loading="lazy"

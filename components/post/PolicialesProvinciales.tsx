@@ -58,7 +58,7 @@ const PolicialesProvinciales = () => {
         </Grid>
         {!matches && (
           <img
-            src="https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/bersa.jpg"//{process.env.NEXT_PUBLIC_PUBLICIDAD4}
+            src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
             style={{ textAlign: 'center', width: '100%' }}
           />
         )}
