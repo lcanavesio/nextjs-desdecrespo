@@ -161,9 +161,9 @@ const IndividualPost = (props: Props) => {
                   className={classes.image}
                 />
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+                  src="https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/bersa.jpg" // {process.env.NEXT_PUBLIC_PUBLICIDAD4}
                   alt={getSecondPartPublicidad(
-                    process.env.NEXT_PUBLIC_PUBLICIDAD4
+                    "https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/bersa.jpg"//process.env.NEXT_PUBLIC_PUBLICIDAD4
                   )}
                   className={classes.image}
                 />
@@ -289,9 +289,9 @@ const IndividualPost = (props: Props) => {
                   className={classes.image}
                 />
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+                  src="https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/bersa.jpg"//{process.env.NEXT_PUBLIC_PUBLICIDAD4}
                   alt={getSecondPartPublicidad(
-                    process.env.NEXT_PUBLIC_PUBLICIDAD4
+                    "https://admin.desdecrespo.com.ar/wp-content/uploads/2020/05/bersa.jpg"//process.env.NEXT_PUBLIC_PUBLICIDAD4
                   )}
                   className={classes.image}
                 />
