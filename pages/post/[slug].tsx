@@ -16,8 +16,7 @@ export default function Post({ post }) {
   }
   const url = "https://desdecrespo.com.ar/" + router.asPath;
   const img = post?.featuredImage?.node?.sourceUrl;
-  
-   const urlImage = `${path.parse(img).name}-150x150${path.parse(img).ext}`;
+  //const urlImage = `${path.parse(img).dir}/${path.parse(img).name}-150x150${path.parse(img).ext}`;
 
   return (
     <>
@@ -65,7 +64,7 @@ export default function Post({ post }) {
               />
               <meta
                 property="og:image"
-                content={urlImage}
+                content={img}
               />
               <meta property="twitter:card" content="summary" />
               <meta name="twitter:site" content="@nytimesbits" />
