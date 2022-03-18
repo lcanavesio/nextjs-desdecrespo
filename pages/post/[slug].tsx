@@ -6,6 +6,7 @@ import Layout from "../../components/layout/Layout";
 import IndividualPost from "../../components/post/IndividualPost";
 import { getPostAndMorePosts } from "../../lib/api";
 import { CMS_NAME } from "../../lib/constants";
+const path = require('path');
 
 export default function Post({ post }) {
   const router = useRouter();
@@ -14,6 +15,10 @@ export default function Post({ post }) {
     return <ErrorPage statusCode={404} />;
   }
   const url = "https://desdecrespo.com.ar/" + router.asPath;
+  const img = post?.featuredImage?.node?.sourceUrl;
+  
+   const urlImage = `${path.parse(img).name}-150x150${path.parse(img).ext}`;
+
   return (
     <>
       {router.isFallback ? (
@@ -60,7 +65,7 @@ export default function Post({ post }) {
               />
               <meta
                 property="og:image"
-                content={post.featuredImage?.node?.sourceUrl}
+                content={urlImage}
               />
               <meta property="twitter:card" content="summary" />
               <meta name="twitter:site" content="@nytimesbits" />
