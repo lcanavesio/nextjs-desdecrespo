@@ -2,7 +2,7 @@ import {
   CssBaseline,
   Grid,
   Typography,
-  useMediaQuery
+  useMediaQuery,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
@@ -13,6 +13,7 @@ import InfiniteScrollComponent from "../categoria/infiniteScroll";
 import InfiniteScrollSimple from "../categoria/infiniteScrollSimple";
 import HeaderTitle from "../common/headerTitle";
 import PostsRecientes from "./PostsRecientes";
+import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -31,6 +32,12 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     borderRadius: 5,
     maxWidth: "100%",
+  },
+  imageNext: {
+    marginTop: 10,
+    marginBottom: 10,
+    margin: 10,
+    minWidth: "100%",
   },
   "@global": {
     "#divContent img": {
@@ -181,6 +188,17 @@ const IndividualPost = (props: Props) => {
                   )}
                   className={classes.image}
                 />
+                {
+                  //NOTE QUITAR 28 DE MARZO DE 2022
+                }
+                <Image
+                  className={classes.imageNext}
+                  src="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
+                  alt="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
+                  width={321}
+                  height={400}
+                  loading="lazy"
+                />
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD9}
                   alt={getSecondPartPublicidad(
@@ -301,6 +319,17 @@ const IndividualPost = (props: Props) => {
                     process.env.NEXT_PUBLIC_PUBLICIDAD7
                   )}
                   className={classes.image}
+                />
+                {
+                  //NOTE QUITAR 28 DE MARZO DE 2022
+                }
+                <Image
+                  className={classes.imageNext}
+                  src="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
+                  alt="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
+                  width={321}
+                  height={400}
+                  loading="lazy"
                 />
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD9}

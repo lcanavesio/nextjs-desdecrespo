@@ -74,7 +74,6 @@ export default function RightColumn() {
           height={200}
           loading="lazy"
         />
-
         <Image
           className={classes.image}
           src={process.env.NEXT_PUBLIC_PUBLICIDAD9}
@@ -83,7 +82,6 @@ export default function RightColumn() {
           height={200}
           loading="lazy"
         />
-
         <Image
           className={classes.image}
           src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
@@ -92,6 +90,17 @@ export default function RightColumn() {
           height={200}
           loading="lazy"
         />
+        {//NOTE QUITAR 28 DE MARZO DE 2022
+        }
+        <Image
+          className={classes.image}
+          src="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
+          alt="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
+          width={321}
+          height={400}
+          loading="lazy"
+        />
+        
       </Grid>
     </>
   );
