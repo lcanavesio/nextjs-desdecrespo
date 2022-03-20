@@ -92,7 +92,7 @@ export default function RightColumn() {
         />
         {//NOTE QUITAR 28 DE MARZO DE 2022
         }
-        <Image
+        <img
           className={classes.image}
           src="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
           alt="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"

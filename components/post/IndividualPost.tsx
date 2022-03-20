@@ -13,7 +13,6 @@ import InfiniteScrollComponent from "../categoria/infiniteScroll";
 import InfiniteScrollSimple from "../categoria/infiniteScrollSimple";
 import HeaderTitle from "../common/headerTitle";
 import PostsRecientes from "./PostsRecientes";
-import Image from "next/image";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -191,7 +190,7 @@ const IndividualPost = (props: Props) => {
                 {
                   //NOTE QUITAR 28 DE MARZO DE 2022
                 }
-                <Image
+                <img
                   className={classes.imageNext}
                   src="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
                   alt="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
@@ -323,7 +322,7 @@ const IndividualPost = (props: Props) => {
                 {
                   //NOTE QUITAR 28 DE MARZO DE 2022
                 }
-                <Image
+                <img
                   className={classes.imageNext}
                   src="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
                   alt="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
