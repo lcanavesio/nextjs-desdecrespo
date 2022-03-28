@@ -187,17 +187,6 @@ const IndividualPost = (props: Props) => {
                   )}
                   className={classes.image}
                 />
-                {
-                  //NOTE QUITAR 28 DE MARZO DE 2022
-                }
-                <img
-                  className={classes.imageNext}
-                  src="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
-                  alt="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
-                  width={321}
-                  height={400}
-                  loading="lazy"
-                />
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD9}
                   alt={getSecondPartPublicidad(
@@ -318,17 +307,6 @@ const IndividualPost = (props: Props) => {
                     process.env.NEXT_PUBLIC_PUBLICIDAD7
                   )}
                   className={classes.image}
-                />
-                {
-                  //NOTE QUITAR 28 DE MARZO DE 2022
-                }
-                <img
-                  className={classes.imageNext}
-                  src="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
-                  alt="https://admin.desdecrespo.com.ar/wp-content/uploads/2022/03/remate.jpg"
-                  width={321}
-                  height={400}
-                  loading="lazy"
                 />
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD9}
