@@ -82,17 +82,16 @@ export default function RightColumn() {
           height={200}
           loading="lazy"
         />
-        <Image
+        {/* <Image
           className={classes.image}
           src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
           alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
           width={321}
           height={200}
           loading="lazy"
-        />
+        /> */}
         {/* DELETEME 29/04*/}
-        <Image
-          className={classes.image}
+        <img
           src={'https://admin.desdecrespo.com.ar/wp-content/uploads/2022/04/cantondebat.jpg'}
           alt={getSecondPartPublicidad('https://admin.desdecrespo.com.ar/wp-content/uploads/2022/04/cantondebat.jpg')}
           width={321}

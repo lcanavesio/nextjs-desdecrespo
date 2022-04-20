@@ -68,7 +68,7 @@ const LayoutDesktop = () => {
             <RightColumn />
           </Grid>
           <PolicialesProvinciales key="policialesprovinciales" />
-          <div
+          {/* <div
               className={classes.advertisingContainer}
               style={{ marginLeft: -5, marginRight: -5 }}
             >
@@ -76,7 +76,7 @@ const LayoutDesktop = () => {
                 key="NEXT_PUBLIC_PUBLICIDAD6"
                 href={process.env.NEXT_PUBLIC_PUBLICIDAD6}
               />
-            </div>
+            </div> */}
           <PostGenerico
             key="postgenerico5"
             categoryName="Nacionales"

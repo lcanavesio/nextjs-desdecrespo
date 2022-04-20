@@ -163,7 +163,7 @@ const LayoutMobile = () => {
             first={3}
             titulo="NACIONALES"
           />
-          <div className={classes.advertisingContainer}>
+          {/* <div className={classes.advertisingContainer}>
             <Image
               className={classes.image}
               src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
@@ -176,11 +176,11 @@ const LayoutMobile = () => {
               objectFit="contain"
               loading="lazy"
             />
-          </div>
+          </div> */}
           
           {/* DELETEME 29/04*/}
           <div className={classes.advertisingContainer}>
-            <Image
+            <img
               className={classes.image}
               src={'https://admin.desdecrespo.com.ar/wp-content/uploads/2022/04/cantondebat.jpg'}
               alt={getSecondPartPublicidad(
@@ -188,8 +188,6 @@ const LayoutMobile = () => {
               )}
               width="100%"
               height="100%"
-              layout="responsive"
-              objectFit="contain"
               loading="lazy"
             />
           </div>
