@@ -68,6 +68,7 @@ const InfiniteScrollComponent = (props: Props) => {
               />
             </ListItem>
             {i === edges.length - 2 && (
+              //@ts-ignore
               <Waypoint
                 onEnter={() => {
                   fetchMore({

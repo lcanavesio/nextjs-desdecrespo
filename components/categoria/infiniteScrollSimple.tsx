@@ -85,6 +85,7 @@ const InfiniteScrollSimple = (props: Props) => {
               <FeaturedPost key={x.id} post={x.node} />
             </ListItem>
             {i === edges.length - 2 && (
+              //@ts-ignore
               <Waypoint
                 onEnter={() => {
                   fetchMore({
