@@ -91,13 +91,7 @@ export default function RightColumn() {
           loading="lazy"
         /> */}
         {/* DELETEME 29/04*/}
-        <img
-          src={'https://admin.desdecrespo.com.ar/wp-content/uploads/2022/04/cantondebat.jpg'}
-          alt={getSecondPartPublicidad('https://admin.desdecrespo.com.ar/wp-content/uploads/2022/04/cantondebat.jpg')}
-          width={321}
-          height={200}
-          loading="lazy"
-        />       
+        
       </Grid>
     </>
   );
