@@ -163,21 +163,7 @@ const LayoutMobile = () => {
             first={3}
             titulo="NACIONALES"
           />
-          {/* <div className={classes.advertisingContainer}>
-            <Image
-              className={classes.image}
-              src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
-              alt={getSecondPartPublicidad(
-                process.env.NEXT_PUBLIC_PUBLICIDAD10
-              )}
-              width="100%"
-              height="100%"
-              layout="responsive"
-              objectFit="contain"
-              loading="lazy"
-            />
-          </div> */}
-          
+                   
           <PostGenerico
             key="postgenerico6"
             categoryName="Internacionales"

@@ -70,6 +70,7 @@ const SlidePosts = () => {
   return (
     <>
       {!loading && posts ? (
+       //@ts-ignore
         <Carousel
           className={classes.carousel}
           animation={"slide"}

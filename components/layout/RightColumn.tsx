@@ -89,9 +89,7 @@ export default function RightColumn() {
           width={321}
           height={200}
           loading="lazy"
-        /> */}
-        {/* DELETEME 29/04*/}
-        
+        /> */}        
       </Grid>
     </>
   );

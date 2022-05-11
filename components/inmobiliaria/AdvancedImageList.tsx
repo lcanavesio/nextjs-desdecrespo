@@ -61,6 +61,7 @@ export default function AdvancedImageList() {
   };
 
   return (
+    //@ts-ignore
     <Carousel
       className={classes.carousel}
       animation={"slide"}

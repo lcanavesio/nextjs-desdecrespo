@@ -88,6 +88,7 @@ const Ultimo = () => {
           <FlashOnIcon style={{ color: "red" }} />
           <h5 placeholder="">LO ÚLTIMO</h5>
           {posts ? (
+            //@ts-ignore
             <Carousel
               key="carousel-desktop"
               className={classes.carousel}
@@ -132,6 +133,7 @@ const Ultimo = () => {
           >
             <FlashOnIcon style={{ color: "red" }} />
             {posts ? (
+              //@ts-ignore
               <Carousel
                 key="carousel-mobile"
                 className={classes.carouselMobile}
