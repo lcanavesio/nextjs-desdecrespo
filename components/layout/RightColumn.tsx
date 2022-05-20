@@ -65,15 +65,28 @@ export default function RightColumn() {
           titulo="Rurales"
         />
       </Grid>
-      <Grid item lg={12} style={{ marginLeft: -10, marginRight: -10 }}>
+      <Grid item lg={12} style={{ paddingLeft: -10, paddingRight: -10 }}>
+        <img
+          src={process.env.NEXT_PUBLIC_LIBRO_IMAGEN}
+          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_LIBRO_IMAGEN)}
+          width={321}
+          height={448}
+        />
+        <img
+          src={process.env.NEXT_PUBLIC_DIARIO_IMAGEN}
+          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_DIARIO_IMAGEN)}
+          width={321}
+          height={448}
+        />
         <Image
           className={classes.image}
           src={process.env.NEXT_PUBLIC_PUBLICIDAD7}
           alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD7)}
-          width={321}
+          width={320}
           height={200}
           loading="lazy"
         />
+
         <Image
           className={classes.image}
           src={process.env.NEXT_PUBLIC_PUBLICIDAD9}
@@ -89,7 +102,7 @@ export default function RightColumn() {
           width={321}
           height={200}
           loading="lazy"
-        /> */}        
+        /> */}
       </Grid>
     </>
   );

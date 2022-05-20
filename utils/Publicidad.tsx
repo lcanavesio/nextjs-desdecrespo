@@ -72,6 +72,14 @@ export const PublicidadPrincipal = () => {
           </Grid>
         </a>
       </Grid>
+      <Grid item lg={12} className={classes.card}>
+        <img
+          src={process.env.NEXT_PUBLIC_PORTADA_IMAGEN}
+          className={classes.advertisingContainer}
+          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PORTADA_IMAGEN)}
+          loading="lazy"          
+        />
+      </Grid>
     </Grid>
   );
 };

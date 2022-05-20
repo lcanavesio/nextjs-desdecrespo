@@ -45,7 +45,7 @@ const LayoutMobile = () => {
               <SlidePosts />
             </Grid>
           </Grid>
-          
+
           <div
             className={classes.advertisingContainer}
             style={{
@@ -61,14 +61,32 @@ const LayoutMobile = () => {
               objectFit="contain"
             />
           </div>
-          
+
           <PostGenerico
-              key="postgenerico1"
-              categoryName="locales"
-              first={8}
-              titulo="Crespo"
+            key="postgenerico1"
+            categoryName="locales"
+            first={8}
+            titulo="Crespo"
+          />
+          <Grid container lg={12} style={{padding: 10}}>
+            <img
+              style={{ width: "100%" }}
+              src={process.env.NEXT_PUBLIC_LIBRO_IMAGEN}
+              alt={getSecondPartPublicidad(
+                process.env.NEXT_PUBLIC_LIBRO_IMAGEN
+              )}
             />
+          </Grid>
           <Wather />
+          <Grid container lg={12} style={{padding: 10}}>
+            <img
+              style={{ width: "100%" }}
+              src={process.env.NEXT_PUBLIC_DIARIO_IMAGEN}
+              alt={getSecondPartPublicidad(
+                process.env.NEXT_PUBLIC_DIARIO_IMAGEN
+              )}
+            />
+          </Grid>
           <TabFourPosts key="TabFourPosts" />
           <div className={classes.advertisingContainer}>
             <Image
@@ -82,6 +100,15 @@ const LayoutMobile = () => {
             />
           </div>
           <PostsRecientes />
+          <Grid container lg={12} style={{padding: 10}}>
+            <img
+              style={{ width: "100%" }}
+              src={process.env.NEXT_PUBLIC_PORTADA_IMAGEN}
+              alt={getSecondPartPublicidad(
+                process.env.NEXT_PUBLIC_PORTADA_IMAGEN
+              )}
+            />
+          </Grid>
           <ClicMe />
 
           <div className={classes.advertisingContainer}>
@@ -163,7 +190,7 @@ const LayoutMobile = () => {
             first={3}
             titulo="NACIONALES"
           />
-                   
+
           <PostGenerico
             key="postgenerico6"
             categoryName="Internacionales"
