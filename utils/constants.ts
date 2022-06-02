@@ -89,5 +89,5 @@ export abstract class Constants {
 
 
 export function getSecondPartPublicidad(str: string) {
-  return str.split('uploads')[1];
+  return str?.split('uploads')[1];
 }
