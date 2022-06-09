@@ -40,7 +40,7 @@ const LayoutMobile = () => {
       <section className={classes.container}>
         <CssBaseline />
         <Grid container className={classes.container}>
-          <Grid item lg={12}>
+          <Grid item>
             <Grid item lg={12}>
               <SlidePosts />
             </Grid>
@@ -68,7 +68,7 @@ const LayoutMobile = () => {
             first={8}
             titulo="Crespo"
           />
-          <Grid container lg={12} style={{padding: 10}}>
+          <Grid container lg={12} style={{ padding: 10 }}>
             <img
               style={{ width: "100%" }}
               src={process.env.NEXT_PUBLIC_LIBRO_IMAGEN}
@@ -78,7 +78,7 @@ const LayoutMobile = () => {
             />
           </Grid>
           <Wather />
-          <Grid container lg={12} style={{padding: 10}}>
+          <Grid container lg={12} style={{ padding: 10 }}>
             <img
               style={{ width: "100%" }}
               src={process.env.NEXT_PUBLIC_DIARIO_IMAGEN}
@@ -100,7 +100,7 @@ const LayoutMobile = () => {
             />
           </div>
           <PostsRecientes />
-          <Grid container lg={12} style={{padding: 10}}>
+          <Grid container lg={12} style={{ padding: 10 }}>
             <img
               style={{ width: "100%" }}
               src={process.env.NEXT_PUBLIC_PORTADA_IMAGEN}

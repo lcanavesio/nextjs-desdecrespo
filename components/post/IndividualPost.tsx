@@ -2,7 +2,7 @@ import {
   CssBaseline,
   Grid,
   Typography,
-  useMediaQuery
+  useMediaQuery,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
@@ -167,9 +167,9 @@ const IndividualPost = (props: Props) => {
                   className={classes.image}
                 />
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD11}
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
                   alt={getSecondPartPublicidad(
-                    process.env.NEXT_PUBLIC_PUBLICIDAD11
+                    process.env.NEXT_PUBLIC_PUBLICIDAD4
                   )}
                   className={classes.image}
                 />
@@ -295,9 +295,9 @@ const IndividualPost = (props: Props) => {
                   className={classes.image}
                 />
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD11}
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
                   alt={getSecondPartPublicidad(
-                    process.env.NEXT_PUBLIC_PUBLICIDAD11
+                    process.env.NEXT_PUBLIC_PUBLICIDAD4
                   )}
                   className={classes.image}
                 />

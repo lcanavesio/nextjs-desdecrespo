@@ -1,17 +1,18 @@
-import { CircularProgress, Grid, useMediaQuery } from '@material-ui/core';
-import { useGetPostsForCategoryQuery } from 'graphql/types';
-import React from 'react';
-import { useStylesGlobal } from '../../utils/GlobalStyle';
-import HeaderTitle from '../common/headerTitle';
-import FeaturedPost from './FeaturedPost';
+import { CircularProgress, Grid, useMediaQuery } from "@material-ui/core";
+import { useGetPostsForCategoryQuery } from "graphql/types";
+import React from "react";
+import { useStylesGlobal } from "../../utils/GlobalStyle";
+import HeaderTitle from "../common/headerTitle";
+import FeaturedPost from "./FeaturedPost";
 
 const PolicialesProvinciales = () => {
   const classesGlobal = useStylesGlobal();
 
   const { loading, error, data } = useGetPostsForCategoryQuery({
     variables: {
-      first: 8, categoryName: "Policiales"
-    }
+      first: 8,
+      categoryName: "Policiales",
+    },
   });
 
   const {
@@ -20,10 +21,11 @@ const PolicialesProvinciales = () => {
     data: dataProvinciales,
   } = useGetPostsForCategoryQuery({
     variables: {
-      first: 8, categoryName: "Provinciales"
-    }
+      first: 8,
+      categoryName: "Provinciales",
+    },
   });
-  const matches = useMediaQuery('(min-width:900px)');
+  const matches = useMediaQuery("(min-width:900px)");
   const postsPoliciales = data?.posts?.edges?.map((edge) => edge.node) || null;
   const postsProvinciales =
     dataProvinciales?.posts?.edges?.map((edge) => edge.node) || null;
@@ -49,7 +51,7 @@ const PolicialesProvinciales = () => {
                 key={index}
                 lg={6}
                 className={classesGlobal.card}
-                style={{ minWidth: '100%' }}
+                style={{ minWidth: "100%" }}
               >
                 <FeaturedPost key={index} post={post} />
               </Grid>
@@ -58,8 +60,8 @@ const PolicialesProvinciales = () => {
         </Grid>
         {!matches && (
           <img
-            src={process.env.NEXT_PUBLIC_PUBLICIDAD11}
-            style={{ textAlign: 'center', width: '100%' }}
+            src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+            style={{ textAlign: "center", width: "100%" }}
           />
         )}
         <Grid
@@ -76,7 +78,7 @@ const PolicialesProvinciales = () => {
                 item
                 lg={6}
                 className={classesGlobal.card}
-                style={{ minWidth: '100%' }}
+                style={{ minWidth: "100%" }}
               >
                 <FeaturedPost key={index} post={post} />
               </Grid>
