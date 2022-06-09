@@ -40,7 +40,7 @@ const LayoutMobile = () => {
       <section className={classes.container}>
         <CssBaseline />
         <Grid container className={classes.container}>
-          <Grid item>
+          <Grid item lg={12}>
             <Grid item lg={12}>
               <SlidePosts />
             </Grid>
