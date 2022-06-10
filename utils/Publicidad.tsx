@@ -52,17 +52,17 @@ export const PublicidadPrincipal = () => {
       </Grid>
       <Grid item lg={4} className={classes.card}>
         <a
-          href={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+          href={process.env.NEXT_PUBLIC_PUBLICIDAD11}
           target="_blank"
           rel="noreferrer"
         >
           <Grid container>
             <Grid item lg={12} className={classes.card}>
               <img
-                src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+                src={process.env.NEXT_PUBLIC_PUBLICIDAD11}
                 className={classes.advertisingContainer}
                 alt={getSecondPartPublicidad(
-                  process.env.NEXT_PUBLIC_PUBLICIDAD4
+                  process.env.NEXT_PUBLIC_PUBLICIDAD11
                 )}
                 loading="lazy"
                 width={300}

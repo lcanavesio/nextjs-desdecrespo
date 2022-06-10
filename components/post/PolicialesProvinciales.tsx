@@ -60,7 +60,7 @@ const PolicialesProvinciales = () => {
         </Grid>
         {!matches && (
           <img
-            src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+            src={process.env.NEXT_PUBLIC_PUBLICIDAD11}
             style={{ textAlign: "center", width: "100%" }}
           />
         )}

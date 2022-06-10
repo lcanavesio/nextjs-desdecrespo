@@ -167,9 +167,9 @@ const IndividualPost = (props: Props) => {
                   className={classes.image}
                 />
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD11}
                   alt={getSecondPartPublicidad(
-                    process.env.NEXT_PUBLIC_PUBLICIDAD4
+                    process.env.NEXT_PUBLIC_PUBLICIDAD11
                   )}
                   className={classes.image}
                 />
@@ -295,9 +295,9 @@ const IndividualPost = (props: Props) => {
                   className={classes.image}
                 />
                 <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD4}
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD11}
                   alt={getSecondPartPublicidad(
-                    process.env.NEXT_PUBLIC_PUBLICIDAD4
+                    process.env.NEXT_PUBLIC_PUBLICIDAD11
                   )}
                   className={classes.image}
                 />
