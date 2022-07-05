@@ -7,7 +7,7 @@ import PostGenerico from "../../components/post/PostGenerico";
 import SlidePosts from "../../components/post/SlidePosts";
 import {
   PublicidadGenerico,
-  PublicidadPrincipal
+  PublicidadPrincipal,
 } from "../../utils/Publicidad";
 import Layout from "./Layout";
 import RightColumn from "./RightColumn";
@@ -62,7 +62,6 @@ const LayoutDesktop = () => {
 
             <TabFourPosts />
             <PublicidadPrincipal key={"publicidadprincipal1"} />
- 
           </Grid>
           <Grid lg={3} className={classes.rightColumn}>
             <RightColumn />

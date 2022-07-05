@@ -1,6 +1,7 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import Image from "next/image";
 import React from "react";
+import Carousel from "react-material-ui-carousel";
 import { getSecondPartPublicidad } from "./constants";
 
 const useStyles = makeStyles((theme) => ({
@@ -72,13 +73,16 @@ export const PublicidadPrincipal = () => {
           </Grid>
         </a>
       </Grid>
-      <Grid item lg={12} className={classes.card}>
+      <Grid item lg={8} className={classes.card}>
         <img
           src={process.env.NEXT_PUBLIC_PORTADA_IMAGEN}
           className={classes.advertisingContainer}
           alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PORTADA_IMAGEN)}
           loading="lazy"
         />
+      </Grid>
+      <Grid item lg={4} className={classes.card}>
+        <CustomCarouselChangoMas />
       </Grid>
     </Grid>
   );
@@ -101,5 +105,41 @@ export const PublicidadGenerico = (props: PublicidadGenerico) => {
         />
       </Grid>
     </Grid>
+  );
+};
+
+//FIXME Public from 06/07/2022 to 17/07/2022
+
+//NOTE This is a custom carousel for the Chango Mas
+const CustomCarouselChangoMas = () => {
+  const images = [];
+  // for (let i = 1; i <= 4; i++) {
+  //   images.push(process.env.NEXT_PUBLIC_CHANGO + `${i}`);
+  // }
+
+  images.push(
+    process.env.NEXT_PUBLIC_CHANGO1,
+    process.env.NEXT_PUBLIC_CHANGO2,
+    process.env.NEXT_PUBLIC_CHANGO3,
+    process.env.NEXT_PUBLIC_CHANGO4
+  );
+
+  return (
+    //@ts-ignore
+    <Carousel animation={"slide"} interval={9000}>
+      {images.map((item, index) => (
+        <div key={index}>
+          <a
+            href="https://www.changomas.com.ar/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div style={{ cursor: "pointer" }}>
+              <img src={item} alt={item} />
+            </div>
+          </a>
+        </div>
+      ))}
+    </Carousel>
   );
 };
