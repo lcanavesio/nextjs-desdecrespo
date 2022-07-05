@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Image from "next/image";
 import React from "react";
 import { getSecondPartPublicidad } from "utils/constants";
+import { CustomCarouselChangoMas } from "utils/Publicidad";
 import ClicMe from "../../components/inmobiliaria/ClicMe";
 import PostGenerico from "../../components/post/PostGenerico";
 import TV from "../../components/tv/TV";
@@ -65,6 +66,7 @@ export default function RightColumn() {
           titulo="Rurales"
         />
       </Grid>
+      <CustomCarouselChangoMas />
       <Grid item lg={12} style={{ paddingLeft: -10, paddingRight: -10 }}>
         <img
           src={process.env.NEXT_PUBLIC_LIBRO_IMAGEN}
@@ -86,7 +88,6 @@ export default function RightColumn() {
           height={200}
           loading="lazy"
         />
-
         <Image
           className={classes.image}
           src={process.env.NEXT_PUBLIC_PUBLICIDAD9}

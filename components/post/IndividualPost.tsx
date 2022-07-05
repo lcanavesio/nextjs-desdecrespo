@@ -7,6 +7,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import { getSecondPartPublicidad } from "utils/constants";
+import { CustomCarouselChangoMas } from "utils/Publicidad";
 import DateComponent from "../../utils/dateFormater";
 import Breadcrumb from "../breadcrumb/breadcrumb";
 import InfiniteScrollComponent from "../categoria/infiniteScroll";
@@ -152,6 +153,7 @@ const IndividualPost = (props: Props) => {
               <Grid lg={3} className={classes.rightColumn}>
                 <PostsRecientes />
                 <HeaderTitle title="PUBLICITE AQUÍ" />
+
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD5}
                   alt={getSecondPartPublicidad(
@@ -159,6 +161,7 @@ const IndividualPost = (props: Props) => {
                   )}
                   className={classes.image}
                 />
+                <CustomCarouselChangoMas />
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD2}
                   alt={getSecondPartPublicidad(
@@ -270,6 +273,7 @@ const IndividualPost = (props: Props) => {
                   ></iframe>
                 </>
               </Grid>
+
               <Grid item lg={11}>
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
@@ -287,6 +291,7 @@ const IndividualPost = (props: Props) => {
                   )}
                   className={classes.image}
                 />
+                <CustomCarouselChangoMas />
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD2}
                   alt={getSecondPartPublicidad(

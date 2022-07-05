@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { getSecondPartPublicidad } from "./constants";
+import MaterialImage from "material-ui-image";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -14,6 +15,18 @@ const useStyles = makeStyles((theme) => ({
   advertisingContainer: {
     width: "100%",
     textAlign: "center",
+  },
+  carousel: {
+    marginLeft: 10,
+    marginRight: 10,
+  },
+  image: {
+    position: "relative",
+    height: 100,
+    minWidth: "100%",
+    objectFit: "cover",
+    margin: 0,
+    borderRadius: 5,
   },
 }));
 
@@ -73,7 +86,7 @@ export const PublicidadPrincipal = () => {
           </Grid>
         </a>
       </Grid>
-      <Grid item lg={8} className={classes.card}>
+      <Grid item lg={7} className={classes.card}>
         <img
           src={process.env.NEXT_PUBLIC_PORTADA_IMAGEN}
           className={classes.advertisingContainer}
@@ -81,7 +94,7 @@ export const PublicidadPrincipal = () => {
           loading="lazy"
         />
       </Grid>
-      <Grid item lg={4} className={classes.card}>
+      <Grid item lg={5} className={classes.card}>
         <CustomCarouselChangoMas />
       </Grid>
     </Grid>
@@ -111,7 +124,9 @@ export const PublicidadGenerico = (props: PublicidadGenerico) => {
 //FIXME Public from 06/07/2022 to 17/07/2022
 
 //NOTE This is a custom carousel for the Chango Mas
-const CustomCarouselChangoMas = () => {
+export const CustomCarouselChangoMas = () => {
+  const classes = useStyles();
+
   const images = [];
   // for (let i = 1; i <= 4; i++) {
   //   images.push(process.env.NEXT_PUBLIC_CHANGO + `${i}`);
@@ -126,7 +141,7 @@ const CustomCarouselChangoMas = () => {
 
   return (
     //@ts-ignore
-    <Carousel animation={"slide"} interval={9000}>
+    <Carousel animation={"slide"} interval={9000} className={classes.carousel}>
       {images.map((item, index) => (
         <div key={index}>
           <a
@@ -134,8 +149,19 @@ const CustomCarouselChangoMas = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <div style={{ cursor: "pointer" }}>
-              <img src={item} alt={item} />
+            <div
+              style={{
+                cursor: "pointer",
+              }}
+            >
+              <MaterialImage
+                src={item}
+                alt={item}
+                aspectRatio={1.5}
+                disableSpinner={false}
+                cover={true}
+                className={classes.image}
+              />
             </div>
           </a>
         </div>

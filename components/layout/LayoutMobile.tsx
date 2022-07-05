@@ -2,6 +2,7 @@ import { CssBaseline, Grid, makeStyles } from "@material-ui/core";
 import Image from "next/image";
 import React, { memo } from "react";
 import { getSecondPartPublicidad } from "utils/constants";
+import { CustomCarouselChangoMas } from "utils/Publicidad";
 import ClicMe from "../../components/inmobiliaria/ClicMe";
 import TabFourPosts from "../../components/post//TabFourPosts";
 import NoSePierda from "../../components/post/NoSePierda";
@@ -45,7 +46,6 @@ const LayoutMobile = () => {
               <SlidePosts />
             </Grid>
           </Grid>
-
           <div
             className={classes.advertisingContainer}
             style={{
@@ -61,7 +61,6 @@ const LayoutMobile = () => {
               objectFit="contain"
             />
           </div>
-
           <PostGenerico
             key="postgenerico1"
             categoryName="locales"
@@ -110,7 +109,6 @@ const LayoutMobile = () => {
             />
           </Grid>
           <ClicMe />
-
           <div className={classes.advertisingContainer}>
             <a
               href="https://www.facebook.com/FernandoAHuck/"
@@ -131,7 +129,9 @@ const LayoutMobile = () => {
               />
             </a>
           </div>
-
+          <div className={classes.advertisingContainer}>
+            <CustomCarouselChangoMas />
+          </div>
           <SocialFollow />
           <div className={classes.advertisingContainer}>
             <a
@@ -190,7 +190,6 @@ const LayoutMobile = () => {
             first={3}
             titulo="NACIONALES"
           />
-
           <PostGenerico
             key="postgenerico6"
             categoryName="Internacionales"
@@ -215,7 +214,6 @@ const LayoutMobile = () => {
             first={3}
             titulo="DEPORTES"
           />
-
           <NoSePierda key="nosepierda" />
         </Grid>
       </section>
