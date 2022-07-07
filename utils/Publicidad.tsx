@@ -86,17 +86,6 @@ export const PublicidadPrincipal = () => {
           </Grid>
         </a>
       </Grid>
-      <Grid item lg={7} className={classes.card}>
-        <img
-          src={process.env.NEXT_PUBLIC_PORTADA_IMAGEN}
-          className={classes.advertisingContainer}
-          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PORTADA_IMAGEN)}
-          loading="lazy"
-        />
-      </Grid>
-      <Grid item lg={5} className={classes.card}>
-        <CustomCarouselChangoMas />
-      </Grid>
     </Grid>
   );
 };

@@ -66,7 +66,7 @@ export default function RightColumn() {
           titulo="Rurales"
         />
       </Grid>
-      <CustomCarouselChangoMas />
+
       <Grid item lg={12} style={{ paddingLeft: -10, paddingRight: -10 }}>
         <img
           src={process.env.NEXT_PUBLIC_LIBRO_IMAGEN}
@@ -74,6 +74,7 @@ export default function RightColumn() {
           width={321}
           height={448}
         />
+        <CustomCarouselChangoMas />
         <img
           src={process.env.NEXT_PUBLIC_DIARIO_IMAGEN}
           alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_DIARIO_IMAGEN)}

@@ -1,5 +1,6 @@
 import { CssBaseline, Grid, makeStyles } from "@material-ui/core";
 import React, { memo } from "react";
+import { getSecondPartPublicidad } from "utils/constants";
 import TabFourPosts from "../../components/post//TabFourPosts";
 import NoSePierda from "../../components/post/NoSePierda";
 import PolicialesProvinciales from "../../components/post/PolicialesProvinciales";
@@ -62,11 +63,31 @@ const LayoutDesktop = () => {
 
             <TabFourPosts />
             <PublicidadPrincipal key={"publicidadprincipal1"} />
+            <PolicialesProvinciales key="policialesprovinciales" />
+            <div
+              className={classes.advertisingContainer}
+              style={{ marginLeft: -5, marginRight: -5 }}
+            >
+              <a
+                href="https://api.whatsapp.com/send?phone=5493434254585"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={process.env.NEXT_PUBLIC_PORTADA_IMAGEN}
+                  className={classes.advertisingContainer}
+                  alt={getSecondPartPublicidad(
+                    process.env.NEXT_PUBLIC_PORTADA_IMAGEN
+                  )}
+                  loading="lazy"
+                />
+              </a>
+            </div>
           </Grid>
           <Grid lg={3} className={classes.rightColumn}>
             <RightColumn />
           </Grid>
-          <PolicialesProvinciales key="policialesprovinciales" />
+
           {/* <div
               className={classes.advertisingContainer}
               style={{ marginLeft: -5, marginRight: -5 }}
