@@ -2,7 +2,7 @@ import {
   CssBaseline,
   Grid,
   Typography,
-  useMediaQuery
+  useMediaQuery,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
@@ -53,10 +53,9 @@ const useStyles = makeStyles((theme) => ({
       {
         display: "none",
       },
-      ".wp-die-message, p":
-      {
-        fontSize: "18px !important",
-      },      
+    ".wp-die-message, p": {
+      fontSize: "18px !important",
+    },
   },
 }));
 
@@ -207,13 +206,13 @@ const IndividualPost = (props: Props) => {
                   )}
                   className={classes.image}
                 />
-                {/* <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
+                <img
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD12}
                   alt={getSecondPartPublicidad(
-                    process.env.NEXT_PUBLIC_PUBLICIDAD10
+                    process.env.NEXT_PUBLIC_PUBLICIDAD12
                   )}
                   className={classes.image}
-                /> */}
+                />
 
                 <HeaderTitle title="NO SE PIERDA" />
                 <InfiniteScrollSimple
@@ -336,13 +335,13 @@ const IndividualPost = (props: Props) => {
                   )}
                   className={classes.image}
                 />
-                {/* <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
+                <img
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD12}
                   alt={getSecondPartPublicidad(
-                    process.env.NEXT_PUBLIC_PUBLICIDAD10
+                    process.env.NEXT_PUBLIC_PUBLICIDAD12
                   )}
                   className={classes.image}
-                /> */}
+                />
 
                 <HeaderTitle title="NO SE PIERDA" />
                 <InfiniteScrollSimple

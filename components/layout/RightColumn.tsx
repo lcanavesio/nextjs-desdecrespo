@@ -103,14 +103,13 @@ export default function RightColumn() {
           height={200}
           loading="lazy"
         />
-        {/* <Image
-          className={classes.image}
-          src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
-          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
+        <img
+          src={process.env.NEXT_PUBLIC_PUBLICIDAD12}
+          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD12)}
           width={321}
           height={200}
           loading="lazy"
-        /> */}
+        />
       </Grid>
     </>
   );
