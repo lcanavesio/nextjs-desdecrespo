@@ -53,6 +53,10 @@ const useStyles = makeStyles((theme) => ({
       {
         display: "none",
       },
+      ".wp-die-message, p":
+      {
+        fontSize: "18px !important",
+      },      
   },
 }));
 
