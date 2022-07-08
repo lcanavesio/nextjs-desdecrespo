@@ -36,14 +36,20 @@ export default function RightColumn() {
       <SocialFlow />
 
       <div className={classes.advertisingContainer}>
-        <Image
-          className={classes.image}
-          src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
-          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD8)}
-          width={320}
-          height={120}
-          loading="lazy"
-        />
+        <a
+          href="https://www.youtube.com/watch?v=m1lCQqvFSvw&list=PLw9RmhgWHVKpacA_XY3xKzEkieTZ_2JAS"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Image
+            className={classes.image}
+            src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
+            alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD8)}
+            width={320}
+            height={120}
+            loading="lazy"
+          />
+        </a>
       </div>
       <PostsRecientes />
 

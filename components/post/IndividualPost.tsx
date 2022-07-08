@@ -2,7 +2,7 @@ import {
   CssBaseline,
   Grid,
   Typography,
-  useMediaQuery,
+  useMediaQuery
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
@@ -183,13 +183,19 @@ const IndividualPost = (props: Props) => {
                   )}
                   className={classes.image}
                 />
-                <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
-                  alt={getSecondPartPublicidad(
-                    process.env.NEXT_PUBLIC_PUBLICIDAD8
-                  )}
-                  className={classes.image}
-                />
+                <a
+                  href="https://www.youtube.com/watch?v=m1lCQqvFSvw&list=PLw9RmhgWHVKpacA_XY3xKzEkieTZ_2JAS"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
+                    alt={getSecondPartPublicidad(
+                      process.env.NEXT_PUBLIC_PUBLICIDAD8
+                    )}
+                    className={classes.image}
+                  />
+                </a>
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD9}
                   alt={getSecondPartPublicidad(
@@ -275,13 +281,19 @@ const IndividualPost = (props: Props) => {
               </Grid>
 
               <Grid item lg={11}>
-                <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
-                  alt={getSecondPartPublicidad(
-                    process.env.NEXT_PUBLIC_PUBLICIDAD8
-                  )}
-                  className={classes.image}
-                />
+                <a
+                  href="https://www.youtube.com/watch?v=m1lCQqvFSvw&list=PLw9RmhgWHVKpacA_XY3xKzEkieTZ_2JAS"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src={process.env.NEXT_PUBLIC_PUBLICIDAD8}
+                    alt={getSecondPartPublicidad(
+                      process.env.NEXT_PUBLIC_PUBLICIDAD8
+                    )}
+                    className={classes.image}
+                  />
+                </a>
                 <PostsRecientes />
                 <HeaderTitle title="PUBLICITE AQUÍ" />
                 <img
