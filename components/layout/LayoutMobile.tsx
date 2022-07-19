@@ -129,9 +129,9 @@ const LayoutMobile = () => {
               />
             </a>
           </div>
-          <div className={classes.advertisingContainer}>
+          {/* <div className={classes.advertisingContainer}>
             <CustomCarouselChangoMas />
-          </div>
+          </div> */}
           <SocialFollow />
           <div className={classes.advertisingContainer}>
             <a

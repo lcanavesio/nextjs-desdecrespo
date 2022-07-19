@@ -164,7 +164,7 @@ const IndividualPost = (props: Props) => {
                   )}
                   className={classes.image}
                 />
-                <CustomCarouselChangoMas />
+                {/* <CustomCarouselChangoMas /> */}
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD2}
                   alt={getSecondPartPublicidad(

@@ -80,7 +80,7 @@ export default function RightColumn() {
           width={321}
           height={448}
         />
-        <CustomCarouselChangoMas />
+        {/* <CustomCarouselChangoMas /> */}
         <img
           src={process.env.NEXT_PUBLIC_DIARIO_IMAGEN}
           alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_DIARIO_IMAGEN)}
