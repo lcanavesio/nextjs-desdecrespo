@@ -54,10 +54,9 @@ const useStyles = makeStyles((theme) => ({
       {
         display: "none",
       },
-      ".wp-die-message, p":
-      {
-        fontSize: "18px !important",
-      },      
+    ".wp-die-message, p": {
+      fontSize: "18px !important",
+    },
   },
 }));
 
@@ -166,7 +165,7 @@ const IndividualPost = (props: Props) => {
                   )}
                   className={classes.image}
                 />
-                <CustomCarouselChangoMas />
+                {/* <CustomCarouselChangoMas /> */}
                 <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD2}
                   alt={getSecondPartPublicidad(
@@ -211,19 +210,13 @@ const IndividualPost = (props: Props) => {
                 <Zoom>
                   <img
                     src={process.env.NEXT_PUBLIC_NUEVO_HOTEL}
-                    alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_NUEVO_HOTEL)}
+                    alt={getSecondPartPublicidad(
+                      process.env.NEXT_PUBLIC_NUEVO_HOTEL
+                    )}
                     width={321}
                     height={448}
                   />
                 </Zoom>
-                {/* <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
-                  alt={getSecondPartPublicidad(
-                    process.env.NEXT_PUBLIC_PUBLICIDAD10
-                  )}
-                  className={classes.image}
-                /> */}
-
                 <HeaderTitle title="NO SE PIERDA" />
                 <InfiniteScrollSimple
                   categoryParams={
@@ -345,13 +338,13 @@ const IndividualPost = (props: Props) => {
                   )}
                   className={classes.image}
                 />
-                {/* <img
-                  src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
+                <img
+                  src={process.env.NEXT_PUBLIC_PUBLICIDAD12}
                   alt={getSecondPartPublicidad(
-                    process.env.NEXT_PUBLIC_PUBLICIDAD10
+                    process.env.NEXT_PUBLIC_PUBLICIDAD12
                   )}
                   className={classes.image}
-                /> */}
+                />
 
                 <HeaderTitle title="NO SE PIERDA" />
                 <InfiniteScrollSimple

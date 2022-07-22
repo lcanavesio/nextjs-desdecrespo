@@ -130,9 +130,9 @@ const LayoutMobile = () => {
               />
             </a>
           </div>
-          <div className={classes.advertisingContainer}>
+          {/* <div className={classes.advertisingContainer}>
             <CustomCarouselChangoMas />
-          </div>
+          </div> */}
           <SocialFollow />
           <div className={classes.advertisingContainer}>
             <a
@@ -191,6 +191,18 @@ const LayoutMobile = () => {
             first={3}
             titulo="NACIONALES"
           />
+          <div className={classes.advertisingContainer}>
+            <img
+              className={classes.image}
+              src={process.env.NEXT_PUBLIC_PUBLICIDAD12}
+              alt={getSecondPartPublicidad(
+                process.env.NEXT_PUBLIC_PUBLICIDAD12
+              )}
+              width="100%"
+              height="100%"
+              loading="lazy"
+            />
+          </div>
           <PostGenerico
             key="postgenerico6"
             categoryName="Internacionales"

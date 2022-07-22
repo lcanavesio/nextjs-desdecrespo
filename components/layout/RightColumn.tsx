@@ -82,7 +82,7 @@ export default function RightColumn() {
           width={321}
           height={448}
         />
-        <CustomCarouselChangoMas />
+        {/* <CustomCarouselChangoMas /> */}
         <img
           src={process.env.NEXT_PUBLIC_DIARIO_IMAGEN}
           alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_DIARIO_IMAGEN)}
@@ -113,14 +113,13 @@ export default function RightColumn() {
             height={448}
           />
         </Zoom>
-        {/* <Image
-          className={classes.image}
-          src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
-          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD10)}
+        <img
+          src={process.env.NEXT_PUBLIC_PUBLICIDAD12}
+          alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_PUBLICIDAD12)}
           width={321}
           height={200}
           loading="lazy"
-        /> */}
+        />
       </Grid>
     </>
   );
