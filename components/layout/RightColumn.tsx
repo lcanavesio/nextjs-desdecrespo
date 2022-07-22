@@ -2,6 +2,8 @@ import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Image from "next/image";
 import React from "react";
+import Zoom from 'react-medium-image-zoom';
+import 'react-medium-image-zoom/dist/styles.css';
 import { getSecondPartPublicidad } from "utils/constants";
 import { CustomCarouselChangoMas } from "utils/Publicidad";
 import ClicMe from "../../components/inmobiliaria/ClicMe";
@@ -103,6 +105,14 @@ export default function RightColumn() {
           height={200}
           loading="lazy"
         />
+        <Zoom>
+          <img
+            src={process.env.NEXT_PUBLIC_NUEVO_HOTEL}
+            alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_NUEVO_HOTEL)}
+            width={321}
+            height={448}
+          />
+        </Zoom>
         {/* <Image
           className={classes.image}
           src={process.env.NEXT_PUBLIC_PUBLICIDAD10}

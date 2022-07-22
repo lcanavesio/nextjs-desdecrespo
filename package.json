@@ -29,6 +29,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-jinke-music-player": "^4.24.2",
     "react-material-ui-carousel": "^2.3.5",
+    "react-medium-image-zoom": "^4.4.3",
     "react-player": "^2.9.0",
     "react-waypoint": "^10.1.0",
     "sharp": "^0.29.3",

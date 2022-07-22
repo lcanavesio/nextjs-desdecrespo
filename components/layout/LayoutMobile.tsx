@@ -1,6 +1,7 @@
 import { CssBaseline, Grid, makeStyles } from "@material-ui/core";
 import Image from "next/image";
 import React, { memo } from "react";
+import Zoom from 'react-medium-image-zoom';
 import { getSecondPartPublicidad } from "utils/constants";
 import { CustomCarouselChangoMas } from "utils/Publicidad";
 import ClicMe from "../../components/inmobiliaria/ClicMe";
@@ -197,6 +198,16 @@ const LayoutMobile = () => {
             titulo="INTERNACIONALES"
           />
           <div className={classes.advertisingContainer}>
+            <Zoom>
+              <img
+                src={process.env.NEXT_PUBLIC_NUEVO_HOTEL}
+                alt={getSecondPartPublicidad(
+                  process.env.NEXT_PUBLIC_NUEVO_HOTEL
+                )}
+                width={321}
+                height={448}
+              />
+            </Zoom>
             <Image
               className={classes.image}
               src={process.env.NEXT_PUBLIC_PUBLICIDAD9}

@@ -6,6 +6,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
+import Zoom from 'react-medium-image-zoom';
 import { getSecondPartPublicidad } from "utils/constants";
 import { CustomCarouselChangoMas } from "utils/Publicidad";
 import DateComponent from "../../utils/dateFormater";
@@ -207,6 +208,14 @@ const IndividualPost = (props: Props) => {
                   )}
                   className={classes.image}
                 />
+                <Zoom>
+                  <img
+                    src={process.env.NEXT_PUBLIC_NUEVO_HOTEL}
+                    alt={getSecondPartPublicidad(process.env.NEXT_PUBLIC_NUEVO_HOTEL)}
+                    width={321}
+                    height={448}
+                  />
+                </Zoom>
                 {/* <img
                   src={process.env.NEXT_PUBLIC_PUBLICIDAD10}
                   alt={getSecondPartPublicidad(
